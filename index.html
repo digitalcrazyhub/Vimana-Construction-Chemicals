@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="css/styles.css" />
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
 </head>
 <body>
@@ -25,9 +25,9 @@
   <div class="container nav-inner">
     <a href="#home" class="brand"><img src="assets/vimana-logo.png" alt="Vimana Construction Chemicals" /></a>
     <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
+      <a href="index.html">Home</a>
+      <a href="page/about.html">About</a>
+      <a href="page/service.html">Services</a>
       <a href="#products">Products</a>
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
@@ -39,9 +39,9 @@
     <button id="mobileToggle" class="mobile-toggle" aria-label="Menu"><i data-lucide="menu"></i></button>
   </div>
   <div id="mobileMenu" class="mobile-menu">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
+    <a href="index.html">Home</a>
+    <a href="page/about.html">About</a>
+    <a href="page/service.html">Services</a>
     <a href="#products">Products</a>
     <a href="#process">Process</a>
     <a href="#contact">Contact</a>
@@ -114,7 +114,98 @@
       <h2>Our <span class="text-gradient">Waterproofing Services</span></h2>
       <p class="lead">End-to-end waterproofing across residential, commercial and industrial projects — matched to substrate, exposure and budget.</p>
     </div>
-    <div class="cards-grid four" id="servicesGrid"></div>
+    <div class="cards-grid four" id="servicesGrid">
+
+            <article class="card reveal">
+                <figure class="card-image">
+                    <img src="assets/service1.png" alt="Terrace Waterproofing">
+                </figure>
+
+                <figcaption>
+                    <h3>Terrace Waterproofing</h3>
+                    <p>UV-resistant membranes engineered to withstand sun, rain and thermal cycling.</p>
+                </figcaption>
+            </article>
+
+            <article class="card reveal">
+                <figure class="card-image">
+                    <img src="assets/service1.png" alt="Roof Waterproofing">
+                </figure>
+
+                <figcaption>
+                    <h3>Roof Waterproofing</h3>
+                    <p>Seamless liquid systems and PU coatings for total roof protection.</p>
+                </figcaption>
+            </article>
+
+            <article class="card reveal">
+                <figure class="card-image">
+                    <img src="assets/service1.png" alt="Bathroom Waterproofing">
+                </figure>
+
+                <figcaption>
+                    <h3>Bathroom Waterproofing</h3>
+                    <p>Cementitious barriers that stop leakage at floor and wall junctions.</p>
+                </figcaption>
+            </article>
+
+            <article class="card reveal">
+                <figure class="card-image">
+                    <img src="assets/service1.png" alt="Basement Waterproofing">
+                </figure>
+
+                <figcaption>
+                    <h3>Basement Waterproofing</h3>
+                    <p>Negative and positive side waterproofing systems for complete protection.</p>
+                </figcaption>
+            </article>
+
+            <article class="card reveal">
+                <figure class="card-image">
+                    <img src="assets/service1.png" alt="Swimming Pool Waterproofing">
+                </figure>
+
+                <figcaption>
+                    <h3>Swimming Pool Waterproofing</h3>
+                    <p>High-performance waterproof coatings for swimming pools and water bodies.</p>
+                </figcaption>
+            </article>
+
+            <article class="card reveal">
+                <figure class="card-image">
+                    <img src="assets/service1.png" alt="Wall Crack Repair">
+                </figure>
+
+                <figcaption>
+                    <h3>Wall Crack Repair</h3>
+                    <p>Professional crack repair using polymer modified and PU injection systems.</p>
+                </figcaption>
+            </article>
+
+            <article class="card reveal">
+                <figure class="card-image">
+                    <img src="assets/service1.png" alt="Industrial Waterproofing">
+                </figure>
+
+                <figcaption>
+                    <h3>Industrial Waterproofing</h3>
+                    <p>Heavy-duty waterproofing systems for industries, factories and warehouses.</p>
+                </figcaption>
+            </article>
+
+            <article class="card reveal">
+                <figure class="card-image">
+                    <img src="assets/service1.png" alt="Injection Grouting">
+                </figure>
+
+                <figcaption>
+                    <h3>Injection Grouting</h3>
+                    <p>PU and Epoxy injection grouting to stop active leakage permanently.</p>
+                </figcaption>
+            </article>
+
+        </div>
+
   </div>
 </section>
 
@@ -126,7 +217,57 @@
       <h2>Premium <span class="text-gradient">Construction Chemicals</span></h2>
       <p class="lead">Formulated by our in-house R&amp;D — every product is field-tested on real Vimana projects before it reaches you.</p>
     </div>
-    <div class="cards-grid four" id="productsGrid"></div>
+    <div class="cards-grid four" id="productsGrid">
+
+        <div class="product-card reveal">
+          <div class="product-img">
+            <img src="assets/product-1.jpg" alt="Vimana ElastoShield" loading="lazy">
+            <span class="product-tag">Vimana</span>
+          </div>
+          <div class="product-body">
+            <h3>Vimana ElastoShield</h3>
+            <p>Elastomeric acrylic waterproof coating for terraces and exteriors.</p>
+            <a href="#products" class="btn-outline">View Product</a>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-img">
+            <img src="assets/product-2.jpg" alt="Vimana FlexSeal PU" loading="lazy">
+            <span class="product-tag">Vimana</span>
+          </div>
+          <div class="product-body">
+            <h3>Vimana FlexSeal PU</h3>
+            <p>High-performance polyurethane sealant for expansion joints.</p>
+            <a href="#products" class="btn-outline">View Product</a>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-img">
+            <img src="assets/product-3.jpg" alt="Vimana CrystalGuard" loading="lazy">
+            <span class="product-tag">Vimana</span>
+          </div>
+          <div class="product-body">
+            <h3>Vimana CrystalGuard</h3>
+            <p>Crystalline waterproofing powder for concrete substrates.</p>
+            <a href="#products" class="btn-outline">View Product</a>
+          </div>
+        </div>
+
+        <div class="product-card reveal">
+          <div class="product-img">
+            <img src="assets/product-4.jpg" alt="Vimana BondPrime" loading="lazy">
+            <span class="product-tag">Vimana</span>
+          </div>
+          <div class="product-body">
+            <h3>Vimana BondPrime</h3>
+            <p>Multi-surface bonding primer engineered for maximum adhesion.</p>
+            <a href="#products" class="btn-outline">View Product</a>
+          </div>
+        </div>
+
+      </div>
     <div class="center mt-lg"><a href="#products" class="btn btn-brand">Explore All Products →</a></div>
   </div>
 </section>
@@ -268,6 +409,6 @@
   <a href="https://wa.me/911234567890" target="_blank" rel="noopener" class="fab accent" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
 </div>
 
-<script src="script.js" defer></script>
+<script src="/js/script.js" defer></script>
 </body>
 </html>

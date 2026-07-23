@@ -1,24 +1,5 @@
 /* ============ Vimana Static ============ */
 
-// Data
-const SERVICES = [
-  { icon: "home", title: "Terrace Waterproofing", desc: "UV-resistant membranes engineered to withstand sun, rain and thermal cycling." },
-  { icon: "layers", title: "Roof Waterproofing", desc: "Seamless liquid systems and PU coatings for total roof protection." },
-  { icon: "droplets", title: "Bathroom Waterproofing", desc: "Cementitious barriers that stop leakage at floor and wall junctions." },
-  { icon: "building-2", title: "Basement Waterproofing", desc: "Negative & positive side systems for lasting protection against hydrostatic pressure." },
-  { icon: "waves", title: "Swimming Pool", desc: "Crystalline and elastomeric coatings certified for water contact surfaces." },
-  { icon: "wrench", title: "Wall Crack Repair", desc: "Structural crack sealing with polymer-modified injection systems." },
-  { icon: "factory", title: "Industrial Waterproofing", desc: "Heavy-duty solutions for plants, warehouses and process floors." },
-  { icon: "beaker", title: "Injection Grouting", desc: "PU and epoxy grouting to seal active leaks and consolidate substrates." },
-];
-
-const PRODUCTS = [
-  { img: "assets/product-1.jpg", name: "Vimana ElastoShield", desc: "Elastomeric acrylic waterproof coating for terraces and exteriors." },
-  { img: "assets/product-2.jpg", name: "Vimana FlexSeal PU", desc: "High-performance polyurethane sealant for expansion joints." },
-  { img: "assets/product-3.jpg", name: "Vimana CrystalGuard", desc: "Crystalline waterproofing powder for concrete substrates." },
-  { img: "assets/product-4.jpg", name: "Vimana BondPrime", desc: "Multi-surface bonding primer engineered for maximum adhesion." },
-];
-
 const STEPS = [
   { icon: "clipboard-check", title: "Inspection", desc: "On-site survey and leak mapping by certified engineers." },
   { icon: "flask-conical", title: "Analysis", desc: "Substrate, exposure and moisture assessment." },
@@ -80,22 +61,6 @@ const HERO_SLIDES = [
 // Render helpers
 const el = (h) => { const t = document.createElement("template"); t.innerHTML = h.trim(); return t.content.firstElementChild; };
 
-// Services
-document.getElementById("servicesGrid").innerHTML = SERVICES.map(s => `
-  <div class="card reveal">
-    <div class="icon"><i data-lucide="${s.icon}"></i></div>
-    <h3>${s.title}</h3><p>${s.desc}</p>
-  </div>`).join("");
-
-// Products
-document.getElementById("productsGrid").innerHTML = PRODUCTS.map(p => `
-  <div class="product-card reveal">
-    <div class="product-img"><img src="${p.img}" alt="${p.name}" loading="lazy"/><span class="product-tag">Vimana</span></div>
-    <div class="product-body">
-      <h3>${p.name}</h3><p>${p.desc}</p>
-      <a href="#products" class="btn-outline">View Product</a>
-    </div>
-  </div>`).join("");
 
 // Timeline
 document.getElementById("timeline").innerHTML = STEPS.map(s => `
