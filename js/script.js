@@ -1,184 +1,330 @@
-/* ============ Vimana Static ============ */
-
-const STEPS = [
-  { icon: "clipboard-check", title: "Inspection", desc: "On-site survey and leak mapping by certified engineers." },
-  { icon: "flask-conical", title: "Analysis", desc: "Substrate, exposure and moisture assessment." },
-  { icon: "compass", title: "Recommendation", desc: "Tailored waterproofing system with clear scope and cost." },
-  { icon: "hard-hat", title: "Application", desc: "Trained applicators using genuine Vimana chemicals." },
-  { icon: "check-circle-2", title: "Quality Testing", desc: "Ponding, adhesion and thickness checks before sign-off." },
-  { icon: "shield-check", title: "Warranty Support", desc: "Up to 10-year warranty backed by our service team." },
-];
-
-const WHY = [
-  { icon: "award", title: "Certified Professionals" },
-  { icon: "flask-conical", title: "Premium Chemicals" },
-  { icon: "zap", title: "Latest Technology" },
-  { icon: "shield-check", title: "Long Lasting Protection" },
-  { icon: "wallet", title: "Affordable Pricing" },
-  { icon: "timer", title: "On Time Delivery" },
-  { icon: "check-circle-2", title: "Warranty Support" },
-  { icon: "heart", title: "Customer Satisfaction" },
-];
-
-const VM = [
-  { icon: "target", title: "Vision", desc: "To be South Asia's most trusted waterproofing partner — protecting every structure we touch for a generation." },
-  { icon: "trending-up", title: "Mission", desc: "Deliver honest advice, premium chemicals and expert application on every project — big or small." },
-  { icon: "sparkles", title: "Core Values", desc: "Integrity. Craft. Accountability. Continuous innovation. Customer obsession above all else." },
-];
-
-const PROCESS = [
-  { n: "01", title: "Site Inspection", desc: "Detailed on-site visit and leak mapping." },
-  { n: "02", title: "Problem Analysis", desc: "Root-cause diagnosis and moisture testing." },
-  { n: "03", title: "Product Selection", desc: "Right chemistry for substrate and exposure." },
-  { n: "04", title: "Application", desc: "Certified applicators, controlled conditions." },
-  { n: "05", title: "Quality Check", desc: "Ponding, thickness and adhesion verification." },
-  { n: "06", title: "Project Delivery", desc: "Handover with warranty and care guide." },
-];
-
-const INDUSTRIES = [
-  { icon: "home", label: "Residential" },
-  { icon: "building-2", label: "Commercial" },
-  { icon: "factory", label: "Industrial" },
-  { icon: "hospital", label: "Hospitals" },
-  { icon: "graduation-cap", label: "Educational" },
-  { icon: "package", label: "Warehouses" },
-  { icon: "hard-hat", label: "Factories" },
-  { icon: "truck", label: "Infrastructure" },
-];
-
-const REVIEWS = [
-  { name: "Rajesh Menon", company: "Skyline Developers", rating: 5, quote: "Vimana solved a persistent basement leakage our previous contractor couldn't fix. Two years later — bone dry. Their process is genuinely thorough." },
-  { name: "Anita Sharma", company: "Prakash Residency", rating: 5, quote: "From inspection to warranty, everything was transparent and professional. The terrace looks better than before and the leak is gone for good." },
-  { name: "Vikram Rao", company: "Coastal Warehousing Ltd", rating: 5, quote: "We rely on Vimana for all our facility waterproofing. Their chemicals are premium and their applicators are the best trained team we've worked with." },
-];
+/* ==========================================
+   Vimana Construction Chemicals
+   script.js
+========================================== */
 
 const HERO_SLIDES = [
-  { eyebrow: "Residential · Commercial · Industrial", title: "Protect Your Building From Water Damage", desc: "Premium waterproofing solutions engineered by certified experts. Trusted protection that lasts for decades — not seasons." },
-  { eyebrow: "Advanced Construction Chemicals", title: "High-Performance Waterproofing Chemicals", desc: "Formulated for long-lasting protection. From liquid membranes to crystalline sealers — every product engineered for real-world performance." },
-  { eyebrow: "End-to-End Protection", title: "Built Strong. Protected Forever.", desc: "Complete waterproofing solutions with expert application and premium construction chemicals — one accountable partner from inspection to warranty." },
+  {
+    eyebrow: "Residential · Commercial · Industrial",
+    title: "Protect Your Building From Water Damage",
+    desc: "Premium waterproofing solutions engineered by certified experts. Trusted protection that lasts for decades — not seasons."
+  },
+  {
+    eyebrow: "Advanced Construction Chemicals",
+    title: "High-Performance Waterproofing Chemicals",
+    desc: "Formulated for long-lasting protection. From liquid membranes to crystalline sealers — every product engineered for real-world performance."
+  },
+  {
+    eyebrow: "End-to-End Protection",
+    title: "Built Strong. Protected Forever.",
+    desc: "Complete waterproofing solutions with expert application and premium construction chemicals — one accountable partner from inspection to warranty."
+  }
 ];
 
-// Render helpers
-const el = (h) => { const t = document.createElement("template"); t.innerHTML = h.trim(); return t.content.firstElementChild; };
 
+/* ==========================================
+   DOM Ready
+========================================== */
 
-// Timeline
-document.getElementById("timeline").innerHTML = STEPS.map(s => `
-  <li class="reveal"><div class="tl-icon"><i data-lucide="${s.icon}"></i></div>
-    <h3>${s.title}</h3><p>${s.desc}</p></li>`).join("");
+document.addEventListener("DOMContentLoaded", () => {
 
-// Why
-document.getElementById("whyGrid").innerHTML = WHY.map(w => `
-  <div class="why-card reveal"><div class="icon"><i data-lucide="${w.icon}"></i></div><h3>${w.title}</h3></div>`).join("");
+  /* ==========================
+      Lucide Icons
+  ========================== */
 
-// VM
-document.getElementById("vmGrid").innerHTML = VM.map(v => `
-  <div class="vm-card reveal"><div class="icon"><i data-lucide="${v.icon}"></i></div><h3>${v.title}</h3><p>${v.desc}</p></div>`).join("");
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 
-// Process
-document.getElementById("processGrid").innerHTML = PROCESS.map(p => `
-  <div class="proc-card reveal">
-    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
-      <div class="proc-num">${p.n}</div>
-      <div style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center"><span class="dot"></span></div>
-    </div>
-    <h3>${p.title}</h3><p>${p.desc}</p><div class="proc-line"></div>
-  </div>`).join("");
+  /* ==========================
+      Year
+  ========================== */
 
-// Industries
-document.getElementById("industriesGrid").innerHTML = INDUSTRIES.map(i => `
-  <div class="ind-card reveal"><div class="icon"><i data-lucide="${i.icon}"></i></div><h3>${i.label}</h3></div>`).join("");
+  const year = document.getElementById("year");
 
-// Reviews
-document.getElementById("reviewsGrid").innerHTML = REVIEWS.map(r => `
-  <div class="review reveal">
-    <div class="stars">${Array.from({length:r.rating}).map(()=>'<i data-lucide="star"></i>').join("")}</div>
-    <p>"${r.quote}"</p>
-    <div class="reviewer"><div class="avatar">${r.name[0]}</div><div><div class="name">${r.name}</div><div class="company">${r.company}</div></div></div>
-  </div>`).join("");
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
 
-// Hero dots
-const dotsEl = document.getElementById("heroDots");
-dotsEl.innerHTML = HERO_SLIDES.map((_,i)=>`<button data-i="${i}" class="${i===0?'active':''}" aria-label="Slide ${i+1}"></button>`).join("");
+  /* ==========================
+      Hero Slider
+  ========================== */
 
-// Year
-document.getElementById("year").textContent = new Date().getFullYear();
+  const slideEls = document.querySelectorAll(".hero-slide");
 
-// Init icons after render
-window.addEventListener("DOMContentLoaded", () => {
-  if (window.lucide) lucide.createIcons();
-  else setTimeout(() => window.lucide && lucide.createIcons(), 400);
-});
+  const heroEyebrow = document.getElementById("heroEyebrow");
+  const heroTitle = document.getElementById("heroTitle");
+  const heroDesc = document.getElementById("heroDesc");
+  const slideNum = document.getElementById("slideNum");
 
-// Navbar scroll + progress
-const nav = document.getElementById("navbar");
-const bar = document.getElementById("scrollbar");
-const toTop = document.getElementById("toTop");
-function onScroll(){
-  const h = document.documentElement;
-  const total = h.scrollHeight - h.clientHeight;
-  const p = total > 0 ? (h.scrollTop/total)*100 : 0;
-  bar.style.width = p + "%";
-  nav.classList.toggle("scrolled", h.scrollTop > 40);
-  toTop.classList.toggle("show", h.scrollTop > 400);
-}
-window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();
+  const prevBtn = document.getElementById("prevSlide");
+  const nextBtn = document.getElementById("nextSlide");
 
-// Mobile menu
-document.getElementById("mobileToggle").addEventListener("click", () => {
-  document.getElementById("mobileMenu").classList.toggle("open");
-});
-document.querySelectorAll("#mobileMenu a").forEach(a => a.addEventListener("click", ()=>{
-  document.getElementById("mobileMenu").classList.remove("open");
-}));
+  const dotsEl = document.getElementById("heroDots");
 
-// To top
-toTop.addEventListener("click", () => window.scrollTo({top:0,behavior:"smooth"}));
+  let heroIndex = 0;
+  let heroTimer;
 
-// Hero slider
-let heroIndex = 0;
-const slideEls = document.querySelectorAll(".hero-slide");
-function showSlide(i){
-  heroIndex = (i + HERO_SLIDES.length) % HERO_SLIDES.length;
-  slideEls.forEach((el,idx)=>el.classList.toggle("active", idx===heroIndex));
-  document.querySelectorAll("#heroDots button").forEach((b,idx)=>b.classList.toggle("active", idx===heroIndex));
-  const s = HERO_SLIDES[heroIndex];
-  document.getElementById("heroEyebrow").textContent = s.eyebrow;
-  document.getElementById("heroTitle").textContent = s.title;
-  document.getElementById("heroDesc").textContent = s.desc;
-  document.getElementById("slideNum").textContent = String(heroIndex+1).padStart(2,"0");
-}
-document.getElementById("prevSlide").addEventListener("click", ()=>showSlide(heroIndex-1));
-document.getElementById("nextSlide").addEventListener("click", ()=>showSlide(heroIndex+1));
-dotsEl.addEventListener("click", (e)=>{ const b = e.target.closest("button"); if (b) showSlide(+b.dataset.i); });
-setInterval(()=>showSlide(heroIndex+1), 6500);
+  if (dotsEl) {
 
-// Reveal on scroll
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }});
-}, { threshold: 0.12 });
-document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+    dotsEl.innerHTML = HERO_SLIDES.map((_, i) => `
+        <button
+            data-i="${i}"
+            class="${i === 0 ? "active" : ""}"
+            aria-label="Slide ${i + 1}">
+        </button>
+    `).join("");
 
-// Counters
-const counterIO = new IntersectionObserver((entries)=>{
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const target = +e.target.dataset.count;
-    const dur = 1600;
-    const start = performance.now();
-    const tick = (t) => {
-      const p = Math.min(1, (t - start)/dur);
-      const eased = 1 - Math.pow(1-p, 3);
-      e.target.textContent = Math.floor(eased * target).toLocaleString();
-      if (p < 1) requestAnimationFrame(tick);
-      else e.target.textContent = target.toLocaleString();
-    };
-    requestAnimationFrame(tick);
-    counterIO.unobserve(e.target);
+  }
+
+  function showSlide(index) {
+
+    heroIndex = (index + HERO_SLIDES.length) % HERO_SLIDES.length;
+
+    slideEls.forEach((slide, i) => {
+      slide.classList.toggle("active", i === heroIndex);
+    });
+
+    if (dotsEl) {
+      dotsEl.querySelectorAll("button").forEach((btn, i) => {
+        btn.classList.toggle("active", i === heroIndex);
+      });
+    }
+
+    const slide = HERO_SLIDES[heroIndex];
+
+    if (heroEyebrow) heroEyebrow.textContent = slide.eyebrow;
+    if (heroTitle) heroTitle.textContent = slide.title;
+    if (heroDesc) heroDesc.textContent = slide.desc;
+    if (slideNum) slideNum.textContent = String(heroIndex + 1).padStart(2, "0");
+  }
+
+  function nextSlide() {
+    showSlide(heroIndex + 1);
+  }
+
+  function startSlider() {
+
+    clearInterval(heroTimer);
+
+    heroTimer = setInterval(nextSlide, 6500);
+
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      showSlide(heroIndex - 1);
+      startSlider();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      startSlider();
+    });
+  }
+
+  if (dotsEl) {
+
+    dotsEl.addEventListener("click", (e) => {
+
+      const btn = e.target.closest("button");
+
+      if (!btn) return;
+
+      showSlide(Number(btn.dataset.i));
+
+      startSlider();
+
+    });
+
+  }
+
+  showSlide(0);
+  startSlider();
+
+  /* ==========================
+      Scroll Progress
+  ========================== 
+
+  const navbar = document.getElementById("navbar");
+  const scrollbar = document.getElementById("scrollbar");
+  const toTop = document.getElementById("toTop");
+
+  function handleScroll() {
+
+    const doc = document.documentElement;
+
+    const scrollTop = doc.scrollTop;
+
+    const total = doc.scrollHeight - doc.clientHeight;
+
+    const percent = total > 0 ? (scrollTop / total) * 100 : 0;
+
+    if (scrollbar) {
+      scrollbar.style.width = percent + "%";
+    }
+
+    if (navbar) {
+      navbar.classList.toggle("scrolled", scrollTop > 40);
+    }
+
+    if (toTop) {
+      toTop.classList.toggle("show", scrollTop > 400);
+    }
+
+  }
+
+  window.addEventListener("scroll", handleScroll, {
+    passive: true
   });
-}, { threshold: 0.4 });
-document.querySelectorAll("[data-count]").forEach(el => counterIO.observe(el));
 
-// Re-init lucide after dynamic rendering
-setTimeout(()=>{ if (window.lucide) lucide.createIcons(); }, 100);
+  handleScroll();
+
+  /* ==========================
+      Back To Top
+  ========================== */
+
+  if (toTop) {
+
+    toTop.addEventListener("click", () => {
+
+      window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+      });
+
+    });
+
+  }
+
+  /* ==========================
+      Mobile Menu
+  ==========================
+
+  const mobileToggle = document.getElementById("mobileToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  if (mobileToggle && mobileMenu) {
+
+    mobileToggle.addEventListener("click", () => {
+
+      mobileMenu.classList.toggle("open");
+
+    });
+
+    mobileMenu.querySelectorAll("a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        mobileMenu.classList.remove("open");
+
+      });
+
+    });
+
+  }
+
+  /* ==========================
+      Reveal Animation
+  ========================== */
+
+  const revealItems = document.querySelectorAll(".reveal");
+
+  if (revealItems.length) {
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+
+      entries.forEach(entry => {
+
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("in");
+
+        observer.unobserve(entry.target);
+
+      });
+
+    }, {
+
+      threshold: 0.12
+
+    });
+
+    revealItems.forEach(item => {
+
+      revealObserver.observe(item);
+
+    });
+
+  }
+
+  /* ==========================
+      Counter
+  ========================== */
+
+  const counters = document.querySelectorAll("[data-count]");
+
+  if (counters.length) {
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+
+      entries.forEach(entry => {
+
+        if (!entry.isIntersecting) return;
+
+        const el = entry.target;
+
+        const target = Number(el.dataset.count);
+
+        if (isNaN(target)) return;
+
+        const duration = 1600;
+
+        const start = performance.now();
+
+        function animate(now) {
+
+          const progress = Math.min((now - start) / duration, 1);
+
+          const eased = 1 - Math.pow(1 - progress, 3);
+
+          el.textContent = Math.floor(target * eased).toLocaleString();
+
+          if (progress < 1) {
+
+            requestAnimationFrame(animate);
+
+          } else {
+
+            el.textContent = target.toLocaleString();
+
+          }
+
+        }
+
+        requestAnimationFrame(animate);
+
+        observer.unobserve(el);
+
+      });
+
+    }, {
+
+      threshold: 0.4
+
+    });
+
+    counters.forEach(counter => {
+
+      counterObserver.observe(counter);
+
+    });
+
+  }
+
+});

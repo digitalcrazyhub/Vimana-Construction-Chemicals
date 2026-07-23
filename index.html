@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="/css/nav-footer.css">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
 </head>
 <body>
@@ -20,35 +21,16 @@
 <!-- Scroll progress -->
 <div class="scroll-progress"><div id="scrollbar"></div></div>
 
-<!-- Navbar -->
-<header id="navbar" class="navbar">
-  <div class="container nav-inner">
-    <a href="#home" class="brand"><img src="assets/vimana-logo.png" alt="Vimana Construction Chemicals" /></a>
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="page/about.html">About</a>
-      <a href="page/service.html">Services</a>
-      <a href="#products">Products</a>
-      <a href="#process">Process</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="nav-cta">
-      <a class="phone" href="tel:+911234567890"><i data-lucide="phone"></i> +91 12345 67890</a>
-      <a class="btn btn-brand" href="#contact">Get Free Inspection</a>
-    </div>
-    <button id="mobileToggle" class="mobile-toggle" aria-label="Menu"><i data-lucide="menu"></i></button>
-  </div>
-  <div id="mobileMenu" class="mobile-menu">
-    <a href="index.html">Home</a>
-    <a href="page/about.html">About</a>
-    <a href="page/service.html">Services</a>
-    <a href="#products">Products</a>
-    <a href="#process">Process</a>
-    <a href="#contact">Contact</a>
-    <a class="btn btn-brand" href="#contact">Get Free Inspection</a>
-  </div>
-</header>
+<div id="vm-header"></div>
 
+<script>
+fetch("page/header.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("vm-header").innerHTML = data;
+  })
+  .catch(error => console.error("Header not loaded:", error));
+</script>
 <!-- HERO -->
 <section id="home" class="hero">
   <div class="hero-slides">
@@ -66,7 +48,7 @@
       <h1 id="heroTitle">Protect Your Building From Water Damage</h1>
       <p id="heroDesc">Premium waterproofing solutions engineered by certified experts. Trusted protection that lasts for decades — not seasons.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-accent">Get Free Inspection <i data-lucide="arrow-right"></i></a>
+        <a href="#contact" class="btn btn-accent">Get Free Inspection<i data-lucide="move-right"></i></a>
         <a href="#products" class="btn btn-glass">Explore Products</a>
       </div>
       <div class="hero-controls">
@@ -101,7 +83,7 @@
         <div class="stat"><div class="stat-num text-gradient" data-count="850">0</div><div class="stat-label">Happy Clients</div></div>
         <div class="stat"><div class="stat-num text-gradient" data-count="25000">0</div><div class="stat-label">Products Delivered</div></div>
       </div>
-      <a href="#services" class="btn btn-brand mt">Learn More</a>
+      <a href="#services" class="btn btn-brand mt">Learn More<i data-lucide="move-right"></i>  </a>
     </div>
   </div>
 </section>
@@ -282,7 +264,57 @@
     <div class="reveal">
       <div class="eyebrow-line">What We Do</div>
       <h2>A <span class="text-gradient">proven process</span> from inspection to warranty</h2>
-      <ol class="timeline" id="timeline"></ol>
+      <ul class="timeline" id="timeline">
+
+          <li class="reveal">
+            <div class="tl-icon">
+              <i data-lucide="clipboard-check"></i>
+            </div>
+            <h3>Inspection</h3>
+            <p>On-site survey and leak mapping by certified engineers.</p>
+          </li>
+
+          <li class="reveal">
+            <div class="tl-icon">
+              <i data-lucide="flask-conical"></i>
+            </div>
+            <h3>Analysis</h3>
+            <p>Substrate, exposure and moisture assessment.</p>
+          </li>
+
+          <li class="reveal">
+            <div class="tl-icon">
+              <i data-lucide="compass"></i>
+            </div>
+            <h3>Recommendation</h3>
+            <p>Tailored waterproofing system with clear scope and cost.</p>
+          </li>
+
+          <li class="reveal">
+            <div class="tl-icon">
+              <i data-lucide="hard-hat"></i>
+            </div>
+            <h3>Application</h3>
+            <p>Trained applicators using genuine Vimana chemicals.</p>
+          </li>
+
+          <li class="reveal">
+            <div class="tl-icon">
+              <i data-lucide="check-circle-2"></i>
+            </div>
+            <h3>Quality Testing</h3>
+            <p>Ponding, adhesion and thickness checks before sign-off.</p>
+          </li>
+
+          <li class="reveal">
+            <div class="tl-icon">
+              <i data-lucide="shield-check"></i>
+            </div>
+            <h3>Warranty Support</h3>
+            <p>Up to 10-year warranty backed by our service team.</p>
+          </li>
+
+        </ul>
     </div>
   </div>
 </section>
@@ -306,7 +338,65 @@
       <h2>The <span class="text-gradient">difference</span> is in the details</h2>
       <p class="lead">Eight commitments that make Vimana the partner of choice for developers, architects and contractors.</p>
     </div>
-    <div class="cards-grid four" id="whyGrid"></div>
+     <div class="cards-grid four" id="whyGrid">
+
+        <div class="why-card reveal">
+          <div class="icon">
+            <i data-lucide="award"></i>
+          </div>
+          <h3>Certified Professionals</h3>
+        </div>
+
+        <div class="why-card reveal">
+          <div class="icon">
+            <i data-lucide="flask-conical"></i>
+          </div>
+          <h3>Premium Chemicals</h3>
+        </div>
+
+        <div class="why-card reveal">
+          <div class="icon">
+            <i data-lucide="zap"></i>
+          </div>
+          <h3>Latest Technology</h3>
+        </div>
+
+        <div class="why-card reveal">
+          <div class="icon">
+            <i data-lucide="shield-check"></i>
+          </div>
+          <h3>Long Lasting Protection</h3>
+        </div>
+
+        <div class="why-card reveal">
+          <div class="icon">
+            <i data-lucide="wallet"></i>
+          </div>
+          <h3>Affordable Pricing</h3>
+        </div>
+
+        <div class="why-card reveal">
+          <div class="icon">
+            <i data-lucide="timer"></i>
+          </div>
+          <h3>On Time Delivery</h3>
+        </div>
+
+        <div class="why-card reveal">
+          <div class="icon">
+            <i data-lucide="check-circle-2"></i>
+          </div>
+          <h3>Warranty Support</h3>
+        </div>
+
+        <div class="why-card reveal">
+          <div class="icon">
+            <i data-lucide="heart"></i>
+          </div>
+          <h3>Customer Satisfaction</h3>
+        </div>
+
+      </div>
   </div>
 </section>
 
@@ -317,7 +407,34 @@
       <div class="eyebrow-line">Our Foundation</div>
       <h2>Vision · Mission · <span class="text-gradient">Core Values</span></h2>
     </div>
-    <div class="cards-grid three" id="vmGrid"></div>
+    <div class="cards-grid three" id="vmGrid">
+
+        <div class="vm-card reveal">
+          <div class="icon">
+            <i data-lucide="target"></i>
+          </div>
+          <h3>Vision</h3>
+          <p>To be South Asia's most trusted waterproofing partner — protecting every structure we touch for a
+            generation.</p>
+        </div>
+
+        <div class="vm-card reveal">
+          <div class="icon">
+            <i data-lucide="trending-up"></i>
+          </div>
+          <h3>Mission</h3>
+          <p>Deliver honest advice, premium chemicals and expert application on every project — big or small.</p>
+        </div>
+
+        <div class="vm-card reveal">
+          <div class="icon">
+            <i data-lucide="sparkles"></i>
+          </div>
+          <h3>Core Values</h3>
+          <p>Integrity. Craft. Accountability. Continuous innovation. Customer obsession above all else.</p>
+        </div>
+
+      </div>
   </div>
 </section>
 
@@ -326,7 +443,87 @@
   <div class="container">
     <span class="eyebrow glass-dark"><span class="dot"></span> How We Work</span>
     <h2 class="white">Six precise steps. <span class="text-gradient">Zero surprises.</span></h2>
-    <div class="cards-grid three mt-lg" id="processGrid"></div>
+    <div class="cards-grid three mt-lg" id="processGrid">
+
+        <div class="proc-card reveal">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+            <div class="proc-num">01</div>
+            <div
+              style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center">
+              <span class="dot"></span>
+            </div>
+          </div>
+          <h3>Site Inspection</h3>
+          <p>Detailed on-site visit and leak mapping.</p>
+          <div class="proc-line"></div>
+        </div>
+
+        <div class="proc-card reveal">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+            <div class="proc-num">02</div>
+            <div
+              style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center">
+              <span class="dot"></span>
+            </div>
+          </div>
+          <h3>Problem Analysis</h3>
+          <p>Root-cause diagnosis and moisture testing.</p>
+          <div class="proc-line"></div>
+        </div>
+
+        <div class="proc-card reveal">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+            <div class="proc-num">03</div>
+            <div
+              style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center">
+              <span class="dot"></span>
+            </div>
+          </div>
+          <h3>Product Selection</h3>
+          <p>Right chemistry for substrate and exposure.</p>
+          <div class="proc-line"></div>
+        </div>
+
+        <div class="proc-card reveal">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+            <div class="proc-num">04</div>
+            <div
+              style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center">
+              <span class="dot"></span>
+            </div>
+          </div>
+          <h3>Application</h3>
+          <p>Certified applicators, controlled conditions.</p>
+          <div class="proc-line"></div>
+        </div>
+
+        <div class="proc-card reveal">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+            <div class="proc-num">05</div>
+            <div
+              style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center">
+              <span class="dot"></span>
+            </div>
+          </div>
+          <h3>Quality Check</h3>
+          <p>Ponding, thickness and adhesion verification.</p>
+          <div class="proc-line"></div>
+        </div>
+
+        <div class="proc-card reveal">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem">
+            <div class="proc-num">06</div>
+            <div
+              style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center">
+              <span class="dot"></span>
+            </div>
+          </div>
+          <h3>Project Delivery</h3>
+          <p>Handover with warranty and care guide.</p>
+          <div class="proc-line"></div>
+        </div>
+
+      </div>
   </div>
 </section>
 
@@ -338,7 +535,65 @@
       <h2>Sectors We <span class="text-gradient">Protect</span></h2>
       <p class="lead">From single-family homes to industrial complexes — one accountable waterproofing partner.</p>
     </div>
-    <div class="cards-grid four" id="industriesGrid"></div>
+   <div class="cards-grid four" id="industriesGrid">
+
+        <div class="ind-card reveal">
+          <div class="icon">
+            <i data-lucide="home"></i>
+          </div>
+          <h3>Residential</h3>
+        </div>
+
+        <div class="ind-card reveal">
+          <div class="icon">
+            <i data-lucide="building-2"></i>
+          </div>
+          <h3>Commercial</h3>
+        </div>
+
+        <div class="ind-card reveal">
+          <div class="icon">
+            <i data-lucide="factory"></i>
+          </div>
+          <h3>Industrial</h3>
+        </div>
+
+        <div class="ind-card reveal">
+          <div class="icon">
+            <i data-lucide="hospital"></i>
+          </div>
+          <h3>Hospitals</h3>
+        </div>
+
+        <div class="ind-card reveal">
+          <div class="icon">
+            <i data-lucide="graduation-cap"></i>
+          </div>
+          <h3>Educational</h3>
+        </div>
+
+        <div class="ind-card reveal">
+          <div class="icon">
+            <i data-lucide="package"></i>
+          </div>
+          <h3>Warehouses</h3>
+        </div>
+
+        <div class="ind-card reveal">
+          <div class="icon">
+            <i data-lucide="hard-hat"></i>
+          </div>
+          <h3>Factories</h3>
+        </div>
+
+        <div class="ind-card reveal">
+          <div class="icon">
+            <i data-lucide="truck"></i>
+          </div>
+          <h3>Infrastructure</h3>
+        </div>
+
+      </div>
   </div>
 </section>
 
@@ -349,7 +604,72 @@
       <div class="eyebrow-line">Testimonials</div>
       <h2>Trusted by <span class="text-gradient">clients &amp; contractors</span></h2>
     </div>
-    <div class="cards-grid three" id="reviewsGrid"></div>
+    <div class="cards-grid three" id="reviewsGrid">
+
+        <div class="review reveal">
+          <div class="stars">
+            <i data-lucide="star"></i>
+            <i data-lucide="star"></i>
+            <i data-lucide="star"></i>
+            <i data-lucide="star"></i>
+            <i data-lucide="star"></i>
+          </div>
+
+          <p>"Vimana solved a persistent basement leakage our previous contractor couldn't fix. Two years later — bone
+            dry. Their process is genuinely thorough."</p>
+
+          <div class="reviewer">
+            <div class="avatar">R</div>
+            <div>
+              <div class="name">Rajesh Menon</div>
+              <div class="company">Skyline Developers</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review reveal">
+          <div class="stars">
+            <i data-lucide="star"></i>
+            <i data-lucide="star"></i>
+            <i data-lucide="star"></i>
+            <i data-lucide="star"></i>
+            <i data-lucide="star"></i>
+          </div>
+
+          <p>"From inspection to warranty, everything was transparent and professional. The terrace looks better than
+            before and the leak is gone for good."</p>
+
+          <div class="reviewer">
+            <div class="avatar">A</div>
+            <div>
+              <div class="name">Anita Sharma</div>
+              <div class="company">Prakash Residency</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review reveal">
+          <div class="stars">
+            <i data-lucide="star"></i>
+            <i data-lucide="star"></i>
+            <i data-lucide="star"></i>
+            <i data-lucide="star"></i>
+            <i data-lucide="star"></i>
+          </div>
+
+          <p>"We rely on Vimana for all our facility waterproofing. Their chemicals are premium and their applicators
+            are the best trained team we've worked with."</p>
+
+          <div class="reviewer">
+            <div class="avatar">V</div>
+            <div>
+              <div class="name">Vikram Rao</div>
+              <div class="company">Coastal Warehousing Ltd</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
   </div>
 </section>
 
@@ -409,6 +729,7 @@
   <a href="https://wa.me/911234567890" target="_blank" rel="noopener" class="fab accent" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
 </div>
 
-<script src="/js/script.js" defer></script>
+<script src="js/script.js"></script>
+<script src="/js/nav-footer.js"></script>
 </body>
 </html>
