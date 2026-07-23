@@ -9,9 +9,6 @@
     width:100%;
     z-index:999;
     transition:.35s;
-}
-
-.navbar.scrolled{
     background:rgba(255, 255, 255, 0.96);
     backdrop-filter:blur(18px);
     box-shadow:0 8px 25px rgba(0,0,0,.08);
@@ -36,13 +33,9 @@
 }
 
 .nav-links a{
-    color:#fff;
+    color:#000000;
     font-weight:600;
     transition:.3s;
-}
-
-.navbar.scrolled .nav-links a{
-    color:#222;
 }
 
 .nav-links a:hover{
@@ -56,7 +49,7 @@
 }
 
 .phone{
-    color:#fff;
+    color:#000000;
     font-weight:600;
 }
 
@@ -81,9 +74,15 @@
     display:none;
     font-size:30px;
     border:none;
-    background:none;
+    background:#1c2e4e;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
     color:#fff;
     cursor:pointer;
+}
+.menu-btn:hover {
+     background:#18A85B;
 }
 
 .navbar.scrolled .menu-btn{

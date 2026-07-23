@@ -11,8 +11,8 @@ async function loadComponent(id, file) {
     initNavbar();
 }
 
-loadComponent("navbar-container", "/page/header.html");
-loadComponent("footer-container", "partials/footer.html");
+loadComponent("navbar-container", "page/header.html");
+loadComponent("footer-container", "page/footer.html");
 
 //Dynamic year
 
