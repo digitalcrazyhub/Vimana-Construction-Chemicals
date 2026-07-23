@@ -124,3 +124,288 @@
     }
 
 }
+
+/*====================================
+            FOOTER
+====================================*/
+
+.footer{
+    background:var(--charcoal);
+    color:rgba(255,255,255,.75);
+    padding:70px 0 25px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:50px;
+}
+
+/*=========================
+    Logo
+=========================*/
+
+.footer-logo{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    border-radius:16px;
+    padding:14px;
+    margin-bottom:20px;
+}
+
+.footer-logo img{
+    width:auto;
+    height:55px;
+}
+
+.footer p{
+    color:rgba(255,255,255,.70);
+    font-size:15px;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+/*=========================
+    Heading
+=========================*/
+
+.footer h4{
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:22px;
+}
+
+/*=========================
+    Links
+=========================*/
+
+.footer ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.footer ul li{
+    margin-bottom:14px;
+}
+
+.footer ul li a{
+    color:rgba(255,255,255,.75);
+    transition:.3s;
+}
+
+.footer ul li a:hover{
+    color:var(--accent);
+    padding-left:6px;
+}
+
+/*=========================
+    Contact
+=========================*/
+
+.contact-list li{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    line-height:1.7;
+}
+
+.contact-list i{
+    width:18px;
+    height:18px;
+    color:var(--accent);
+    flex-shrink:0;
+    margin-top:4px;
+}
+
+/*=========================
+    Social Icons
+=========================*/
+
+.socials{
+    display:flex;
+    gap:12px;
+}
+
+.socials a{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border:1px solid rgba(255,255,255,.15);
+    transition:.35s;
+}
+
+.socials a i{
+    width:18px;
+    height:18px;
+}
+
+.socials a:hover{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#fff;
+    transform:translateY(-4px);
+}
+
+/*=========================
+    Newsletter
+=========================*/
+
+.newsletter{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.newsletter input{
+    width:100%;
+    padding:14px 18px;
+    border-radius:50px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    outline:none;
+    font-size:15px;
+}
+
+.newsletter input::placeholder{
+    color:rgba(255,255,255,.55);
+}
+
+.newsletter input:focus{
+    border-color:var(--accent);
+}
+
+.newsletter button{
+    width:100%;
+}
+
+/*=========================
+    Bottom
+=========================*/
+
+.footer-bottom{
+    margin-top:60px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.12);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.footer-bottom p{
+    margin:0;
+    font-size:14px;
+}
+
+.footer-bottom div{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.footer-bottom a{
+    color:rgba(255,255,255,.65);
+}
+
+.footer-bottom a:hover{
+    color:var(--accent);
+}
+
+/*====================================
+        RESPONSIVE
+====================================*/
+
+/* Laptop */
+
+@media(max-width:1200px){
+
+.footer-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* Tablet */
+
+@media(max-width:768px){
+
+.footer{
+padding:60px 0 25px;
+}
+
+.footer-grid{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+
+.footer-logo{
+margin:auto auto 20px;
+}
+
+
+
+
+
+.newsletter{
+max-width:420px;
+margin:auto;
+}
+
+.footer-bottom{
+flex-direction:column;
+text-align:center;
+}
+
+
+}
+
+/* Mobile */
+
+@media(max-width:480px){
+
+.footer{
+padding:50px 0 20px;
+}
+
+.footer-grid{
+gap:35px;
+}
+
+.footer h4{
+font-size:17px;
+}
+
+.footer p{
+font-size:14px;
+}
+
+.newsletter input{
+padding:13px 16px;
+font-size:14px;
+}
+
+.newsletter button{
+width:100%;
+}
+
+.footer-bottom{
+margin-top:40px;
+padding-top:20px;
+}
+
+.footer-bottom div{
+gap:15px;
+}
+
+}

@@ -1,123 +1,129 @@
-/* =========================================================
-   VIMANA — About Page Interactions
-   Vanilla JS: nav, reveal, counters, bars, burger, year
-   ========================================================= */
+/**
+ * VIMANA — About Page Interactions & Animations
+ * Features: Dynamic scroll reveals, counter increments, progress bar fills
+ */
 (function () {
     "use strict";
 
-    const $ = (s, r = document) => r.querySelector(s);
-    const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+    // Utility DOM helpers
+    const select = (selector, context = document) => context.querySelector(selector);
+    const selectAll = (selector, context = document) => Array.from(context.querySelectorAll(selector));
 
-    // -------- Year --------
-    const y = $("#year");
-    if (y) y.textContent = new Date().getFullYear();
-
-    // -------- Nav shadow on scroll --------
-    const nav = $("#nav");
-    const onScroll = () => {
-        if (!nav) return;
-        nav.classList.toggle("is-scrolled", window.scrollY > 12);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-
-    // -------- Mobile burger (simple toggle for nav links) --------
-    const burger = $("#burger");
-    const links = $(".nav__links");
-    if (burger && links) {
-        burger.addEventListener("click", () => {
-            const open = links.classList.toggle("is-open");
-            Object.assign(links.style, open
-                ? {
-                    display: "flex",
-                    position: "fixed",
-                    inset: "76px 0 auto 0",
-                    background: "rgba(255,255,255,0.98)",
-                    flexDirection: "column",
-                    gap: "0",
-                    padding: "10px 20px 20px",
-                    borderBottom: "1px solid var(--line)",
-                    boxShadow: "var(--shadow-md)",
-                }
-                : { display: "" });
-        });
-        // close on link click
-        $$(".nav__links a").forEach((a) =>
-            a.addEventListener("click", () => {
-                if (links.classList.contains("is-open")) burger.click();
-            })
-        );
+    // Dynamic Year Injection
+    const yearEl = select("#vmn-current-year");
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear().toString();
     }
 
-    // -------- Reveal on scroll --------
-    const revealEls = $$(".reveal");
-    const io = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((e) => {
-                if (!e.isIntersecting) return;
-                const el = e.target;
-                const delay = parseInt(el.dataset.delay || "0", 10);
-                setTimeout(() => el.classList.add("is-visible"), delay);
-                io.unobserve(el);
-            });
-        },
-        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-    );
-    revealEls.forEach((el) => io.observe(el));
+    // Scroll Reveal Observer
+    const revealElements = selectAll(".vmn-reveal");
+    if (revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const element = entry.target;
+                    const delay = parseInt(element.dataset.delay || "0", 10);
+                    
+                    setTimeout(() => {
+                        element.classList.add("vmn-is-visible");
+                    }, delay);
 
-    // -------- Counters --------
-    const counters = $$(".counter__num");
-    const cio = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((e) => {
-                if (!e.isIntersecting) return;
-                const el = e.target;
-                const target = parseInt(el.dataset.count || "0", 10);
-                const duration = 1800;
-                const start = performance.now();
-                const tick = (now) => {
-                    const p = Math.min((now - start) / duration, 1);
-                    const eased = 1 - Math.pow(1 - p, 3);
-                    el.textContent = Math.floor(target * eased).toLocaleString();
-                    if (p < 1) requestAnimationFrame(tick);
-                    else el.textContent = target.toLocaleString();
-                };
-                requestAnimationFrame(tick);
-                cio.unobserve(el);
-            });
-        },
-        { threshold: 0.4 }
-    );
-    counters.forEach((c) => cio.observe(c));
+                    observer.unobserve(element);
+                });
+            },
+            { threshold: 0.12, rootMargin: "0px 0px -30px 0px" }
+        );
 
-    // -------- Progress bars --------
-    const bars = $$(".bar__fill");
-    const bio = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((e) => {
-                if (!e.isIntersecting) return;
-                const el = e.target;
-                const v = parseInt(el.dataset.fill || "0", 10);
-                requestAnimationFrame(() => (el.style.width = v + "%"));
-                // Sync label percentage
-                const label = el.closest(".bar").querySelector(".bar__label b");
-                if (label) {
-                    const target = parseInt(label.dataset.value || "0", 10);
-                    const start = performance.now();
-                    const duration = 1600;
-                    const tick = (now) => {
-                        const p = Math.min((now - start) / duration, 1);
-                        const eased = 1 - Math.pow(1 - p, 3);
-                        label.textContent = Math.floor(target * eased) + "%";
-                        if (p < 1) requestAnimationFrame(tick);
-                        else label.textContent = target + "%";
+        revealElements.forEach((el) => revealObserver.observe(el));
+    }
+
+    // Counter Increment Observer
+    const counterElements = selectAll(".vmn-stat-card__val");
+    if (counterElements.length > 0) {
+        const counterObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const element = entry.target;
+                    const targetCount = parseInt(element.dataset.count || "0", 10);
+                    const duration = 1800;
+                    const startTime = performance.now();
+
+                    const updateCount = (currentTime) => {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        // Cubic ease-out
+                        const easedProgress = 1 - Math.pow(1 - progress, 3);
+                        const currentVal = Math.floor(targetCount * easedProgress);
+
+                        element.textContent = currentVal.toLocaleString();
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            element.textContent = targetCount.toLocaleString();
+                        }
                     };
-                    requestAnimationFrame(tick);
-                }
-                bio.unobserve(el);
-            });
-        },
-        { threshold: 0.3 }
-    );
-    bars.forEach((b) => bio.observe(b));
+
+                    requestAnimationFrame(updateCount);
+                    observer.unobserve(element);
+                });
+            },
+            { threshold: 0.4 }
+        );
+
+        counterElements.forEach((counter) => counterObserver.observe(counter));
+    }
+
+    // Animated Skill Progress Bars Observer
+    const fillElements = selectAll(".vmn-skill-item__fill");
+    if (fillElements.length > 0) {
+        const barObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const barFill = entry.target;
+                    const fillValue = parseInt(barFill.dataset.fill || "0", 10);
+
+                    requestAnimationFrame(() => {
+                        barFill.style.width = `${fillValue}%`;
+                    });
+
+                    // Sync corresponding text label percentage
+                    const parentContainer = barFill.closest(".vmn-skill-item");
+                    if (parentContainer) {
+                        const labelValue = parentContainer.querySelector(".vmn-skill-item__label b");
+                        if (labelValue) {
+                            const targetVal = parseInt(labelValue.dataset.value || "0", 10);
+                            const startTime = performance.now();
+                            const duration = 1600;
+
+                            const updateLabel = (now) => {
+                                const elapsed = now - startTime;
+                                const progress = Math.min(elapsed / duration, 1);
+                                const easedProgress = 1 - Math.pow(1 - progress, 3);
+                                const currentNumber = Math.floor(targetVal * easedProgress);
+
+                                labelValue.textContent = `${currentNumber}%`;
+
+                                if (progress < 1) {
+                                    requestAnimationFrame(updateLabel);
+                                } else {
+                                    labelValue.textContent = `${targetVal}%`;
+                                }
+                            };
+
+                            requestAnimationFrame(updateLabel);
+                        }
+                    }
+
+                    observer.unobserve(barFill);
+                });
+            },
+            { threshold: 0.3 }
+        );
+
+        fillElements.forEach((bar) => barObserver.observe(bar));
+    }
 })();

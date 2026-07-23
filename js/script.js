@@ -144,43 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
   showSlide(0);
   startSlider();
 
-  /* ==========================
-      Scroll Progress
-  ========================== 
-
-  const navbar = document.getElementById("navbar");
-  const scrollbar = document.getElementById("scrollbar");
-  const toTop = document.getElementById("toTop");
-
-  function handleScroll() {
-
-    const doc = document.documentElement;
-
-    const scrollTop = doc.scrollTop;
-
-    const total = doc.scrollHeight - doc.clientHeight;
-
-    const percent = total > 0 ? (scrollTop / total) * 100 : 0;
-
-    if (scrollbar) {
-      scrollbar.style.width = percent + "%";
-    }
-
-    if (navbar) {
-      navbar.classList.toggle("scrolled", scrollTop > 40);
-    }
-
-    if (toTop) {
-      toTop.classList.toggle("show", scrollTop > 400);
-    }
-
-  }
-
-  window.addEventListener("scroll", handleScroll, {
-    passive: true
-  });
-
-  handleScroll();
 
   /* ==========================
       Back To Top
@@ -202,32 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-  /* ==========================
-      Mobile Menu
-  ==========================
-
-  const mobileToggle = document.getElementById("mobileToggle");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  if (mobileToggle && mobileMenu) {
-
-    mobileToggle.addEventListener("click", () => {
-
-      mobileMenu.classList.toggle("open");
-
-    });
-
-    mobileMenu.querySelectorAll("a").forEach(link => {
-
-      link.addEventListener("click", () => {
-
-        mobileMenu.classList.remove("open");
-
-      });
-
-    });
-
-  }
 
   /* ==========================
       Reveal Animation
