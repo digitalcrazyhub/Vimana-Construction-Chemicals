@@ -260,15 +260,6 @@ a {
 }
 
 /* ripple */
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.55);
-    transform: scale(0);
-    animation: rippleAnim 0.7s ease-out;
-    pointer-events: none;
-}
-
 .btn-secondary .ripple {
     background: rgba(24, 167, 90, 0.35);
 }

@@ -1,35 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.getElementById("vmHeader");
+    const menuBtn = document.getElementById("vmMenuBtn");
+    const mobileMenu = document.getElementById("vmMobileMenu");
+    const yearSpan = document.getElementById("vmYear");
 
-    const navbar = document.getElementById("navbar");
-    const menuBtn = document.getElementById("menuBtn");
-    const mobileMenu = document.getElementById("mobileMenu");
+    // Dynamic Year
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
 
+    // Navbar Scroll Effect
     window.addEventListener("scroll", () => {
-
         if (navbar) {
-            navbar.classList.toggle("scrolled", window.scrollY > 40);
+            navbar.classList.toggle("vm-scrolled", window.scrollY > 40);
         }
-
     });
 
+    // Mobile Menu Toggle
     if (menuBtn && mobileMenu) {
-
         menuBtn.addEventListener("click", () => {
-
-            mobileMenu.classList.toggle("open");
-
+            mobileMenu.classList.toggle("vm-open");
         });
 
         mobileMenu.querySelectorAll("a").forEach(link => {
-
             link.addEventListener("click", () => {
-
-                mobileMenu.classList.remove("open");
-
+                mobileMenu.classList.remove("vm-open");
             });
-
         });
-
     }
-
 });
