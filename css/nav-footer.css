@@ -33,6 +33,21 @@
     padding: 0 20px;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(47, 90, 168, 0.35);
+    outline-offset: 3px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 .vm-btn-primary {
     background: var(--vm-primary);
     color: #ffffff;

@@ -1,25 +1,33 @@
 async function loadComponent(id, file) {
-
     const container = document.getElementById(id);
 
     if (!container) return;
 
-    const response = await fetch(file);
+    try {
+        const response = await fetch(file, { cache: "no-store" });
 
-    container.innerHTML = await response.text();
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
 
-    initNavbar();
+        container.innerHTML = await response.text();
+
+        if (typeof initNavbar === "function") {
+            initNavbar();
+        }
+    } catch (error) {
+        console.error(`Failed to load component ${file}:`, error);
+    }
 }
 
-loadComponent("navbar-container", "page/header.html");
-loadComponent("footer-container", "page/footer.html");
+const basePath = window.location.pathname.includes("/page/") ? "../" : "";
 
-//Dynamic year
+loadComponent("navbar-container", `${basePath}page/header.html`);
+loadComponent("footer-container", `${basePath}page/footer.html`);
 
-const year=document.getElementById("year");
+// Dynamic year
+const year = document.getElementById("year");
 
-if(year){
-
-    year.textContent=new Date().getFullYear();
-
+if (year) {
+    year.textContent = new Date().getFullYear();
 }

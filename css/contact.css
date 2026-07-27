@@ -124,7 +124,7 @@ a {
 /* Main Container Limit */
 .main {
   max-width: 1360px;
-  margin: 0 auto;
+  margin: 0 auto 50px ;
   display: flex;
   flex-direction: column;
   gap: 3.5rem;
@@ -899,20 +899,6 @@ a {
   height: 20px;
 }
 
-.map-section__badge-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.map-section__badge-text strong {
-  font-size: 0.92rem;
-  color: var(--charcoal);
-}
-
-.map-section__badge-text span {
-  font-size: 0.78rem;
-  color: var(--muted);
-}
 
 .map-section__iframe-wrapper {
   width: 100%;

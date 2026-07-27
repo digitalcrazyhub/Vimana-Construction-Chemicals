@@ -18,6 +18,18 @@ body {
     font-family: var(--vmn-font);
 }
 
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid rgba(47, 90, 168, 0.35);
+    outline-offset: 3px;
+}
+
 .vmprd-section * {
     box-sizing: border-box;
 }
