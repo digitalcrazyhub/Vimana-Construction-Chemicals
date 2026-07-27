@@ -150,6 +150,8 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================== */
   const toTop = document.getElementById("toTop");
 
+  const toTop = document.getElementById("toTop");
+
   if (toTop) {
 
     toTop.addEventListener("click", () => {
