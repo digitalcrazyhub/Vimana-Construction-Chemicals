@@ -7,7 +7,9 @@
     <title>About Us — Vimana Construction Chemicals | The Waterproofing Experts</title>
     <meta name="description"
         content="Vimana Construction Chemicals — 10+ years of premium waterproofing solutions for residential, commercial, and industrial projects across India." />
-    <link rel="icon" href="/assets/vimana-logo.png" />
+    <meta name="theme-color" content="#2F5AA8" />
+    <link rel="canonical" href="about.html" />
+    <link rel="icon" href="../assets/vimana-logo.png" />
 
     <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,8 +19,8 @@
         rel="stylesheet" />
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/about.css" />
-    <link rel="stylesheet" href="/css/nav-footer.css" />
+    <link rel="stylesheet" href="../css/about.css" />
+    <link rel="stylesheet" href="../css/nav-footer.css" />
 
     <!-- Open Graph Metadata -->
     <meta property="og:title" content="About Vimana Construction Chemicals" />
@@ -31,7 +33,7 @@
     <header id="vmn-header-root"></header>
 
     <script>
-        fetch("/page/header.html")
+        fetch("header.html")
             .then(response => {
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 return response.text();
@@ -48,7 +50,7 @@
         <div class="vmn-hero__overlay" aria-hidden="true"></div>
         <div class="vmn-container vmn-hero__content">
             <nav class="vmn-breadcrumbs" aria-label="Breadcrumb navigation">
-                <a href="/">Home</a>
+                <a href="../index.html">Home</a>
                 <span class="vmn-breadcrumbs__separator">/</span>
                 <span aria-current="page">About Us</span>
             </nav>
@@ -66,7 +68,7 @@
     <section class="vmn-section" id="intro">
         <div class="vmn-container vmn-split-layout">
             <div class="vmn-split-layout__media vmn-reveal">
-                <img src="/assets/about image.jpg" alt="Vimana waterproofing engineers working on site" loading="lazy" />
+                <img src="../assets/about%20image.jpg" alt="Vimana waterproofing engineers working on site" loading="lazy" decoding="async" width="720" height="900" />
                 <div class="vmn-badge-card vmn-glass-card">
                     <div class="vmn-badge-card__value">10<span>+</span></div>
                     <div class="vmn-badge-card__label">Years of Waterproofing Excellence</div>
@@ -569,8 +571,8 @@
                 Talk to our waterproofing experts and secure your building for decades.
             </p>
             <div class="vmn-cta-section__actions vmn-reveal" data-delay="220">
-                <a href="/contact" class="vmn-btn vmn-btn--light">Contact Us &rarr;</a>
-                <a href="/inspection" class="vmn-btn vmn-btn--outline">Request Free Inspection</a>
+                <a href="contact.html" class="vmn-btn vmn-btn--light">Contact Us &rarr;</a>
+                <a href="contact.html" class="vmn-btn vmn-btn--outline">Request Free Inspection</a>
             </div>
         </div>
     </section>
@@ -579,7 +581,7 @@
     <footer id="vmn-footer-root"></footer>
 
     <script>
-        fetch("/page/footer.html")
+        fetch("footer.html")
             .then(response => {
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 return response.text();
@@ -591,8 +593,8 @@
     </script>
 
     <!-- External Scripts -->
-    <script src="/js/about.js" defer></script>
-    <script src="/js/nav.js" defer></script>
+    <script src="../js/about.js" defer></script>
+    <script src="../js/nav-footer.js" defer></script>
 </body>
 
 </html>
