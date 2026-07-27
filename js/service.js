@@ -1,107 +1,34 @@
 /* =========================================================
-   VIMANA — About Page Interactions
+   VIMANA - Services Page
    ========================================================= */
 
 (() => {
+
     "use strict";
 
-    const $ = (selector, parent = document) => parent.querySelector(selector);
+    const $ = (selector, parent = document) =>
+        parent.querySelector(selector);
+
     const $$ = (selector, parent = document) =>
         [...parent.querySelectorAll(selector)];
 
-    /*====================================
-      Footer Year
-    ====================================*/
-
-    const year = $("#year");
-
-    if (year) {
-        year.textContent = new Date().getFullYear();
-    }
-
-    /*====================================
-      Navbar Scroll
-    ====================================*/
-
-    const navbar =
-        $(".vmn-navbar") ||
-        $("#nav") ||
-        document.querySelector("header nav");
-
-    function handleNavbar() {
-        if (!navbar) return;
-
-        navbar.classList.toggle("is-scrolled", window.scrollY > 20);
-    }
-
-    window.addEventListener("scroll", handleNavbar, {
-        passive: true
-    });
-
-    handleNavbar();
-
-    /*====================================
-      Mobile Menu
-    ====================================*/
-
-    const burger =
-        $("#burger") ||
-        $(".vmn-menu-toggle");
-
-    const navLinks =
-        $(".nav__links") ||
-        $(".vmn-nav__links");
-
-    if (burger && navLinks) {
-
-        burger.addEventListener("click", () => {
-
-            navLinks.classList.toggle("is-open");
-
-            burger.classList.toggle("is-active");
-
-        });
-
-        $$("a", navLinks).forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                navLinks.classList.remove("is-open");
-
-                burger.classList.remove("is-active");
-
-            });
-
-        });
-
-    }
-
-    /*====================================
+    /*=================================================
       Reveal Animation
-    ====================================*/
+    =================================================*/
 
-    const revealItems = $$(".vmn-reveal");
+    const animateItems = $$("[data-animate]");
 
-    if (revealItems.length) {
+    if ("IntersectionObserver" in window) {
 
-        const revealObserver = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver((entries) => {
 
             entries.forEach(entry => {
 
                 if (!entry.isIntersecting) return;
 
-                const delay = parseInt(
-                    entry.target.dataset.delay || 0,
-                    10
-                );
+                entry.target.classList.add("in-view");
 
-                setTimeout(() => {
-
-                    entry.target.classList.add("vmn-is-visible");
-
-                }, delay);
-
-                revealObserver.unobserve(entry.target);
+                observer.unobserve(entry.target);
 
             });
 
@@ -113,171 +40,216 @@
 
         });
 
-        revealItems.forEach(item => revealObserver.observe(item));
+        animateItems.forEach(item => observer.observe(item));
 
-    }
+    } else {
 
-    /*====================================
-      Animated Counters
-    ====================================*/
+        animateItems.forEach(item => {
 
-    const counters = $$(".vmn-stat-card__val");
-
-    if (counters.length) {
-
-        const counterObserver = new IntersectionObserver((entries) => {
-
-            entries.forEach(entry => {
-
-                if (!entry.isIntersecting) return;
-
-                const counter = entry.target;
-
-                const target = parseInt(
-                    counter.dataset.count || 0,
-                    10
-                );
-
-                const duration = 1800;
-
-                const start = performance.now();
-
-                function update(now) {
-
-                    const progress = Math.min(
-                        (now - start) / duration,
-                        1
-                    );
-
-                    const eased =
-                        1 - Math.pow(1 - progress, 3);
-
-                    counter.textContent =
-                        Math.floor(target * eased).toLocaleString();
-
-                    if (progress < 1) {
-
-                        requestAnimationFrame(update);
-
-                    } else {
-
-                        counter.textContent =
-                            target.toLocaleString();
-
-                    }
-
-                }
-
-                requestAnimationFrame(update);
-
-                counterObserver.unobserve(counter);
-
-            });
-
-        }, {
-
-            threshold: 0.4
+            item.classList.add("in-view");
 
         });
 
-        counters.forEach(counter =>
-            counterObserver.observe(counter)
-        );
-
     }
 
-    /*====================================
-      Skill Bars
-    ====================================*/
+    /*=================================================
+      Smooth Scroll
+    =================================================*/
 
-    const skillBars = $$(".vmn-skill-item__fill");
+    $$('a[href^="#"]').forEach(link => {
 
-    if (skillBars.length) {
+        link.addEventListener("click", e => {
 
-        const barObserver = new IntersectionObserver((entries) => {
+            const targetID = link.getAttribute("href");
 
-            entries.forEach(entry => {
+            if (targetID === "#") return;
 
-                if (!entry.isIntersecting) return;
+            const target = document.querySelector(targetID);
 
-                const bar = entry.target;
+            if (!target) return;
 
-                const value = parseInt(
-                    bar.dataset.fill || 0,
-                    10
-                );
+            e.preventDefault();
 
-                requestAnimationFrame(() => {
+            target.scrollIntoView({
 
-                    bar.style.width = value + "%";
+                behavior: "smooth",
 
-                });
-
-                const parent =
-                    bar.closest(".vmn-skill-item");
-
-                if (parent) {
-
-                    const label =
-                        parent.querySelector(".vmn-skill-item__label b");
-
-                    if (label) {
-
-                        const target = parseInt(
-                            label.dataset.value || 0,
-                            10
-                        );
-
-                        const duration = 1500;
-
-                        const start = performance.now();
-
-                        function animate(now) {
-
-                            const progress = Math.min(
-                                (now - start) / duration,
-                                1
-                            );
-
-                            const eased =
-                                1 - Math.pow(1 - progress, 3);
-
-                            label.textContent =
-                                Math.floor(target * eased) + "%";
-
-                            if (progress < 1) {
-
-                                requestAnimationFrame(animate);
-
-                            } else {
-
-                                label.textContent =
-                                    target + "%";
-
-                            }
-
-                        }
-
-                        requestAnimationFrame(animate);
-
-                    }
-
-                }
-
-                barObserver.unobserve(bar);
+                block: "start"
 
             });
 
-        }, {
+        });
 
-            threshold: 0.3
+    });
+
+    /*=================================================
+      Button Ripple
+    =================================================*/
+
+    $$(".btn").forEach(button => {
+
+        button.addEventListener("click", function (e) {
+
+            const ripple = document.createElement("span");
+
+            ripple.className = "ripple";
+
+            const rect = this.getBoundingClientRect();
+
+            const size = Math.max(rect.width, rect.height);
+
+            ripple.style.width = ripple.style.height = size + "px";
+
+            ripple.style.left =
+
+                e.clientX - rect.left - size / 2 + "px";
+
+            ripple.style.top =
+
+                e.clientY - rect.top - size / 2 + "px";
+
+            this.appendChild(ripple);
+
+            ripple.addEventListener("animationend", () => {
+
+                ripple.remove();
+
+            });
 
         });
 
-        skillBars.forEach(bar =>
-            barObserver.observe(bar)
+    });
+
+    /*=================================================
+      Floating Background Parallax
+    =================================================*/
+
+    const blobs = $$(".blob");
+
+    window.addEventListener("mousemove", e => {
+
+        const x = e.clientX / window.innerWidth;
+
+        const y = e.clientY / window.innerHeight;
+
+        blobs.forEach((blob, index) => {
+
+            const speed = (index + 1) * 12;
+
+            blob.style.transform =
+
+                `translate(${x * speed}px, ${y * speed}px)`;
+
+        });
+
+    });
+
+    /*=================================================
+      Hero Floating Shapes
+    =================================================*/
+
+    const shapes = $$(".float-shape");
+
+    window.addEventListener("scroll", () => {
+
+        const scroll = window.scrollY;
+
+        shapes.forEach((shape, index) => {
+
+            const speed = (index + 1) * 0.15;
+
+            shape.style.transform =
+
+                `translateY(${scroll * speed}px)`;
+
+        });
+
+    }, {
+
+        passive: true
+
+    });
+
+    /*=================================================
+      Card Hover Enhancement
+    =================================================*/
+
+    const cards = $$(".service-card");
+
+    cards.forEach(card => {
+
+        card.addEventListener("mousemove", e => {
+
+            const rect = card.getBoundingClientRect();
+
+            const x = e.clientX - rect.left;
+
+            const y = e.clientY - rect.top;
+
+            card.style.setProperty("--x", x + "px");
+
+            card.style.setProperty("--y", y + "px");
+
+        });
+
+    });
+
+    /*=================================================
+      Lazy Image Fade
+    =================================================*/
+
+    $$("img[loading='lazy']").forEach(img => {
+
+        if (img.complete) {
+
+            img.classList.add("loaded");
+
+        } else {
+
+            img.addEventListener("load", () => {
+
+                img.classList.add("loaded");
+
+            });
+
+        }
+
+    });
+
+    /*=================================================
+      Back to Top (optional)
+    =================================================*/
+
+    const topButton = document.createElement("button");
+
+    topButton.className = "scroll-top";
+
+    topButton.innerHTML = "↑";
+
+    document.body.appendChild(topButton);
+
+    window.addEventListener("scroll", () => {
+
+        topButton.classList.toggle(
+
+            "show",
+
+            window.scrollY > 500
+
         );
 
-    }
+    });
+
+    topButton.addEventListener("click", () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    });
 
 })();

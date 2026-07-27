@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Waterproofing Services | AquaShield Solutions</title>
+    <title>Waterproofing Services | VIMANA</title>
     <meta name="description"
         content="Professional waterproofing services and products for residential, commercial, and industrial buildings. Terrace, basement, bathroom, pool, wall, and industrial waterproofing." />
     <meta name="keywords"
@@ -12,6 +12,8 @@
     <meta name="theme-color" content="#255AA8" />
     <link rel="canonical" href="service.html" />
     <meta property="og:title" content="Waterproofing Services | AquaShield Solutions" />
+
+    <meta property="og:title" content="Waterproofing Services | VIMANA" />
     <meta property="og:description"
         content="Complete waterproofing solutions using premium products and expert application services." />
     <meta property="og:type" content="website" />
@@ -20,97 +22,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="../css/service.css" />
+    <link rel="stylesheet" href="/css/service.css" />
+    <link rel="stylesheet" href="../css/nav-footer.css">
 </head>
 
 <body>
+    <!-- Dynamic Header Mount Point -->
+    <header id="vmn-header-root"></header>
 
-    <!-- HERO -->
-    <header class="hero " role="banner">
-        <div class="hero-bg" aria-hidden="true">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
-            <div class="blob blob-3"></div>
-            <div class="grid-pattern"></div>
+    <script>
+        fetch("/page/header.html")
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById("vmn-header-root").innerHTML = data;
+            })
+            .catch(error => console.error("Header component load failure:", error));
+    </script>
+
+    <!-- 1. HERO SECTION -->
+    <section class="vmn-hero">
+        <div class="vmn-hero__background" aria-hidden="true"></div>
+        <div class="vmn-hero__overlay" aria-hidden="true"></div>
+        <div class="vmn-container vmn-hero__content">
+            <nav class="vmn-breadcrumbs" aria-label="Breadcrumb navigation">
+                <a href="/">Home</a>
+                <span class="vmn-breadcrumbs__separator">/</span>
+                <span aria-current="page">Services</span>
+            </nav>
+            <h1 class="vmn-hero__heading vmn-reveal">
+                Waterproofing <span class="vmn-text-gradient">Services</span>
+            </h1>
+            <p class="vmn-hero__subheading vmn-reveal" data-delay="80">
+                Pioneering advanced chemical solutions and structural protection engineered for durability and
+                lifelong waterproofing performance.
+            </p>
         </div>
+    </section>
 
-        <div class="container hero-inner">
-            <div class="hero-left" data-animate="slide-right">
-                <span class="badge">
-                    <span class="badge-dot"></span>
-                    Professional Waterproofing Solutions
-                </span>
-                <h1 class="hero-title">Protecting Every Structure from <span class="text-gradient">Water Damage</span>
-                </h1>
-                <p class="hero-desc">
-                    AquaShield delivers complete waterproofing solutions for residential,
-                    commercial, and industrial buildings — combining high-quality
-                    waterproofing products with expert application services trusted by
-                    engineers and architects nationwide.
-                </p>
-                <div class="hero-ctas">
-                    <a href="#inspection" class="btn btn-primary">
-                        Request Free Inspection
-                        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <polyline points="12 5 19 12 12 19" />
-                        </svg>
-                    </a>
-                    <a href="#products" class="btn btn-secondary">
-                        Explore Products
-                    </a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat"><strong>15+</strong><span>Years Experience</span></div>
-                    <div class="stat"><strong>2500+</strong><span>Projects Done</span></div>
-                    <div class="stat"><strong>10Yr</strong><span>Warranty</span></div>
-                </div>
-            </div>
-
-            <div class="hero-right" data-animate="slide-left">
-                <div class="hero-visual">
-                    <div class="float-shape shape-circle" aria-hidden="true"></div>
-                    <div class="float-shape shape-square" aria-hidden="true"></div>
-                    <div class="float-shape shape-droplet" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2s7 8 7 13a7 7 0 1 1-14 0c0-5 7-13 7-13z" />
-                        </svg>
-                    </div>
-
-                    <div class="hero-card">
-                        <img loading="lazy"
-                            src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=80"
-                            alt="Engineer inspecting waterproofed rooftop structure" />
-                        <div class="hero-card-tag">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            </svg>
-                            <div>
-                                <strong>Certified</strong>
-                                <span>ISO 9001 Quality</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <svg class="wave-divider" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-            <path fill="#ffffff"
-                d="M0,64L60,69.3C120,75,240,85,360,80C480,75,600,53,720,48C840,43,960,53,1080,64C1200,75,1320,85,1380,90.7L1440,96L1440,120L0,120Z" />
-        </svg>
-    </header>
-
-    <!-- SERVICES -->
+    <!-- 2. SERVICES -->
     <main>
-        <section class="services " id="services" aria-labelledby="services-heading">
+        <section class="services" id="services" aria-labelledby="services-heading">
             <div class="container">
                 <div class="section-head" data-animate="fade-up">
                     <span class="section-eyebrow">What We Do</span>
                     <h2 id="services-heading">Our Waterproofing Services</h2>
-                    <p>Professional waterproofing solutions designed to protect your property from leaks, moisture, and
-                        structural damage.</p>
+                    <p>Professional waterproofing solutions designed to protect your property from leaks, moisture,
+                        and structural damage.</p>
                 </div>
 
                 <div class="services-grid">
@@ -149,7 +109,8 @@
                             <p>Prevent groundwater seepage and structural moisture with professional basement
                                 waterproofing systems designed for below-grade construction and hydrostatic pressure
                                 resistance.</p>
-                            <a class="card-link" href="#basement" aria-label="Learn more about basement waterproofing">
+                            <a class="card-link" href="#basement"
+                                aria-label="Learn more about basement waterproofing">
                                 Learn More
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -169,9 +130,11 @@
                         </div>
                         <div class="card-body">
                             <h3>Bathroom Waterproofing</h3>
-                            <p>Ensure leak-free bathrooms using flexible waterproof coatings before tile installation.
-                                Our systems prevent seepage into adjacent walls, ceilings, and floors below.</p>
-                            <a class="card-link" href="#bathroom" aria-label="Learn more about bathroom waterproofing">
+                            <p>Ensure leak-free bathrooms using flexible waterproof coatings before tile
+                                installation. Our systems prevent seepage into adjacent walls, ceilings, and floors
+                                below.</p>
+                            <a class="card-link" href="#bathroom"
+                                aria-label="Learn more about bathroom waterproofing">
                                 Learn More
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -214,8 +177,8 @@
                         </div>
                         <div class="card-body">
                             <h3>Wall Leakage Repair</h3>
-                            <p>Repair damp walls, cracks, seepage, and external wall leakage using advanced waterproof
-                                solutions. Restore both structural integrity and interior aesthetics.</p>
+                            <p>Repair damp walls, cracks, seepage, and external wall leakage using advanced
+                                waterproof solutions. Restore both structural integrity and interior aesthetics.</p>
                             <a class="card-link" href="#walls" aria-label="Learn more about wall leakage repair">
                                 Learn More
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -269,5 +232,22 @@
     </main>
 
     <script src="../js/service.js"></script>
+ <!-- Dynamic Footer Mount Point -->
+    <footer id="vmn-footer-root"></footer>
+
+    <script>
+        fetch("/page/footer.html")
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById("vmn-footer-root").innerHTML = data;
+            })
+            .catch(error => console.error("Footer component load failure:", error));
+    </script>
+    <script src="../js/service.js"></script>
+    <script src="/js/nav-footer.js"></script>
 </body>
+
 </html>
