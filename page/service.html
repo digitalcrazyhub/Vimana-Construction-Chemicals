@@ -4,57 +4,57 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Waterproofing Services | AquaShield Solutions</title>
-    <meta name="description"
-        content="Professional waterproofing services and products for residential, commercial, and industrial buildings. Terrace, basement, bathroom, pool, wall, and industrial waterproofing." />
-    <meta name="keywords"
-        content="waterproofing services, terrace waterproofing, basement waterproofing, bathroom waterproofing, industrial waterproofing, waterproofing products" />
-    <meta name="theme-color" content="#255AA8" />
-    <link rel="canonical" href="service.html" />
-    <meta property="og:title" content="Waterproofing Services | AquaShield Solutions" />
-
-    <meta property="og:title" content="Waterproofing Services | VIMANA" />
-    <meta property="og:description"
-        content="Complete waterproofing solutions using premium products and expert application services." />
-    <meta property="og:type" content="website" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="../css/service.css" />
+    <title>Waterproofing Services | VIMANA</title>
+    <link rel="icon" href="/assets/vimana-logo.png" />
     <link rel="stylesheet" href="/css/service.css" />
+    <link rel="stylesheet" href="/css/nav-footer.css">
 </head>
 
 <body>
-    
-<!-- 1. HERO SECTION -->
+     <!-- Dynamic Header Mount Point -->
+    <header id="vmn-header-root"></header>
+
+    <script>
+        fetch("/page/header.html")
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById("vmn-header-root").innerHTML = data;
+            })
+            .catch(error => console.error("Header component load failure:", error));
+    </script>
+
+    <!-- 1. HERO SECTION -->
     <section class="vmn-hero">
         <div class="vmn-hero__background" aria-hidden="true"></div>
         <div class="vmn-hero__overlay" aria-hidden="true"></div>
         <div class="vmn-container vmn-hero__content">
-            <nav class="vmn-breadcrumbs" aria-label="Breadcrumb navigation">
+            <div class="vmn-breadcrumbs" aria-label="Breadcrumb navigation">
                 <a href="/">Home</a>
                 <span class="vmn-breadcrumbs__separator">/</span>
-                <span aria-current="page">About Us</span>
-            </nav>
+                <span aria-current="page">Services</span>
+            </div>
             <h1 class="vmn-hero__heading vmn-reveal">
-                About <span class="vmn-text-gradient">VIMANA</span>
+                Waterproofing <span class="vmn-text-gradient">Services</span>
             </h1>
             <p class="vmn-hero__subheading vmn-reveal" data-delay="80">
-                Pioneering advanced chemical solutions and structural protection engineered for durability and lifelong
-                waterproofing performance.
+                Pioneering advanced chemical solutions and structural protection engineered for durability and
+                lifelong waterproofing performance.
             </p>
         </div>
     </section>
-    <!-- SERVICES -->
+
+    <!-- 2. SERVICES -->
     <main>
-        <section class="services " id="services" aria-labelledby="services-heading">
+        <section class="services" id="services" aria-labelledby="services-heading">
             <div class="container">
                 <div class="section-head" data-animate="fade-up">
                     <span class="section-eyebrow">What We Do</span>
                     <h2 id="services-heading">Our Waterproofing Services</h2>
-                    <p>Professional waterproofing solutions designed to protect your property from leaks, moisture, and
-                        structural damage.</p>
+                    <p>Professional waterproofing solutions designed to protect your property from leaks, moisture,
+                        and structural damage.</p>
                 </div>
 
                 <div class="services-grid">
@@ -93,7 +93,8 @@
                             <p>Prevent groundwater seepage and structural moisture with professional basement
                                 waterproofing systems designed for below-grade construction and hydrostatic pressure
                                 resistance.</p>
-                            <a class="card-link" href="#basement" aria-label="Learn more about basement waterproofing">
+                            <a class="card-link" href="#basement"
+                                aria-label="Learn more about basement waterproofing">
                                 Learn More
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -113,9 +114,11 @@
                         </div>
                         <div class="card-body">
                             <h3>Bathroom Waterproofing</h3>
-                            <p>Ensure leak-free bathrooms using flexible waterproof coatings before tile installation.
-                                Our systems prevent seepage into adjacent walls, ceilings, and floors below.</p>
-                            <a class="card-link" href="#bathroom" aria-label="Learn more about bathroom waterproofing">
+                            <p>Ensure leak-free bathrooms using flexible waterproof coatings before tile
+                                installation. Our systems prevent seepage into adjacent walls, ceilings, and floors
+                                below.</p>
+                            <a class="card-link" href="#bathroom"
+                                aria-label="Learn more about bathroom waterproofing">
                                 Learn More
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -158,8 +161,8 @@
                         </div>
                         <div class="card-body">
                             <h3>Wall Leakage Repair</h3>
-                            <p>Repair damp walls, cracks, seepage, and external wall leakage using advanced waterproof
-                                solutions. Restore both structural integrity and interior aesthetics.</p>
+                            <p>Repair damp walls, cracks, seepage, and external wall leakage using advanced
+                                waterproof solutions. Restore both structural integrity and interior aesthetics.</p>
                             <a class="card-link" href="#walls" aria-label="Learn more about wall leakage repair">
                                 Learn More
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -211,10 +214,23 @@
             <div class="deco deco-ring" aria-hidden="true"></div>
         </section>
     </main>
-
- <!-- Dynamic Footer Mount Point -->
+    
+<!-- Dynamic Footer Mount Point -->
     <footer id="vmn-footer-root"></footer>
 
-    <script src="/js/service.js"></script>
+    <script>
+        fetch("/page/footer.html")
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById("vmn-footer-root").innerHTML = data;
+            })
+            .catch(error => console.error("Footer component load failure:", error));
+    </script>
+   <script src="../js/service.js"></script>
+   <script src="/js/nav-footer.js"></script>
 </body>
+
 </html>

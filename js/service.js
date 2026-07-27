@@ -1,259 +1,194 @@
-/* =========================================================
-   VIMANA — About Page Interactions
-   ========================================================= */
+/**
+ * service.js
+ * Handles scroll-triggered reveal animations for the VIMANA
+ * Waterproofing Services page.
+ *
+ * Targets:
+ *  - .vmn-reveal        (hero heading/subheading, supports [data-delay])
+ *  - [data-animate]     (section head + service cards: "fade-up" | "zoom-in")
+ */
 
-(() => {
+(function () {
     "use strict";
 
-    const $ = (selector, parent = document) => parent.querySelector(selector);
-    const $$ = (selector, parent = document) =>
-        [...parent.querySelectorAll(selector)];
+    // FIX: this must match the class the CSS actually looks for.
+    // service.css shows revealed content via `.in-view` (see
+    // `[data-animate].in-view` and `.vmn-reveal.in-view`). This was
+    // previously "is-visible", a class nothing in the stylesheet
+    // matched — so cards and the hero text never became visible via
+    // scroll/observer and relied only on being unstyled by accident.
+    const REVEAL_CLASS = "in-view";
+    const OBSERVER_OPTIONS = {
+        root: null,
+        rootMargin: "0px 0px -10% 0px",
+        threshold: 0.15,
+    };
 
-    /*====================================
-      Footer Year
-    ====================================*/
-
-    const year = $("#year");
-
-    if (year) {
-        year.textContent = new Date().getFullYear();
+    /**
+     * Applies any data-delay (ms) as an inline transition-delay
+     * so staggered reveals work without extra CSS classes.
+     */
+    function applyDelay(el) {
+        const delay = el.getAttribute("data-delay");
+        if (delay !== null) {
+            const ms = parseInt(delay, 10);
+            if (!Number.isNaN(ms)) {
+                el.style.transitionDelay = `${ms}ms`;
+            }
+        }
     }
 
-    /*====================================
-      Navbar Scroll
-    ====================================*/
-
-    const navbar =
-        $(".vmn-navbar") ||
-        $("#nav") ||
-        document.querySelector("header nav");
-
-    function handleNavbar() {
-        if (!navbar) return;
-
-        navbar.classList.toggle("is-scrolled", window.scrollY > 20);
+    /**
+     * Reveals an element and stops observing it (one-shot animation).
+     */
+    function revealElement(el, observer) {
+        el.classList.add(REVEAL_CLASS);
+        if (observer) observer.unobserve(el);
     }
 
-    window.addEventListener("scroll", handleNavbar, {
-        passive: true
+    function initScrollReveal() {
+        const revealTargets = document.querySelectorAll(
+            ".vmn-reveal, [data-animate]"
+        );
+
+        if (!revealTargets.length) return;
+
+        // Respect users who prefer reduced motion: show everything immediately.
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        revealTargets.forEach(applyDelay);
+
+        if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+            revealTargets.forEach((el) => revealElement(el, null));
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    revealElement(entry.target, obs);
+                }
+            });
+        }, OBSERVER_OPTIONS);
+
+        // Hero content is above the fold on load — reveal it right away
+        // instead of waiting on a scroll/intersection event. (Also
+        // avoids double-observing: elements revealed here are never
+        // added to the observer below.)
+        const heroReveals = new Set(
+            document.querySelectorAll(".vmn-hero .vmn-reveal")
+        );
+
+        heroReveals.forEach((el) => {
+            requestAnimationFrame(() => revealElement(el, null));
+        });
+
+        revealTargets.forEach((el) => {
+            if (!heroReveals.has(el)) observer.observe(el);
+        });
+    }
+
+    /**
+     * Marks lazy-loaded card images as "loaded" once their bytes are in,
+     * so card-media img.loaded can fade them in via CSS. Without this,
+     * .card-media img (opacity: 0 by default) never receives the
+     * .loaded class and every card thumbnail stays invisible.
+     */
+    function initImageLoadedState() {
+        document.querySelectorAll(".card-media img").forEach((img) => {
+            const markLoaded = () => img.classList.add("loaded");
+
+            if (img.complete && img.naturalWidth > 0) {
+                markLoaded();
+            } else {
+                img.addEventListener("load", markLoaded, { once: true });
+                img.addEventListener("error", markLoaded, { once: true });
+            }
+        });
+    }
+
+    /**
+     * Smooth scroll for the in-page "Learn More" anchor links
+     * (#terrace, #basement, #bathroom, #pool, #walls, #industrial).
+     *
+     * NOTE: these anchor targets do not currently exist as elements
+     * on the page (no id="terrace", id="basement", etc.). Until those
+     * sections/pages are added, this handler intentionally falls back
+     * to default link behavior (`return` below) rather than doing
+     * nothing silently or throwing.
+     */
+    function initSmoothAnchorScroll() {
+        const STICKY_OFFSET = 80;
+
+        document.querySelectorAll('.card-link[href^="#"]').forEach((link) => {
+            link.addEventListener("click", (e) => {
+                const targetId = link.getAttribute("href").slice(1);
+                const targetEl = document.getElementById(targetId);
+
+                if (!targetEl) return; // no matching section yet — let default happen
+
+                e.preventDefault();
+                const top =
+                    targetEl.getBoundingClientRect().top +
+                    window.pageYOffset -
+                    STICKY_OFFSET;
+
+                window.scrollTo({ top, behavior: "smooth" });
+            });
+        });
+    }
+
+    /**
+     * Adds a subtle parallax-style shift to the decorative background
+     * shapes (droplet / shield / ring) as the user scrolls, purely
+     * cosmetic and cheap (rAF-throttled).
+     *
+     * FIX: previously wrote `el.style.transform` directly, which
+     * fought with the CSS `floatShape` keyframe animation also
+     * running on these elements (both declarations target
+     * `transform`, and the running animation wins every frame,
+     * effectively cancelling the parallax offset). Now the scroll
+     * offset is written to a custom property, `--vmn-parallax`, which
+     * the keyframes compose with via calc().
+     */
+    function initDecoParallax() {
+        const decos = document.querySelectorAll(".services .deco");
+        if (!decos.length) return;
+
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+        if (prefersReducedMotion) return;
+
+        let ticking = false;
+
+        function update() {
+            const scrollY = window.scrollY;
+            decos.forEach((el, i) => {
+                const speed = 0.03 + i * 0.015;
+                el.style.setProperty("--vmn-parallax", `${scrollY * speed}px`);
+            });
+            ticking = false;
+        }
+
+        window.addEventListener(
+            "scroll",
+            () => {
+                if (!ticking) {
+                    requestAnimationFrame(update);
+                    ticking = true;
+                }
+            },
+            { passive: true }
+        );
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        initScrollReveal();
+        initImageLoadedState();
+        initSmoothAnchorScroll();
+        initDecoParallax();
     });
-
-    handleNavbar();
-
-    /*====================================
-      Mobile Menu
-    ====================================*/
-
-    const burger =
-        $("#burger") ||
-        $(".vmn-menu-toggle");
-
-    const navLinks =
-        $(".nav__links") ||
-        $(".vmn-nav__links");
-
-    if (burger && navLinks) {
-
-        burger.addEventListener("click", () => {
-
-            navLinks.classList.toggle("is-open");
-
-            burger.classList.toggle("is-active");
-
-        });
-
-        $$("a", navLinks).forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                navLinks.classList.remove("is-open");
-
-                burger.classList.remove("is-active");
-
-            });
-
-        });
-
-    }
-
-    /*====================================
-      Reveal Animation
-    ====================================*/
-
-    const revealItems = $$(".vmn-reveal");
-
-    if (revealItems.length) {
-
-        const revealObserver = new IntersectionObserver((entries) => {
-
-            entries.forEach(entry => {
-
-                if (!entry.isIntersecting) return;
-
-                const delay = parseInt(
-                    entry.target.dataset.delay || 0,
-                    10
-                );
-
-                setTimeout(() => {
-                    entry.target.classList.add("vmn-is-visible");
-                }, delay);
-                revealObserver.unobserve(entry.target);
-            });
-        }, {
-            threshold: 0.15,
-            rootMargin: "0px 0px -80px 0px"
-        });
-        revealItems.forEach(item => revealObserver.observe(item));
-    }
-    /*====================================
-      Animated Counters
-    ====================================*/
-    const counters = $$(".vmn-stat-card__val");
-    if (counters.length) {
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                const counter = entry.target;
-                const target = parseInt(
-                    counter.dataset.count || 0,
-                    10
-                );
-                const duration = 1800;
-                const start = performance.now();
-                function update(now) {
-                    const progress = Math.min(
-                        (now - start) / duration,
-                        1
-                    );
-                    const eased =
-                        1 - Math.pow(1 - progress, 3);  
-                    counter.textContent =
-                        Math.floor(target * eased).toLocaleString();
-
-                    if (progress < 1) {
-
-                        requestAnimationFrame(update);
-
-                    } else {
-
-                        counter.textContent =
-                            target.toLocaleString();
-
-                    }
-
-                }
-
-                requestAnimationFrame(update);
-
-                counterObserver.unobserve(counter);
-
-            });
-
-        }, {
-
-            threshold: 0.4
-
-        });
-
-        counters.forEach(counter =>
-            counterObserver.observe(counter)
-        );
-
-    }
-
-    /*====================================
-      Skill Bars
-    ====================================*/
-
-    const skillBars = $$(".vmn-skill-item__fill");
-
-    if (skillBars.length) {
-
-        const barObserver = new IntersectionObserver((entries) => {
-
-            entries.forEach(entry => {
-
-                if (!entry.isIntersecting) return;
-
-                const bar = entry.target;
-
-                const value = parseInt(
-                    bar.dataset.fill || 0,
-                    10
-                );
-
-                requestAnimationFrame(() => {
-
-                    bar.style.width = value + "%";
-
-                });
-
-                const parent =
-                    bar.closest(".vmn-skill-item");
-
-                if (parent) {
-
-                    const label =
-                        parent.querySelector(".vmn-skill-item__label b");
-
-                    if (label) {
-
-                        const target = parseInt(
-                            label.dataset.value || 0,
-                            10
-                        );
-
-                        const duration = 1500;
-
-                        const start = performance.now();
-
-                        function animate(now) {
-
-                            const progress = Math.min(
-                                (now - start) / duration,
-                                1
-                            );
-
-                            const eased =
-                                1 - Math.pow(1 - progress, 3);
-
-                            label.textContent =
-                                Math.floor(target * eased) + "%";
-
-                            if (progress < 1) {
-
-                                requestAnimationFrame(animate);
-
-                            } else {
-
-                                label.textContent =
-                                    target + "%";
-
-                            }
-
-                        }
-
-                        requestAnimationFrame(animate);
-
-                    }
-
-                }
-
-                barObserver.unobserve(bar);
-
-            });
-
-        }, {
-
-            threshold: 0.3
-
-        });
-
-        skillBars.forEach(bar =>
-            barObserver.observe(bar)
-        );
-
-    }
-
 })();

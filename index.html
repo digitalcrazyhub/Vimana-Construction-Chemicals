@@ -21,8 +21,50 @@
 <!-- Scroll progress -->
 <div class="scroll-progress"><div id="scrollbar"></div></div>
 
-<div id="navbar-container"></div>
+<!-- HEADER / NAVBAR -->
+<header id="vmHeader" class="vm-header">
+    <div class="vm-container vm-nav-wrapper">
 
+        <a href="index.html" class="vm-logo">
+            <img src="assets/vimana-logo.png" alt="Vimana" class="vm-logo-img">
+        </a>
+
+        <nav class="vm-nav-links">
+            <a href="/index.html" class="vm-nav-link">Home</a>
+            <a href="page/about.html" class="vm-nav-link">About</a>
+            <a href="/page/service.html" class="vm-nav-link">Services</a>
+            <a href="/page/product.html" class="vm-nav-link">Projects</a>
+            <a href="/page/contact.html" class="vm-nav-link">Contact</a>
+        </nav>
+
+        <div class="vm-nav-right">
+            <a href="tel:+919876543210" class="vm-phone-link">
+                📞 +91 98765 43210
+            </a>
+            <a href="#" class="vm-btn-primary">
+                Get Free Inspection
+            </a>
+        </div>
+
+        <button class="vm-menu-btn" id="vmMenuBtn" aria-label="Toggle Navigation">
+            ☰
+        </button>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="vm-mobile-menu" id="vmMobileMenu">
+        <a href="index.html" class="vm-mobile-link">Home</a>
+        <a href="page/about.html" class="vm-mobile-link">About</a>
+        <a href="page/service.html" class="vm-mobile-link">Services</a>
+        <a href="#" class="vm-mobile-link">Products</a>
+        <a href="#" class="vm-mobile-link">Projects</a>
+        <a href="#" class="vm-mobile-link">Contact</a>
+        <a href="#" class="vm-btn-primary vm-mobile-btn">
+            Get Free Inspection
+        </a>
+    </div>
+</header>
 <!-- HERO -->
 <section id="home" class="hero">
   <div class="hero-slides">
@@ -676,8 +718,72 @@
     </div>
   </div>
 </section>
+<!-- FOOTER -->
+<footer class="vm-footer">
+    <div class="vm-container vm-footer-grid">
+        <div class="vm-footer-col">
+            <div class="vm-footer-logo">
+                <img src="assets/vimana-logo.png" alt="Vimana" class="vm-footer-logo-img" />
+            </div>
+            <p class="vm-footer-desc">
+                Vimana Construction Chemicals — the waterproofing experts. Premium chemicals and expert application, backed by warranty.
+            </p>
+            <div class="vm-socials">
+                <a href="#" class="vm-social-link" aria-label="Facebook">F</a>
+                <a href="#" class="vm-social-link" aria-label="LinkedIn">in</a>
+                <a href="#" class="vm-social-link" aria-label="X">X</a>
+                <a href="#" class="vm-social-link" aria-label="Instagram">IG</a>
+            </div>
+        </div>
 
-<div id="footer-container"></div>
+        <div class="vm-footer-col">
+            <h4 class="vm-footer-heading">Quick Links</h4>
+            <ul class="vm-footer-nav-list">
+                <li class="vm-footer-nav-item"><a href="#home" class="vm-footer-nav-link">Home</a></li>
+                <li class="vm-footer-nav-item"><a href="#about" class="vm-footer-nav-link">About</a></li>
+                <li class="vm-footer-nav-item"><a href="#services" class="vm-footer-nav-link">Services</a></li>
+                <li class="vm-footer-nav-item"><a href="#products" class="vm-footer-nav-link">Products</a></li>
+                <li class="vm-footer-nav-item"><a href="#process" class="vm-footer-nav-link">Process</a></li>
+            </ul>
+        </div>
+
+        <div class="vm-footer-col">
+            <h4 class="vm-footer-heading">Contact</h4>
+            <ul class="vm-contact-list">
+                <li class="vm-contact-item">
+                    <i data-lucide="map-pin" class="vm-contact-icon"></i>
+                    <span class="vm-contact-text">Vimana House, Industrial Estate, Bengaluru, Karnataka 560058</span>
+                </li>
+                <li class="vm-contact-item">
+                    <i data-lucide="phone" class="vm-contact-icon"></i>
+                    <a href="tel:+911234567890" class="vm-contact-link">+91 12345 67890</a>
+                </li>
+                <li class="vm-contact-item">
+                    <i data-lucide="mail" class="vm-contact-icon"></i>
+                    <a href="mailto:hello@vimana.co" class="vm-contact-link">hello@vimana.co</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="vm-footer-col">
+            <h4 class="vm-footer-heading">Newsletter</h4>
+            <p class="vm-footer-desc">Get waterproofing tips, product updates and project stories.</p>
+            <form class="vm-newsletter-form" onsubmit="event.preventDefault(); this.reset(); alert('Subscribed!');">
+                <input type="email" required placeholder="your@email.com" class="vm-newsletter-input" />
+                <button type="submit" class="vm-newsletter-btn vm-btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="vm-container vm-footer-bottom">
+        <p class="vm-footer-copyright">© <span id="vmYear"></span> Vimana Construction Chemicals. All rights reserved.</p>
+        <div class="vm-footer-bottom-links">
+            <a href="#" class="vm-footer-bottom-link">Privacy</a>
+            <a href="#" class="vm-footer-bottom-link">Terms</a>
+            <a href="#" class="vm-footer-bottom-link">Sitemap</a>
+        </div>
+    </div>
+</footer>
 
 <!-- Floating actions -->
 <a href="#contact" class="side-cta"><i data-lucide="calendar-check"></i> Get Free Inspection</a>
@@ -688,7 +794,6 @@
 </div>
 
 <script src="js/script.js"></script>
-<script src="/js/common.js"></script>
 <script src="js/nav-footer.js"></script>
 </body>
 </html>
