@@ -1,255 +1,259 @@
 /* =========================================================
-   VIMANA - Services Page
+   VIMANA — About Page Interactions
    ========================================================= */
 
 (() => {
-
     "use strict";
 
-    const $ = (selector, parent = document) =>
-        parent.querySelector(selector);
-
+    const $ = (selector, parent = document) => parent.querySelector(selector);
     const $$ = (selector, parent = document) =>
         [...parent.querySelectorAll(selector)];
 
-    /*=================================================
-      Reveal Animation
-    =================================================*/
+    /*====================================
+      Footer Year
+    ====================================*/
 
-    const animateItems = $$("[data-animate]");
+    const year = $("#year");
 
-    if ("IntersectionObserver" in window) {
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
 
-        const observer = new IntersectionObserver((entries) => {
+    /*====================================
+      Navbar Scroll
+    ====================================*/
 
-            entries.forEach(entry => {
+    const navbar =
+        $(".vmn-navbar") ||
+        $("#nav") ||
+        document.querySelector("header nav");
 
-                if (!entry.isIntersecting) return;
+    function handleNavbar() {
+        if (!navbar) return;
 
-                entry.target.classList.add("in-view");
+        navbar.classList.toggle("is-scrolled", window.scrollY > 20);
+    }
 
-                observer.unobserve(entry.target);
+    window.addEventListener("scroll", handleNavbar, {
+        passive: true
+    });
 
-            });
+    handleNavbar();
 
-        }, {
+    /*====================================
+      Mobile Menu
+    ====================================*/
 
-            threshold: 0.15,
+    const burger =
+        $("#burger") ||
+        $(".vmn-menu-toggle");
 
-            rootMargin: "0px 0px -80px 0px"
+    const navLinks =
+        $(".nav__links") ||
+        $(".vmn-nav__links");
+
+    if (burger && navLinks) {
+
+        burger.addEventListener("click", () => {
+
+            navLinks.classList.toggle("is-open");
+
+            burger.classList.toggle("is-active");
 
         });
 
-        animateItems.forEach(item => observer.observe(item));
+        $$("a", navLinks).forEach(link => {
 
-    } else {
+            link.addEventListener("click", () => {
 
-        animateItems.forEach(item => {
+                navLinks.classList.remove("is-open");
 
-            item.classList.add("in-view");
+                burger.classList.remove("is-active");
+
+            });
 
         });
 
     }
 
-    /*=================================================
-      Smooth Scroll
-    =================================================*/
+    /*====================================
+      Reveal Animation
+    ====================================*/
 
-    $$('a[href^="#"]').forEach(link => {
+    const revealItems = $$(".vmn-reveal");
 
-        link.addEventListener("click", e => {
+    if (revealItems.length) {
 
-            const targetID = link.getAttribute("href");
+        const revealObserver = new IntersectionObserver((entries) => {
 
-            if (targetID === "#") return;
+            entries.forEach(entry => {
 
-            const target = document.querySelector(targetID);
+                if (!entry.isIntersecting) return;
 
-            if (!target) return;
+                const delay = parseInt(
+                    entry.target.dataset.delay || 0,
+                    10
+                );
 
-            e.preventDefault();
+                setTimeout(() => {
+                    entry.target.classList.add("vmn-is-visible");
+                }, delay);
+                revealObserver.unobserve(entry.target);
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: "0px 0px -80px 0px"
+        });
+        revealItems.forEach(item => revealObserver.observe(item));
+    }
+    /*====================================
+      Animated Counters
+    ====================================*/
+    const counters = $$(".vmn-stat-card__val");
+    if (counters.length) {
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const counter = entry.target;
+                const target = parseInt(
+                    counter.dataset.count || 0,
+                    10
+                );
+                const duration = 1800;
+                const start = performance.now();
+                function update(now) {
+                    const progress = Math.min(
+                        (now - start) / duration,
+                        1
+                    );
+                    const eased =
+                        1 - Math.pow(1 - progress, 3);  
+                    counter.textContent =
+                        Math.floor(target * eased).toLocaleString();
 
-            target.scrollIntoView({
+                    if (progress < 1) {
 
-                behavior: "smooth",
+                        requestAnimationFrame(update);
 
-                block: "start"
+                    } else {
+
+                        counter.textContent =
+                            target.toLocaleString();
+
+                    }
+
+                }
+
+                requestAnimationFrame(update);
+
+                counterObserver.unobserve(counter);
 
             });
 
-        });
+        }, {
 
-    });
-
-    /*=================================================
-      Button Ripple
-    =================================================*/
-
-    $$(".btn").forEach(button => {
-
-        button.addEventListener("click", function (e) {
-
-            const ripple = document.createElement("span");
-
-            ripple.className = "ripple";
-
-            const rect = this.getBoundingClientRect();
-
-            const size = Math.max(rect.width, rect.height);
-
-            ripple.style.width = ripple.style.height = size + "px";
-
-            ripple.style.left =
-
-                e.clientX - rect.left - size / 2 + "px";
-
-            ripple.style.top =
-
-                e.clientY - rect.top - size / 2 + "px";
-
-            this.appendChild(ripple);
-
-            ripple.addEventListener("animationend", () => {
-
-                ripple.remove();
-
-            });
+            threshold: 0.4
 
         });
 
-    });
-
-    /*=================================================
-      Floating Background Parallax
-    =================================================*/
-
-    const blobs = $$(".blob");
-
-    window.addEventListener("mousemove", e => {
-
-        const x = e.clientX / window.innerWidth;
-
-        const y = e.clientY / window.innerHeight;
-
-        blobs.forEach((blob, index) => {
-
-            const speed = (index + 1) * 12;
-
-            blob.style.transform =
-
-                `translate(${x * speed}px, ${y * speed}px)`;
-
-        });
-
-    });
-
-    /*=================================================
-      Hero Floating Shapes
-    =================================================*/
-
-    const shapes = $$(".float-shape");
-
-    window.addEventListener("scroll", () => {
-
-        const scroll = window.scrollY;
-
-        shapes.forEach((shape, index) => {
-
-            const speed = (index + 1) * 0.15;
-
-            shape.style.transform =
-
-                `translateY(${scroll * speed}px)`;
-
-        });
-
-    }, {
-
-        passive: true
-
-    });
-
-    /*=================================================
-      Card Hover Enhancement
-    =================================================*/
-
-    const cards = $$(".service-card");
-
-    cards.forEach(card => {
-
-        card.addEventListener("mousemove", e => {
-
-            const rect = card.getBoundingClientRect();
-
-            const x = e.clientX - rect.left;
-
-            const y = e.clientY - rect.top;
-
-            card.style.setProperty("--x", x + "px");
-
-            card.style.setProperty("--y", y + "px");
-
-        });
-
-    });
-
-    /*=================================================
-      Lazy Image Fade
-    =================================================*/
-
-    $$("img[loading='lazy']").forEach(img => {
-
-        if (img.complete) {
-
-            img.classList.add("loaded");
-
-        } else {
-
-            img.addEventListener("load", () => {
-
-                img.classList.add("loaded");
-
-            });
-
-        }
-
-    });
-
-    /*=================================================
-      Back to Top (optional)
-    =================================================*/
-
-    const topButton = document.createElement("button");
-
-    topButton.className = "scroll-top";
-
-    topButton.innerHTML = "↑";
-
-    document.body.appendChild(topButton);
-
-    window.addEventListener("scroll", () => {
-
-        topButton.classList.toggle(
-
-            "show",
-
-            window.scrollY > 500
-
+        counters.forEach(counter =>
+            counterObserver.observe(counter)
         );
 
-    });
+    }
 
-    topButton.addEventListener("click", () => {
+    /*====================================
+      Skill Bars
+    ====================================*/
 
-        window.scrollTo({
+    const skillBars = $$(".vmn-skill-item__fill");
 
-            top: 0,
+    if (skillBars.length) {
 
-            behavior: "smooth"
+        const barObserver = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (!entry.isIntersecting) return;
+
+                const bar = entry.target;
+
+                const value = parseInt(
+                    bar.dataset.fill || 0,
+                    10
+                );
+
+                requestAnimationFrame(() => {
+
+                    bar.style.width = value + "%";
+
+                });
+
+                const parent =
+                    bar.closest(".vmn-skill-item");
+
+                if (parent) {
+
+                    const label =
+                        parent.querySelector(".vmn-skill-item__label b");
+
+                    if (label) {
+
+                        const target = parseInt(
+                            label.dataset.value || 0,
+                            10
+                        );
+
+                        const duration = 1500;
+
+                        const start = performance.now();
+
+                        function animate(now) {
+
+                            const progress = Math.min(
+                                (now - start) / duration,
+                                1
+                            );
+
+                            const eased =
+                                1 - Math.pow(1 - progress, 3);
+
+                            label.textContent =
+                                Math.floor(target * eased) + "%";
+
+                            if (progress < 1) {
+
+                                requestAnimationFrame(animate);
+
+                            } else {
+
+                                label.textContent =
+                                    target + "%";
+
+                            }
+
+                        }
+
+                        requestAnimationFrame(animate);
+
+                    }
+
+                }
+
+                barObserver.unobserve(bar);
+
+            });
+
+        }, {
+
+            threshold: 0.3
 
         });
 
-    });
+        skillBars.forEach(bar =>
+            barObserver.observe(bar)
+        );
+
+    }
 
 })();

@@ -165,7 +165,7 @@ body {
 
 .section-eyebrow {
   display: inline-block;
-  color: var(--primary);
+  color: var(--accent);
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 3px;

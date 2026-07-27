@@ -148,7 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ==========================
       Back To Top
   ========================== */
-  const toTop = document.getElementById("toTop");
 
   if (toTop) {
 

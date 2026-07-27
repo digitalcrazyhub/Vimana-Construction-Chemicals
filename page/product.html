@@ -10,9 +10,46 @@
   <link rel="canonical" href="product.html">
   <title>Products | Vimana Construction Chemicals</title>
   <link rel="stylesheet" href="../css/product.css">
+  <link rel="stylesheet" href="/css/product.css">
+  <link rel="stylesheet" href="/css/nav-footer.css">
 </head>
 
 <body class="vmprd-body">
+  <!-- Dynamic Header Mount Point -->
+    <header id="vmn-header-root"></header>
+
+    <script>
+        fetch("/page/header.html")
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById("vmn-header-root").innerHTML = data;
+            })
+            .catch(error => console.error("Header component load failure:", error));
+    </script>
+
+   <!-- 1. HERO SECTION -->
+    <section class="vmn-hero">
+        <div class="vmn-hero__background" aria-hidden="true"></div>
+        <div class="vmn-hero__overlay" aria-hidden="true"></div>
+        <div class="vmn-container vmn-hero__content">
+            <nav class="vmn-breadcrumbs" aria-label="Breadcrumb navigation">
+                <a href="/">Home</a>
+                <span class="vmn-breadcrumbs__separator">/</span>
+                <span aria-current="page">Services</span>
+            </nav>
+            <h1 class="vmn-hero__heading vmn-reveal">
+                Waterproofing <span class="vmn-text-gradient">Services</span>
+            </h1>
+            <p class="vmn-hero__subheading vmn-reveal" data-delay="80">
+                Pioneering advanced chemical solutions and structural protection engineered for durability and
+                lifelong waterproofing performance.
+            </p>
+        </div>
+    </section>
+
   <section class="vmprd-section" id="vmprd-products">
     <div class="vmprd-container">
       <div class="vmprd-header">
@@ -132,7 +169,7 @@
         <!-- Product 9 -->
         <article class="vmprd-card">
           <div class="vmprd-image-wrapper">
-            <img class="vmprd-image" src="../assets/product-9.jpg" alt="Vimana BondPrime" loading="lazy">
+            <img class="vmprd-image" src="/assets/product-9.jpg" alt="Vimana BondPrime" loading="lazy">
             <span class="vmprd-badge">Vimana</span>
           </div>
           <div class="vmprd-content">
@@ -146,7 +183,7 @@
         <!-- Product 10 -->
         <article class="vmprd-card">
           <div class="vmprd-image-wrapper">
-            <img class="vmprd-image" src="../assets/product-10.jpg" alt="Vimana BondPrime" loading="lazy">
+            <img class="vmprd-image" src="/assets/product-10.jpg" alt="Vimana BondPrime" loading="lazy">
             <span class="vmprd-badge">Vimana</span>
           </div>
           <div class="vmprd-content">
@@ -159,7 +196,7 @@
         <!-- Product 11 -->
         <article class="vmprd-card">
           <div class="vmprd-image-wrapper">
-            <img class="vmprd-image" src="../assets/product-11.jpg" alt="Vimana BondPrime" loading="lazy">
+            <img class="vmprd-image" src="/assets/product-11.jpg" alt="Vimana BondPrime" loading="lazy">
             <span class="vmprd-badge">Vimana</span>
           </div>
           <div class="vmprd-content">
@@ -173,7 +210,7 @@
         <!-- Product 12 -->
         <article class="vmprd-card">
           <div class="vmprd-image-wrapper">
-            <img class="vmprd-image" src="../assets/product-12.jpg" alt="Vimana BondPrime" loading="lazy">
+            <img class="vmprd-image" src="/assets/product-12.jpg" alt="Vimana BondPrime" loading="lazy">
             <span class="vmprd-badge">Vimana</span>
           </div>
           <div class="vmprd-content">
@@ -187,7 +224,7 @@
         <!-- Product 13 -->
         <article class="vmprd-card">
           <div class="vmprd-image-wrapper">
-            <img class="vmprd-image" src="../assets/product-13.jpg" alt="Vimana BondPrime" loading="lazy">
+            <img class="vmprd-image" src="/assets/product-13.jpg" alt="Vimana BondPrime" loading="lazy">
             <span class="vmprd-badge">Vimana</span>
           </div>
           <div class="vmprd-content">
@@ -200,7 +237,7 @@
         <!-- Product 14 -->
         <article class="vmprd-card">
           <div class="vmprd-image-wrapper">
-            <img class="vmprd-image" src="../assets/product-14.jpg" alt="Vimana BondPrime" loading="lazy">
+            <img class="vmprd-image" src="/assets/product-14.jpg" alt="Vimana BondPrime" loading="lazy">
             <span class="vmprd-badge">Vimana</span>
           </div>
           <div class="vmprd-content">
@@ -213,7 +250,7 @@
         <!-- Product 15 -->
         <article class="vmprd-card">
           <div class="vmprd-image-wrapper">
-            <img class="vmprd-image" src="../assets/product-15.jpg" alt="Vimana BondPrime" loading="lazy">
+            <img class="vmprd-image" src="/assets/product-15.jpg" alt="Vimana BondPrime" loading="lazy">
             <span class="vmprd-badge">Vimana</span>
           </div>
           <div class="vmprd-content">
@@ -227,7 +264,7 @@
         <!-- Product 16 -->
         <article class="vmprd-card">
           <div class="vmprd-image-wrapper">
-            <img class="vmprd-image" src="../assets/product-16.jpg" alt="Vimana BondPrime" loading="lazy">
+            <img class="vmprd-image" src="/assets/product-16.jpg" alt="Vimana BondPrime" loading="lazy">
             <span class="vmprd-badge">Vimana</span>
           </div>
           <div class="vmprd-content">
@@ -241,7 +278,7 @@
         <!-- Product 17 -->
         <article class="vmprd-card">
           <div class="vmprd-image-wrapper">
-            <img class="vmprd-image" src="../assets/product-17.jpg" alt="Vimana BondPrime" loading="lazy">
+            <img class="vmprd-image" src="/assets/product-17.jpg" alt="Vimana BondPrime" loading="lazy">
             <span class="vmprd-badge">Vimana</span>
           </div>
           <div class="vmprd-content">
@@ -256,15 +293,29 @@
   </section>
   <div class="vmprd-lightbox" id="vmprdLightbox">
 
-    <button class="vmprd-lightbox-close" type="button" aria-label="Close image gallery">&times;</button>
- 
-    <button class="vmprd-lightbox-prev" type="button" aria-label="Previous image">&#10094;</button>
+    <button class="vmprd-lightbox-close">&times;</button>
 
-    <img class="vmprd-lightbox-image" src="" alt="Selected product image">
+    <button class="vmprd-lightbox-prev">&#10094;</button>
 
-    <button class="vmprd-lightbox-next" type="button" aria-label="Next image">&#10095;</button>
+    <img class="vmprd-lightbox-image" src="" alt="">
+
+    <button class="vmprd-lightbox-next">&#10095;</button>
 
   </div>
+   <!-- Dynamic Footer Mount Point -->
+    <footer id="vmn-footer-root"></footer>
+
+    <script>
+        fetch("/page/footer.html")
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById("vmn-footer-root").innerHTML = data;
+            })
+            .catch(error => console.error("Footer component load failure:", error));
+    </script>
   <script>
 const productGallery = {
     product1: [
@@ -416,6 +467,7 @@ vmprdLightbox.addEventListener("click", e => {
 
 });
 </script>
+<script src="/js/nav-footer.js"></script>
 </body>
 
 </html>
