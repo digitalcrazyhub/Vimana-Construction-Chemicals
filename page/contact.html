@@ -1,37 +1,73 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Vimana Construction Chemicals for advanced waterproofing systems, concrete admixtures, and specialized construction solutions. Get technical consultation and expert support.">
-  <meta name="keywords" content="Vimana Construction Chemicals, Waterproofing, Construction Chemicals, Concrete Admixtures, Structural Repair, Contact Vimana">
+  <meta name="description"
+    content="Contact Vimana Construction Chemicals for advanced waterproofing systems, concrete admixtures, and specialized construction solutions. Get technical consultation and expert support.">
+  <meta name="keywords"
+    content="Vimana Construction Chemicals, Waterproofing, Construction Chemicals, Concrete Admixtures, Structural Repair, Contact Vimana">
   <title>Contact Us | Vimana Construction Chemicals</title>
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="icon" href="/assets/vimana-logo.png" />
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/css/contact.css">
   <link rel="stylesheet" href="/css/nav-footer.css">
 </head>
-<body>
- <!-- Dynamic Header Mount Point -->
-    <header id="vmn-header-root"></header>
 
-    <script>
-        fetch("/page/header.html")
-            .then(response => {
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById("vmn-header-root").innerHTML = data;
-            })
-            .catch(error => console.error("Header component load failure:", error));
-    </script>
+<body>
+  <!-- HEADER / NAVBAR -->
+  <header id="vmHeader" class="vm-header">
+    <div class="vm-container vm-nav-wrapper">
+
+      <a href="index.html" class="vm-logo">
+        <img src="/assets/Vimana Logo.png" alt="Vimana" class="vm-logo-img">
+      </a>
+
+      <nav class="vm-nav-links">
+        <a href="/index.html" class="vm-nav-link">Home</a>
+        <a href="/page/about.html" class="vm-nav-link">About</a>
+        <a href="/page/service.html" class="vm-nav-link">Services</a>
+        <a href="/page/product.html" class="vm-nav-link">Product</a>
+        <a href="/page/Project.html" class="vm-nav-link">Project</a>
+        <a href="/page/contact.html" class="vm-nav-link">Contact</a>
+      </nav>
+
+      <div class="vm-nav-right">
+        <a href="tel:+917845401301" class="vm-phone-link"><i data-lucide="phone"></i>
+          +91 78454 01301
+        </a>
+        <a href="/page/contact.html" class="vm-btn-primary">
+          Get Free Inspection
+        </a>
+      </div>
+
+      <button class="vm-menu-btn" id="vmMenuBtn" aria-label="Toggle Navigation">
+        <i data-lucide="menu"></i>
+      </button>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="vm-mobile-menu" id="vmMobileMenu">
+      <a href="/index.html" class="vm-mobile-link">Home</a>
+      <a href="/page/about.html" class="vm-mobile-link">About</a>
+      <a href="/page/service.html" class="vm-mobile-link">Services</a>
+      <a href="/page/product.html" class="vm-mobile-link">Products</a>
+      <a href="/page/Project.html" class="vm-mobile-link">Projects</a>
+      <a href="/page/contact.html" class="vm-mobile-link">Contact</a>
+      <a href="/page/contact.html" class="vm-btn-primary vm-mobile-btn">
+        Get Free Inspection
+      </a>
+    </div>
+  </header>
 
   <!-- Ambient Background Elements -->
   <div class="bg-grid" aria-hidden="true"></div>
@@ -48,9 +84,9 @@
     <section class="hero" aria-label="Hero Banner">
       <div class="hero__container">
         <div class="hero__bg-wrapper">
-          <img src="assets/hero.jpg" alt="Vimana Waterproofing & Engineering Chemicals" class="hero__bg-img">
+          <img src="/assets/hero-3.jpg" alt="Vimana Waterproofing & Engineering Chemicals" class="hero__bg-img">
           <div class="hero__overlay"></div>
-          
+
           <!-- Animated floating circles inside Hero -->
           <div class="hero__circle hero__circle--1" aria-hidden="true"></div>
           <div class="hero__circle hero__circle--2" aria-hidden="true"></div>
@@ -68,9 +104,10 @@
               <li class="hero__breadcrumb-item hero__breadcrumb-item--active" aria-current="page">Contact</li>
             </ol>
           </nav>
-          
+
           <h1 class="hero__title">Contact Us</h1>
-          <p class="hero__subtitle">Partner with Vimana Construction Chemicals for high-performance waterproofing systems & engineering support.</p>
+          <p class="hero__subtitle">Partner with Vimana Construction Chemicals for high-performance waterproofing
+            systems & engineering support.</p>
         </div>
       </div>
     </section>
@@ -78,30 +115,34 @@
     <!-- Section 2: Contact Section (Two-Column Layout) -->
     <section class="contact" aria-label="Get In Touch Contact Section">
       <div class="contact__container">
-        
+
         <!-- Left Side (45%): Info Cards -->
         <div class="contact-info js-scroll-fade-right">
           <header class="contact-info__header">
             <span class="contact-info__tag">/ GET IN TOUCH /</span>
             <h2 class="contact-info__heading">We are always ready to help you and answer your questions.</h2>
             <p class="contact-info__desc">
-              Whether you require technical consultation for major infrastructure projects, structural waterproofing advice, or custom chemical formulation inquiries, our team of chemical engineers is here to assist.
+              Whether you require technical consultation for major infrastructure projects, structural waterproofing
+              advice, or custom chemical formulation inquiries, our team of chemical engineers is here to assist.
             </p>
           </header>
 
           <div class="contact-info__grid">
-            
+
             <!-- Card 1: Phone -->
             <article class="contact-card js-card-tilt">
               <div class="contact-card__icon-wrapper">
-                <svg class="contact-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                <svg class="contact-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
               </div>
               <div class="contact-card__content">
                 <h3 class="contact-card__title">Phone Number</h3>
                 <p class="contact-card__text">
-                  <a href="tel:+9118001234567" class="contact-card__link js-copy-trigger" data-copy="+91 1800 123 4567" title="Click to copy phone number">+91 78454 01301</a>
+                  <a href="tel:+9118001234567" class="contact-card__link js-copy-trigger" data-copy="+91 1800 123 4567"
+                    title="Click to copy phone number">+91 78454 01301</a>
                 </p>
                 <!-- <span class="contact-card__subtext">Mon - Sat: 9:00 AM - 6:00 PM IST</span> -->
               </div>
@@ -110,18 +151,21 @@
             <!-- Card 2: Email -->
             <article class="contact-card js-card-tilt">
               <div class="contact-card__icon-wrapper">
-                <svg class="contact-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
+                <svg class="contact-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
                 </svg>
               </div>
               <div class="contact-card__content">
                 <h3 class="contact-card__title">Email Address</h3>
                 <p class="contact-card__text">
-                  <a href="mailto:support@vimanachemicals.com" class="contact-card__link js-copy-trigger" data-copy="support@vimanachemicals.com" title="Click to copy email">support@vimanachemicals.com</a>
+                  <a href="mailto:support@vimanachemicals.com" class="contact-card__link js-copy-trigger"
+                    data-copy="support@vimanachemicals.com" title="Click to copy email">support@vimanachemicals.com</a>
                 </p>
                 <span class="contact-card__subtext">
-                  <a href="mailto:info@vimanachemicals.com" class="contact-card__link-sub js-copy-trigger" data-copy="info@vimanachemicals.com">info@vimanachemicals.com</a>
+                  <a href="mailto:info@vimanachemicals.com" class="contact-card__link-sub js-copy-trigger"
+                    data-copy="info@vimanachemicals.com">info@vimanachemicals.com</a>
                 </span>
               </div>
             </article>
@@ -129,9 +173,10 @@
             <!-- Card 3: Office Address -->
             <article class="contact-card js-card-tilt">
               <div class="contact-card__icon-wrapper">
-                <svg class="contact-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
+                <svg class="contact-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
                 </svg>
               </div>
               <div class="contact-card__content">
@@ -145,28 +190,41 @@
             <!-- Card 4: Social Media -->
             <article class="contact-card js-card-tilt">
               <div class="contact-card__icon-wrapper">
-                <svg class="contact-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="18" cy="5" r="3"/>
-                  <circle cx="6" cy="12" r="3"/>
-                  <circle cx="18" cy="19" r="3"/>
-                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
-                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                <svg class="contact-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
                 </svg>
               </div>
               <div class="contact-card__content">
                 <h3 class="contact-card__title">Social Media</h3>
                 <div class="contact-card__socials">
                   <a href="#" class="contact-card__social-link" aria-label="LinkedIn" title="LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                    </svg>
                   </a>
                   <a href="#" class="contact-card__social-link" aria-label="Twitter / X" title="Twitter / X">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
                   </a>
                   <a href="#" class="contact-card__social-link" aria-label="Facebook" title="Facebook">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.69c0-2.47 1.47-3.83 3.72-3.83 1.08 0 2.2.19 2.2.19v2.42H14.68c-1.23 0-1.61.76-1.61 1.54V12h2.72l-.43 3H13.07v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.69c0-2.47 1.47-3.83 3.72-3.83 1.08 0 2.2.19 2.2.19v2.42H14.68c-1.23 0-1.61.76-1.61 1.54V12h2.72l-.43 3H13.07v6.8c4.56-.93 8-4.96 8-9.8z" />
+                    </svg>
                   </a>
                   <a href="#" class="contact-card__social-link" aria-label="YouTube" title="YouTube">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.58 7.19a2.81 2.81 0 0 0-1.98-1.99C17.85 4.67 12 4.67 12 4.67s-5.85 0-7.6.53a2.81 2.81 0 0 0-1.98 1.99A29.94 29.94 0 0 0 2 12a29.94 29.94 0 0 0 .42 4.81 2.81 2.81 0 0 0 1.98 1.99c1.75.53 7.6.53 7.6.53s5.85 0 7.6-.53a2.81 2.81 0 0 0 1.98-1.99A29.94 29.94 0 0 0 22 12a29.94 29.94 0 0 0-.42-4.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M21.58 7.19a2.81 2.81 0 0 0-1.98-1.99C17.85 4.67 12 4.67 12 4.67s-5.85 0-7.6.53a2.81 2.81 0 0 0-1.98 1.99A29.94 29.94 0 0 0 2 12a29.94 29.94 0 0 0 .42 4.81 2.81 2.81 0 0 0 1.98 1.99c1.75.53 7.6.53 7.6.53s5.85 0 7.6-.53a2.81 2.81 0 0 0 1.98-1.99A29.94 29.94 0 0 0 22 12a29.94 29.94 0 0 0-.42-4.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" />
+                    </svg>
                   </a>
                 </div>
               </div>
@@ -181,14 +239,16 @@
             <div class="contact-form__header">
               <span class="contact-form__badge">FAST RESPONSE</span>
               <h3 class="contact-form__title">Send Us a Message</h3>
-              <p class="contact-form__subtitle">Fill out the form below to receive expert technical guidance from our engineers.</p>
+              <p class="contact-form__subtitle">Fill out the form below to receive expert technical guidance from our
+                engineers.</p>
             </div>
 
             <div class="contact-form__body">
-              
+
               <!-- Full Name -->
               <div class="contact-form__group">
-                <input type="text" id="fullName" name="fullName" class="contact-form__input" placeholder=" " required autocomplete="name">
+                <input type="text" id="fullName" name="fullName" class="contact-form__input" placeholder=" " required
+                  autocomplete="name">
                 <label for="fullName" class="contact-form__label">Full Name *</label>
                 <span class="contact-form__focus-line"></span>
                 <span class="contact-form__error" id="fullNameError">Please enter your full name</span>
@@ -196,7 +256,8 @@
 
               <!-- Email -->
               <div class="contact-form__group">
-                <input type="email" id="email" name="email" class="contact-form__input" placeholder=" " required autocomplete="email">
+                <input type="email" id="email" name="email" class="contact-form__input" placeholder=" " required
+                  autocomplete="email">
                 <label for="email" class="contact-form__label">Email Address *</label>
                 <span class="contact-form__focus-line"></span>
                 <span class="contact-form__error" id="emailError">Please enter a valid email address</span>
@@ -204,7 +265,8 @@
 
               <!-- Phone Number -->
               <div class="contact-form__group">
-                <input type="tel" id="phone" name="phone" class="contact-form__input" placeholder=" " required autocomplete="tel">
+                <input type="tel" id="phone" name="phone" class="contact-form__input" placeholder=" " required
+                  autocomplete="tel">
                 <label for="phone" class="contact-form__label">Phone Number *</label>
                 <span class="contact-form__focus-line"></span>
                 <span class="contact-form__error" id="phoneError">Please enter a valid phone number</span>
@@ -223,8 +285,9 @@
                 </select>
                 <label for="subject" class="contact-form__label">Subject / Service Area *</label>
                 <div class="contact-form__select-icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
                   </svg>
                 </div>
                 <span class="contact-form__focus-line"></span>
@@ -233,10 +296,12 @@
 
               <!-- Message -->
               <div class="contact-form__group contact-form__group--full">
-                <textarea id="message" name="message" class="contact-form__textarea" placeholder=" " rows="4" required></textarea>
+                <textarea id="message" name="message" class="contact-form__textarea" placeholder=" " rows="4"
+                  required></textarea>
                 <label for="message" class="contact-form__label">Your Message *</label>
                 <span class="contact-form__focus-line"></span>
-                <span class="contact-form__error" id="messageError">Please enter your message (at least 10 characters)</span>
+                <span class="contact-form__error" id="messageError">Please enter your message (at least 10
+                  characters)</span>
               </div>
 
             </div>
@@ -245,15 +310,19 @@
               <button type="submit" id="submitBtn" class="contact-form__btn">
                 <span class="contact-form__btn-text">Submit Request</span>
                 <span class="contact-form__btn-icon-box">
-                  <svg class="contact-form__btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                    <polyline points="12 5 19 12 12 19"/>
+                  <svg class="contact-form__btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
                   </svg>
                 </span>
                 <span class="contact-form__spinner" aria-hidden="true"></span>
               </button>
               <p class="contact-form__privacy">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
                 Your privacy is protected. We will never share your personal information.
               </p>
             </div>
@@ -272,23 +341,17 @@
         <div class="map-section__header">
           <span class="map-section__tag">/ OUR LOCATION /</span>
           <h2 class="map-section__title">Visit Our Corporate Headquarters</h2>
-          <p class="map-section__subtitle">Located in the heart of Sector 62 Industrial Hub, Noida</p>
+          <p class="map-section__subtitle">Located in the heart of Mannivakkam, Vandalur</p>
         </div>
 
         <div class="map-section__card">
 
           <!-- Google Maps Iframe Placeholder -->
           <div class="map-section__iframe-wrapper">
-            <iframe 
-              class="map-section__iframe" 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.114771034458!2d77.3621422!3d28.6289018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5456ef36d9f%3A0x3b7191b1286136c8!2sSector%2062%2C%20Noida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-              width="100%" 
-              height="450" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Vimana Construction Chemicals Location Map">
+            <iframe class="map-section__iframe"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7778.391612894952!2d80.06174670605267!3d12.895127405511275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f56f9fc1ec53%3A0x80dc66299cc0c0ed!2sVIMANA%20Construction%20Chemicals!5e0!3m2!1sen!2sin!4v1785225028319!5m2!1sen!2sin"
+              width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="Vimana Construction Chemicals Location Map">
             </iframe>
           </div>
         </div>
@@ -296,22 +359,97 @@
     </section>
 
   </main>
-<!-- Dynamic Footer Mount Point -->
-    <footer id="vmn-footer-root"></footer>
+  <!-- FOOTER -->
+  <footer class="vm-footer">
+    <div class="vm-container vm-footer-grid">
+      <div class="vm-footer-col">
+        <div class="vm-footer-logo">
+          <img src="/assets/Vimana Logo.png" alt="Vimana" class="vm-footer-logo-img" />
+        </div>
+        <p class="vm-footer-desc">
+          Vimana Construction Chemicals — the waterproofing experts. Premium chemicals and expert application, backed by
+          warranty.
+        </p>
+        <div class="vm-socials">
+          <a href="#" class="vm-social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+              height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M22.675 0h-21.35C.595 0 0 .595 0 1.326v21.348C0 23.405.595 24 1.326 24H12.82v-9.294H9.692V11.08h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.505 0-1.796.716-1.796 1.765v2.307h3.587l-.467 3.626H16.56V24h6.115C23.405 24 24 23.405 24 22.674V1.326C24 .595 23.405 0 22.675 0z" />
+            </svg></a>
+          <a href="#" class="vm-social-link" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+              height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.447 20.452H16.89v-5.569c0-1.328-.025-3.037-1.851-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.347V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433A2.063 2.063 0 013.274 5.37a2.063 2.063 0 114.126 0 2.063 2.063 0 01-2.063 2.063zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg></a>
+          <a href="#" class="vm-social-link" aria-label="X"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              fill="currentColor" width="24" height="24" aria-hidden="true">
+              <path
+                d="M18.9 2H22l-6.76 7.73L23 22h-6.24l-4.89-6.4L6.3 22H3.2l7.22-8.25L1 2h6.4l4.42 5.82L18.9 2zm-1.1 18h1.73L6.46 3.9H4.6L17.8 20z" />
+            </svg></a>
+          <a href="#" class="vm-social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+              height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M7.8 2h8.4C19.418 2 22 4.582 22 7.8v8.4c0 3.218-2.582 5.8-5.8 5.8H7.8C4.582 22 2 19.418 2 16.2V7.8C2 4.582 4.582 2 7.8 2zm0 2A3.8 3.8 0 004 7.8v8.4A3.8 3.8 0 007.8 20h8.4a3.8 3.8 0 003.8-3.8V7.8A3.8 3.8 0 0016.2 4H7.8zm8.95 1.5a.95.95 0 110 1.9.95.95 0 010-1.9zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z" />
+            </svg></a>
+        </div>
+      </div>
 
-    <script>
-        fetch("/page/footer.html")
-            .then(response => {
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById("vmn-footer-root").innerHTML = data;
-            })
-            .catch(error => console.error("Footer component load failure:", error));
-    </script>
+      <div class="vm-footer-col">
+        <h4 class="vm-footer-heading">Quick Links</h4>
+        <ul class="vm-footer-nav-list">
+          <li class="vm-footer-nav-item"><a href="/index.html" class="vm-footer-nav-link">Home</a></li>
+          <li class="vm-footer-nav-item"><a href="/page/about.html" class="vm-footer-nav-link">About</a></li>
+          <li class="vm-footer-nav-item"><a href="/page/service.html" class="vm-footer-nav-link">Services</a></li>
+          <li class="vm-footer-nav-item"><a href="/page/product.html" class="vm-footer-nav-link">Product</a></li>
+          <li class="vm-footer-nav-item"><a href="/page/contact.html" class="vm-footer-nav-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="vm-footer-col">
+        <h4 class="vm-footer-heading">Contact</h4>
+        <ul class="vm-contact-list">
+          <li class="vm-contact-item">
+            <i data-lucide="map-pin" class="vm-contact-icon"></i>
+            <span class="vm-contact-text">49, Mudichur Rd, Shanmuga Nagar, Mannivakkam, Tamil Nadu 600048.</span>
+          </li>
+          <li class="vm-contact-item">
+            <i data-lucide="phone" class="vm-contact-icon"></i>
+            <a href="tel:+917845401301" class="vm-contact-link">+91 78454 01301</a>
+          </li>
+          <li class="vm-contact-item">
+            <i data-lucide="mail" class="vm-contact-icon"></i>
+            <a href="mailto:hello@vimana.co" class="vm-contact-link">hello@vimana.co</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="vm-footer-col">
+        <h4 class="vm-footer-heading">Newsletter</h4>
+        <p class="vm-footer-desc">Get waterproofing tips, product updates and project stories.</p>
+        <form class="vm-newsletter-form" onsubmit="event.preventDefault(); this.reset(); alert('Subscribed!');">
+          <input type="email" required placeholder="your@email.com" class="vm-newsletter-input" />
+          <button type="submit" class="vm-newsletter-btn vm-btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="vm-container vm-footer-bottom">
+      <p class="vm-footer-copyright">© <span id="vmYear"></span> Vimana Construction Chemicals. All rights reserved.</p>
+      <div class="vm-footer-bottom-links">
+        <a href="#" class="vm-footer-bottom-link">Privacy</a>
+        <a href="#" class="vm-footer-bottom-link">Terms</a>
+        <a href="#" class="vm-footer-bottom-link">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+  <!--icon cnd link-->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
   <!-- JavaScript -->
   <script src="/js/contact.js"></script>
   <script src="/js/nav-footer.js"></script>
 </body>
+
 </html>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* ============ Vimana Construction Chemicals Scoped CSS ============ */
 :root {
   --vm-primary: #2F5AA8;
@@ -18,12 +19,14 @@
   --vm-shadow-elegant: 0 20px 60px -20px rgba(47, 90, 168, .35);
   --vm-shadow-glow: 0 0 60px rgba(76, 123, 209, .45);
   --vm-shadow-accent: 0 20px 50px -20px rgba(24, 168, 91, .45);
+  --font-family: "Poppins", sans-serif;
 }
 
 /* Prevent global style bleeding */
 .vm-header, .vm-header *,
 .vm-footer, .vm-footer * {
   box-sizing: border-box;
+  font-family: var(--font-family);
 }
 
 /* Shared Layout Containers & Buttons */
@@ -184,7 +187,6 @@
     background: var(--vm-charcoal);
     color: rgba(255,255,255,.75);
     padding: 70px 0 25px;
-    font-family: inherit;
 }
 
 .vm-footer-grid {

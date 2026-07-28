@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Browse Vimana Construction Chemicals products, including waterproofing coatings, sealants, grouts, and repair systems.">
-  <meta name="keywords" content="Vimana Construction Chemicals, Waterproofing Products, Construction Chemicals, Sealants, Grouts, Protective Coatings">
+  <meta name="description"
+    content="Browse Vimana Construction Chemicals products, including waterproofing coatings, sealants, grouts, and repair systems.">
+  <meta name="keywords"
+    content="Vimana Construction Chemicals, Waterproofing Products, Construction Chemicals, Sealants, Grouts, Protective Coatings">
   <meta name="theme-color" content="#2F5AA8">
   <link rel="canonical" href="product.html">
   <title>Products | Vimana Construction Chemicals</title>
@@ -15,40 +17,71 @@
 </head>
 
 <body class="vmprd-body">
-  <!-- Dynamic Header Mount Point -->
-    <header id="vmn-header-root"></header>
+  <!-- HEADER / NAVBAR -->
+<header id="vmHeader" class="vm-header">
+    <div class="vm-container vm-nav-wrapper">
 
-    <script>
-        fetch("/page/header.html")
-            .then(response => {
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById("vmn-header-root").innerHTML = data;
-            })
-            .catch(error => console.error("Header component load failure:", error));
-    </script>
+        <a href="index.html" class="vm-logo">
+            <img src="/assets/Vimana Logo.png" alt="Vimana" class="vm-logo-img">
+        </a>
 
-   <!-- 1. HERO SECTION -->
-    <section class="vmn-hero">
-        <div class="vmn-hero__background" aria-hidden="true"></div>
-        <div class="vmn-hero__overlay" aria-hidden="true"></div>
-        <div class="vmn-container vmn-hero__content">
-            <nav class="vmn-breadcrumbs" aria-label="Breadcrumb navigation">
-                <a href="/">Home</a>
-                <span class="vmn-breadcrumbs__separator">/</span>
-                <span aria-current="page">Services</span>
-            </nav>
-            <h1 class="vmn-hero__heading vmn-reveal">
-                Waterproofing <span class="vmn-text-gradient">Services</span>
-            </h1>
-            <p class="vmn-hero__subheading vmn-reveal" data-delay="80">
-                Pioneering advanced chemical solutions and structural protection engineered for durability and
-                lifelong waterproofing performance.
-            </p>
+        <nav class="vm-nav-links">
+            <a href="/index.html" class="vm-nav-link">Home</a>
+            <a href="/page/about.html" class="vm-nav-link">About</a>
+            <a href="/page/service.html" class="vm-nav-link">Services</a>
+            <a href="/page/product.html" class="vm-nav-link">Product</a>
+            <a href="/page/Project.html" class="vm-nav-link">Project</a>
+            <a href="/page/contact.html" class="vm-nav-link">Contact</a>
+        </nav>
+
+        <div class="vm-nav-right">
+            <a href="tel:+917845401301" class="vm-phone-link"><i data-lucide="phone"></i>
+                +91 78454 01301
+            </a>
+            <a href="/page/contact.html" class="vm-btn-primary">
+                Get Free Inspection
+            </a>
         </div>
-    </section>
+
+        <button class="vm-menu-btn" id="vmMenuBtn" aria-label="Toggle Navigation">
+           <i data-lucide="menu"></i>
+        </button>
+
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="vm-mobile-menu" id="vmMobileMenu">
+        <a href="/index.html" class="vm-mobile-link">Home</a>
+        <a href="/page/about.html" class="vm-mobile-link">About</a>
+        <a href="/page/service.html" class="vm-mobile-link">Services</a>
+        <a href="/page/product.html" class="vm-mobile-link">Products</a>
+        <a href="/page/Project.html" class="vm-mobile-link">Projects</a>
+        <a href="/page/contact.html" class="vm-mobile-link">Contact</a>
+        <a href="/page/contact.html" class="vm-btn-primary vm-mobile-btn">
+            Get Free Inspection
+        </a>
+    </div>
+</header>
+
+  <!-- 1. HERO SECTION -->
+  <section class="vmn-hero">
+    <div class="vmn-hero__background" aria-hidden="true"></div>
+    <div class="vmn-hero__overlay" aria-hidden="true"></div>
+    <div class="vmn-container vmn-hero__content">
+      <nav class="vmn-breadcrumbs" aria-label="Breadcrumb navigation">
+        <a href="/">Home</a>
+        <span class="vmn-breadcrumbs__separator">/</span>
+        <span aria-current="page">Services</span>
+      </nav>
+      <h1 class="vmn-hero__heading vmn-reveal">
+        Waterproofing <span class="vmn-text-gradient">Services</span>
+      </h1>
+      <p class="vmn-hero__subheading vmn-reveal" data-delay="80">
+        Pioneering advanced chemical solutions and structural protection engineered for durability and
+        lifelong waterproofing performance.
+      </p>
+    </div>
+  </section>
 
   <section class="vmprd-section" id="vmprd-products">
     <div class="vmprd-container">
@@ -62,7 +95,8 @@
         <!-- Product 1 -->
         <article class="vmprd-card">
           <div class="vmprd-image-wrapper">
-            <img class="vmprd-image vmprd-gallery-image" data-product="product1" src="../assets/product-1.jpg" alt="Fixit Bitufix" loading="lazy">
+            <img class="vmprd-image vmprd-gallery-image" data-product="product1" src="../assets/product-1.jpg"
+              alt="Fixit Bitufix" loading="lazy">
             <span class="vmprd-badge">Vimana</span>
           </div>
           <div class="vmprd-content">
@@ -302,46 +336,115 @@
     <button class="vmprd-lightbox-next">&#10095;</button>
 
   </div>
-   <!-- Dynamic Footer Mount Point -->
-    <footer id="vmn-footer-root"></footer>
+  <!-- FOOTER -->
+  <footer class="vm-footer">
+    <div class="vm-container vm-footer-grid">
+      <div class="vm-footer-col">
+        <div class="vm-footer-logo">
+          <img src="/assets/Vimana Logo.png" alt="Vimana" class="vm-footer-logo-img" />
+        </div>
+        <p class="vm-footer-desc">
+          Vimana Construction Chemicals — the waterproofing experts. Premium chemicals and expert application, backed by
+          warranty.
+        </p>
+        <div class="vm-socials">
+          <a href="#" class="vm-social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+              height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M22.675 0h-21.35C.595 0 0 .595 0 1.326v21.348C0 23.405.595 24 1.326 24H12.82v-9.294H9.692V11.08h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.505 0-1.796.716-1.796 1.765v2.307h3.587l-.467 3.626H16.56V24h6.115C23.405 24 24 23.405 24 22.674V1.326C24 .595 23.405 0 22.675 0z" />
+            </svg></a>
+          <a href="#" class="vm-social-link" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+              height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.447 20.452H16.89v-5.569c0-1.328-.025-3.037-1.851-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.347V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433A2.063 2.063 0 013.274 5.37a2.063 2.063 0 114.126 0 2.063 2.063 0 01-2.063 2.063zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg></a>
+          <a href="#" class="vm-social-link" aria-label="X"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              fill="currentColor" width="24" height="24" aria-hidden="true">
+              <path
+                d="M18.9 2H22l-6.76 7.73L23 22h-6.24l-4.89-6.4L6.3 22H3.2l7.22-8.25L1 2h6.4l4.42 5.82L18.9 2zm-1.1 18h1.73L6.46 3.9H4.6L17.8 20z" />
+            </svg></a>
+          <a href="#" class="vm-social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+              height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M7.8 2h8.4C19.418 2 22 4.582 22 7.8v8.4c0 3.218-2.582 5.8-5.8 5.8H7.8C4.582 22 2 19.418 2 16.2V7.8C2 4.582 4.582 2 7.8 2zm0 2A3.8 3.8 0 004 7.8v8.4A3.8 3.8 0 007.8 20h8.4a3.8 3.8 0 003.8-3.8V7.8A3.8 3.8 0 0016.2 4H7.8zm8.95 1.5a.95.95 0 110 1.9.95.95 0 010-1.9zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z" />
+            </svg></a>
+        </div>
+      </div>
 
-    <script>
-        fetch("/page/footer.html")
-            .then(response => {
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                return response.text();
-            })
-            .then(data => {
-                document.getElementById("vmn-footer-root").innerHTML = data;
-            })
-            .catch(error => console.error("Footer component load failure:", error));
-    </script>
+      <div class="vm-footer-col">
+        <h4 class="vm-footer-heading">Quick Links</h4>
+        <ul class="vm-footer-nav-list">
+          <li class="vm-footer-nav-item"><a href="/index.html" class="vm-footer-nav-link">Home</a></li>
+          <li class="vm-footer-nav-item"><a href="/page/about.html" class="vm-footer-nav-link">About</a></li>
+          <li class="vm-footer-nav-item"><a href="/page/service.html" class="vm-footer-nav-link">Services</a></li>
+          <li class="vm-footer-nav-item"><a href="/page/product.html" class="vm-footer-nav-link">Product</a></li>
+          <li class="vm-footer-nav-item"><a href="/page/contact.html" class="vm-footer-nav-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="vm-footer-col">
+        <h4 class="vm-footer-heading">Contact</h4>
+        <ul class="vm-contact-list">
+          <li class="vm-contact-item">
+            <i data-lucide="map-pin" class="vm-contact-icon"></i>
+            <span class="vm-contact-text">49, Mudichur Rd, Shanmuga Nagar, Mannivakkam, Tamil Nadu 600048.</span>
+          </li>
+          <li class="vm-contact-item">
+            <i data-lucide="phone" class="vm-contact-icon"></i>
+            <a href="tel:+917845401301" class="vm-contact-link">+91 78454 01301</a>
+          </li>
+          <li class="vm-contact-item">
+            <i data-lucide="mail" class="vm-contact-icon"></i>
+            <a href="mailto:hello@vimana.co" class="vm-contact-link">hello@vimana.co</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="vm-footer-col">
+        <h4 class="vm-footer-heading">Newsletter</h4>
+        <p class="vm-footer-desc">Get waterproofing tips, product updates and project stories.</p>
+        <form class="vm-newsletter-form" onsubmit="event.preventDefault(); this.reset(); alert('Subscribed!');">
+          <input type="email" required placeholder="your@email.com" class="vm-newsletter-input" />
+          <button type="submit" class="vm-newsletter-btn vm-btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="vm-container vm-footer-bottom">
+      <p class="vm-footer-copyright">© <span id="vmYear"></span> Vimana Construction Chemicals. All rights reserved.</p>
+      <div class="vm-footer-bottom-links">
+        <a href="#" class="vm-footer-bottom-link">Privacy</a>
+        <a href="#" class="vm-footer-bottom-link">Terms</a>
+        <a href="#" class="vm-footer-bottom-link">Sitemap</a>
+      </div>
+    </div>
+  </footer>
   <script>
-const productGallery = {
-    product1: [
+    const productGallery = {
+      product1: [
         "/assets/p1.jpg",
         "/assets/p2.jpg",
         "/assets/p3.jpg",
         "/assets/p4.jpg"
-    ]
-};
+      ]
+    };
 
-const vmprdLightbox = document.getElementById("vmprdLightbox");
-const vmprdLightboxImage = document.querySelector(".vmprd-lightbox-image");
-const closeBtn = document.querySelector(".vmprd-lightbox-close");
-const nextBtn = document.querySelector(".vmprd-lightbox-next");
-const prevBtn = document.querySelector(".vmprd-lightbox-prev");
+    const vmprdLightbox = document.getElementById("vmprdLightbox");
+    const vmprdLightboxImage = document.querySelector(".vmprd-lightbox-image");
+    const closeBtn = document.querySelector(".vmprd-lightbox-close");
+    const nextBtn = document.querySelector(".vmprd-lightbox-next");
+    const prevBtn = document.querySelector(".vmprd-lightbox-prev");
 
-let vmprdImages = [];
-let vmprdIndex = 0;
+    let vmprdImages = [];
+    let vmprdIndex = 0;
 
-/*==========================
-Open Gallery
-==========================*/
+    /*==========================
+    Open Gallery
+    ==========================*/
 
-document.querySelectorAll(".vmprd-gallery-image").forEach(img => {
+    document.querySelectorAll(".vmprd-gallery-image").forEach(img => {
 
-    img.addEventListener("click", () => {
+      img.addEventListener("click", () => {
 
         const product = img.dataset.product;
 
@@ -357,117 +460,122 @@ document.querySelectorAll(".vmprd-gallery-image").forEach(img => {
 
         document.body.style.overflow = "hidden";
 
+      });
+
     });
 
-});
+    /*==========================
+    Update Image
+    ==========================*/
 
-/*==========================
-Update Image
-==========================*/
+    function updateImage() {
 
-function updateImage() {
+      vmprdLightboxImage.src = vmprdImages[vmprdIndex];
 
-    vmprdLightboxImage.src = vmprdImages[vmprdIndex];
+    }
 
-}
+    /*==========================
+    Next
+    ==========================*/
 
-/*==========================
-Next
-==========================*/
+    function nextImage() {
 
-function nextImage() {
+      vmprdIndex++;
 
-    vmprdIndex++;
-
-    if (vmprdIndex >= vmprdImages.length) {
+      if (vmprdIndex >= vmprdImages.length) {
 
         vmprdIndex = 0;
 
+      }
+
+      updateImage();
+
     }
 
-    updateImage();
+    /*==========================
+    Previous
+    ==========================*/
 
-}
+    function prevImage() {
 
-/*==========================
-Previous
-==========================*/
+      vmprdIndex--;
 
-function prevImage() {
-
-    vmprdIndex--;
-
-    if (vmprdIndex < 0) {
+      if (vmprdIndex < 0) {
 
         vmprdIndex = vmprdImages.length - 1;
 
+      }
+
+      updateImage();
+
     }
 
-    updateImage();
+    /*==========================
+    Close
+    ==========================*/
 
-}
+    function closeGallery() {
 
-/*==========================
-Close
-==========================*/
+      vmprdLightbox.classList.remove("vmprd-open");
 
-function closeGallery() {
+      document.body.style.overflow = "";
 
-    vmprdLightbox.classList.remove("vmprd-open");
+    }
 
-    document.body.style.overflow = "";
+    nextBtn.addEventListener("click", nextImage);
 
-}
+    prevBtn.addEventListener("click", prevImage);
 
-nextBtn.addEventListener("click", nextImage);
+    closeBtn.addEventListener("click", closeGallery);
 
-prevBtn.addEventListener("click", prevImage);
+    /*==========================
+    Keyboard
+    ==========================*/
 
-closeBtn.addEventListener("click", closeGallery);
+    document.addEventListener("keydown", e => {
 
-/*==========================
-Keyboard
-==========================*/
+      if (!vmprdLightbox.classList.contains("vmprd-open")) return;
 
-document.addEventListener("keydown", e => {
-
-    if (!vmprdLightbox.classList.contains("vmprd-open")) return;
-
-    if (e.key === "ArrowRight") {
+      if (e.key === "ArrowRight") {
 
         nextImage();
 
-    }
+      }
 
-    if (e.key === "ArrowLeft") {
+      if (e.key === "ArrowLeft") {
 
         prevImage();
 
-    }
+      }
 
-    if (e.key === "Escape") {
-
-        closeGallery();
-
-    }
-
-});
-
-/*==========================
-Click Outside
-==========================*/
-
-vmprdLightbox.addEventListener("click", e => {
-
-    if (e.target === vmprdLightbox) {
+      if (e.key === "Escape") {
 
         closeGallery();
 
-    }
+      }
 
-});
-</script>
-<script src="/js/nav-footer.js"></script>
+    });
+
+    /*==========================
+    Click Outside
+    ==========================*/
+
+    vmprdLightbox.addEventListener("click", e => {
+
+      if (e.target === vmprdLightbox) {
+
+        closeGallery();
+
+      }
+
+    });
+  </script>
+  <!--icon cnd link-->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script src="/js/nav-footer.js"></script>
 </body>
 
 </html>
