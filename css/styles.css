@@ -164,8 +164,14 @@ h3 {
   position: relative;
 }
 
-.text-gradient {
-  background: var(--gradient-brand);
+.text-gradient1 {
+  background: var(--primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-gradient2 {
+  background: var(--accent);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

@@ -105,8 +105,14 @@ a {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.vmn-text-gradient {
-    background: var(--vmn-grad);
+.vmn-text-gradient1 {
+    background: var(--vmn-blue);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.vmn-text-gradient2 {
+    background: var(--vmn-green);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -397,7 +403,7 @@ a {
 .vmn-timeline__step {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 30px;
     margin-bottom: 40px;
