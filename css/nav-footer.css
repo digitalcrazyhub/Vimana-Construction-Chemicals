@@ -75,6 +75,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: padding 0.3s ease;
+}
+
+/* was previously inert: only tightens the header once past a scroll
+   threshold, using the existing card-hover shadow token */
+.vm-header.vm-scrolled .vm-nav-wrapper {
+    padding: 12px 20px;
+}
+
+.vm-header.vm-scrolled {
+    box-shadow: var(--vm-shadow-card-hover);
 }
 
 .vm-logo {
@@ -88,12 +99,32 @@
     width: auto;
 }
 
+/* FIX: .vm-nav-links is the <nav>, but its only direct child is the
+   <ul class="nav-item">, so flex here never touched the actual <li>
+   items — they were falling back to default block stacking. The
+   flex + gap need to live on .nav-item itself. */
 .vm-nav-links {
     display: flex;
+    align-items: center;
+}
+
+.vm-nav-links .nav-item {
+    display: flex;
+    align-items: center;
     gap: 35px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links {
+    position: relative;
 }
 
 .vm-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     color: #000000;
     font-weight: 600;
     text-decoration: none;
@@ -143,24 +174,166 @@
     color: #ffffff;
 }
 
+/*==========================
+    DESKTOP DROPDOWNS
+==========================*/
+
+.vm-dropdown-caret {
+    width: 15px;
+    height: 15px;
+    transition: transform 0.3s ease;
+}
+
+.vm-dropdown:hover .vm-dropdown-caret,
+.vm-dropdown:focus-within .vm-dropdown-caret {
+    transform: rotate(180deg);
+}
+
+.vm-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 14px 0 0;
+    padding: 10px;
+    min-width: 260px;
+    list-style: none;
+    background: var(--vm-bg);
+    border: 1px solid var(--vm-border);
+    border-radius: var(--vm-radius);
+    box-shadow: var(--vm-shadow-card);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    z-index: 1000;
+}
+
+.vm-dropdown-menu--wide {
+    min-width: 560px;
+    columns: 2;
+    column-gap: 6px;
+}
+
+.vm-dropdown-menu li {
+    margin: 0;
+    break-inside: avoid;
+}
+
+.vm-dropdown-menu a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: calc(var(--vm-radius) - 6px);
+    color: var(--vm-charcoal);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 500;
+    line-height: 1.4;
+    transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+}
+
+.vm-dropdown-menu a:hover,
+.vm-dropdown-menu a:focus-visible {
+    background: var(--vm-soft);
+    color: var(--vm-primary);
+    padding-left: 18px;
+}
+
+.vm-dropdown:hover .vm-dropdown-menu,
+.vm-dropdown:focus-within .vm-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/*==========================
+    MOBILE MENU
+==========================*/
+
 .vm-mobile-menu {
     display: none;
     flex-direction: column;
     background: #ffffff;
     padding: 20px;
     border-top: 1px solid var(--vm-border);
+    max-height: calc(100vh - 84px);
+    overflow-y: auto;
 }
 
 .vm-mobile-menu.vm-open {
     display: flex;
 }
 
+.vm-mobile-menu .nav-item {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .vm-mobile-link {
+    display: block;
     padding: 15px 0;
     color: #222222;
     font-weight: 600;
     text-decoration: none;
     border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.vm-mobile-dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.vm-mobile-toggle {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 0;
+    color: #222222;
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.vm-mobile-caret {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.vm-mobile-dropdown.vm-open-sub .vm-mobile-caret {
+    transform: rotate(180deg);
+}
+
+.vm-mobile-submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.vm-mobile-dropdown.vm-open-sub .vm-mobile-submenu {
+    max-height: 900px;
+}
+
+.vm-mobile-submenu li a {
+    display: block;
+    padding: 12px 0 12px 18px;
+    color: #444444;
+    font-weight: 500;
+    font-size: 14.5px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.vm-mobile-submenu li a:hover {
+    color: var(--vm-primary);
 }
 
 .vm-mobile-btn {
