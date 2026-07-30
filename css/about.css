@@ -289,7 +289,7 @@ a {
 
 .vmn-section-header {
     text-align: center;
-    max-width: 720px;
+    /* max-width: 720px; */
     margin: 0 auto 50px;
 }
 
@@ -383,6 +383,318 @@ a {
     transform: rotate(-45deg);
 }
 
+/* =========================================================
+   5. LOGO CAROSAL
+   ========================================================= */
+/*
+  BRAND LOGO CAROUSEL — bc- namespace
+  Uses ONLY existing site CSS variables. No :root redefinition.
+  Expected variables already defined elsewhere on the site:
+  --bg, --charcoal, --muted, --border, --radius,
+  --shadow-card, --shadow-card-hover, --shadow-glow, --shadow-accent,
+  --gradient-brand
+*/
+
+.bc-brand-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  padding: clamp(64px, 9vw, 128px) 0;
+  isolation: isolate;
+}
+
+/* ---------- decorative ambient shapes ---------- */
+
+.bc-glow {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  filter: blur(70px);
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bc-glow-one {
+  width: clamp(220px, 30vw, 460px);
+  height: clamp(220px, 30vw, 460px);
+  top: -12%;
+  left: -8%;
+  box-shadow: var(--shadow-glow);
+}
+
+.bc-glow-two {
+  width: clamp(180px, 24vw, 380px);
+  height: clamp(180px, 24vw, 380px);
+  bottom: -14%;
+  right: -6%;
+  box-shadow: var(--shadow-accent);
+  opacity: 0.14;
+}
+
+.bc-shape-ring {
+  position: absolute;
+  top: 12%;
+  right: 8%;
+  width: clamp(90px, 10vw, 160px);
+  height: clamp(90px, 10vw, 160px);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  opacity: 0.35;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---------- wrapper ---------- */
+
+.bc-brand-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px);
+}
+
+/* ---------- header ---------- */
+
+.bc-brand-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(40px, 6vw, 72px);
+}
+
+.bc-brand-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.bc-brand-title {
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin: 0 0 16px;
+}
+
+.bc-brand-desc {
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---------- carousel viewport ---------- */
+
+.bc-brand-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+}
+
+.bc-brand-track {
+  display: flex;
+  align-items: stretch;
+  width: max-content; /* shrink-to-fit: box width = sum of item widths */
+  will-change: transform;
+  animation: bc-scroll 42s linear infinite;
+}
+
+.bc-brand-carousel[data-bc-paused="true"] .bc-brand-track {
+  animation-play-state: paused;
+}
+
+@keyframes bc-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* track is duplicated 1:1 by JS, so -50% is exactly one full set */
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- logo item / card ---------- */
+
+.bc-brand-item {
+  flex: 0 0 auto;
+  /* fixed px widths (not %) — the track is sized to its own content
+     (width: max-content) so the -50% loop math stays exact; percentage
+     widths would be indeterminate against a shrink-to-fit parent. */
+  width: 220px;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+.bc-brand-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.bc-brand-inner:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.bc-brand-logo {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.75;
+  transition: filter 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+}
+
+.bc-brand-inner:hover .bc-brand-logo {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+/* ---------- responsive breakpoints ---------- */
+
+/* Laptop — ~5 visible */
+@media (max-width: 1200px) {
+  .bc-brand-item {
+    width: 200px;
+  }
+}
+
+/* Small laptop / large tablet */
+@media (max-width: 992px) {
+  .bc-brand-item {
+    width: 180px;
+  }
+  .bc-brand-inner {
+    height: 110px;
+    padding: 20px;
+  }
+}
+
+/* Tablet — ~4 visible */
+@media (max-width: 768px) {
+  .bc-brand-item {
+    width: 165px;
+  }
+}
+
+@media (max-width: 576px) {
+  .bc-brand-item {
+    width: 150px;
+  }
+  .bc-brand-inner {
+    height: 100px;
+    padding: 18px;
+  }
+}
+
+/* Mobile — ~2 visible */
+@media (max-width: 480px) {
+  .bc-brand-item {
+    width: 140px;
+    padding: 0 8px;
+  }
+  .bc-brand-inner {
+    height: 90px;
+    padding: 16px;
+  }
+  .bc-brand-track {
+    animation-duration: 30s;
+  }
+}
+
+@media (max-width: 375px) {
+  .bc-brand-item {
+    width: 128px;
+  }
+  .bc-brand-inner {
+    height: 84px;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .bc-brand-item {
+    width: 140px;
+    padding: 0 6px;
+  }
+  .bc-brand-inner {
+    height: 76px;
+    padding: 12px;
+  }
+}
+
+/* Large desktop refinements */
+@media (min-width: 1400px) {
+  .bc-brand-item {
+    width: 236px;
+  }
+  .bc-brand-inner {
+    height: 150px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .bc-brand-item {
+    width: 250px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .bc-brand-wrapper {
+    max-width: 1600px;
+  }
+  .bc-brand-item {
+    width: 260px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .bc-brand-wrapper {
+    max-width: 1900px;
+  }
+  .bc-brand-item {
+    width: 280px;
+  }
+  .bc-brand-inner {
+    height: 150px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bc-brand-track {
+    animation-duration: 120s;
+  }
+}
 /* =========================================================
    3. TIMELINE SECTION
    ========================================================= */

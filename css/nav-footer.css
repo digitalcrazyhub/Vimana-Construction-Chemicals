@@ -83,9 +83,6 @@
 
 /* was previously inert: only tightens the header once past a scroll
    threshold, using the existing card-hover shadow token */
-.vm-header.vm-scrolled .vm-nav-wrapper {
-    padding: 12px 20px;
-}
 
 .vm-header.vm-scrolled {
     box-shadow: var(--vm-shadow-card-hover);
@@ -138,10 +135,11 @@
     color: var(--vm-primary);
 }
 
-.vm-nav-right {
+.vm-nav-right a {
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
+    gap: 10px;
 }
 
 .vm-phone-link {
@@ -355,6 +353,17 @@
     .vm-menu-btn {
         display: flex;
     }
+    .vm-logo-img {
+    height: 70px;
+}
+    
+}
+@media(max-width: 1024px) {
+
+    .vm-logo-img {
+    height: 70px;
+}
+    
 }
 
 /*====================================
