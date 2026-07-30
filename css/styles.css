@@ -806,7 +806,10 @@ h3 {
   border-radius: 999px;
   font-weight: 600;
   font-size: .85rem;
-  text-align: center;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   transition: all .3s
 }
 

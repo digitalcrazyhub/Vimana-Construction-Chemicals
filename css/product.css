@@ -290,6 +290,8 @@ body {
     background: var(--primary-glow);
     font-weight: 600;
     transition: .3s;
+    color: #000;
+    gap: 11px;
 }
 
 .vmprd-button:hover {
