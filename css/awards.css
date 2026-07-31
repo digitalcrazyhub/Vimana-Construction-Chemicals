@@ -1,3 +1,4 @@
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
   :root {
       --bg: #ffffff;
       --border: #e2e8f0;
@@ -11,6 +12,7 @@
       --muted: #64748b;
       --charcoal-soft: #1e293b;
       --primary: #0e7490;
+      --font-family: "Plus Jakarta Sans", "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
   * {
@@ -20,110 +22,213 @@
   }
 
   body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: var(--font-family);
       background-color: #f8fafc;
       color: var(--charcoal);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
   }
-  .container,
-.vmn-container {
-  width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 24px;
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.pitabt-container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+    box-sizing:border-box;
 }
 
-/* ---------- Text utilities ---------- */
-.vmn-text-gradient {
-  background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.pitabt-hero-section{
+    position:relative;
+    display:flex;
+    align-items:center;
+    min-height:60vh;
+    padding:120px 0 90px;
+    overflow:hidden;
+    color:#fff;
 }
 
-/* =========================================================
-   1. HERO SECTION
-   ========================================================= */
-.vmn-hero {
-  position: relative;
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  color: #ffffff;
-  overflow: hidden;
-  padding-top: var(--nav-height);
+.pitabt-hero-bg{
+    position:absolute;
+    inset:0;
+    background:url("/assets/hero-1.jpg") center center/cover no-repeat;
+    animation:pitabtZoom 20s ease-in-out infinite alternate;
+    transform:scale(1.05);
 }
 
-.vmn-hero__background {
-  position: absolute;
-  inset: 0;
-  background: url("/assets/hero-1.jpg") center/cover no-repeat;
-  transform: scale(1.05);
-  animation: vmnHeroZoom 20s ease-in-out infinite alternate;
+@keyframes pitabtZoom{
+
+    from{
+        transform:scale(1.05);
+    }
+    to{
+        transform:scale(1.15);
+    }
 }
 
-@keyframes vmnHeroZoom {
-  from { transform: scale(1.05); }
-  to { transform: scale(1.15); }
+.pitabt-hero-overlay{
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(37,90,168,.45),transparent 45%),
+    radial-gradient(circle at 80% 70%,rgba(17,148,83,.35),transparent 45%),
+    linear-gradient(180deg,
+    rgba(5,16,34,.58),
+    rgba(5,16,34,.82));
 }
 
-.vmn-hero__overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(1200px 500px at 20% 30%, rgba(47, 90, 168, 0.55), transparent 60%),
-    radial-gradient(1000px 500px at 80% 70%, rgba(24, 168, 91, 0.45), transparent 60%),
-    linear-gradient(180deg, rgba(6, 15, 32, 0.6) 0%, rgba(6, 15, 32, 0.78) 100%);
+.pitabt-hero-content{
+    position:relative;
+    z-index:2;
 }
 
-.vmn-hero__content {
-  position: relative;
-  padding: 60px 0 80px;
+.pitabt-breadcrumb{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 18px;
+    border-radius:50px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);
+    backdrop-filter:blur(10px);
+    margin-bottom:25px;
+    font-size:15px;
 }
 
-.vmn-breadcrumbs {
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  padding: 8px 18px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(10px);
-  border-radius: 999px;
-  font-size: 0.85rem;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
+.pitabt-breadcrumb a{
+    color:#fff;
+    text-decoration:none;
+    opacity:.85;
+    transition:.3s;
 }
 
-.vmn-breadcrumbs a {
-  opacity: 0.85;
-  transition: opacity 0.2s;
-  color: inherit;
-  text-decoration: none;
+.pitabt-breadcrumb a:hover{
+    opacity:1;
 }
 
-.vmn-breadcrumbs a:hover {
-  opacity: 1;
+.pitabt-divider{
+    opacity:.5;
 }
 
-.vmn-breadcrumbs__separator {
-  opacity: 0.5;
+.pitabt-title{
+    margin:0;
+    font-size:clamp(40px,6vw,72px);
+    font-weight:800;
+    line-height:1.05;
+    letter-spacing:-1px;
 }
 
-.vmn-hero__heading {
-  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  font-weight: 800;
-  margin: 0 0 16px;
+.pitabt-description{
+    margin-top:20px;
+    max-width:700px;
+    font-size:clamp(16px,2vw,22px);
+    line-height:1.7;
+    opacity:.92;
 }
 
-.vmn-hero__subheading {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  opacity: 0.9;
-  max-width: 58ch;
-  margin: 0;
+/* =====================================
+Reveal Animation
+===================================== */
+
+.pitabt-reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.22,1,.36,1);
+}
+.pitabt-reveal.pitabt-visible{
+    opacity:1;
+    transform:none;
+}
+
+/* =====================================
+Large Desktop
+===================================== */
+
+@media (min-width:1400px){
+    .pitabt-container{
+        max-width:1320px;
+    }
+}
+
+/* =====================================
+Laptop
+===================================== */
+
+@media (max-width:1199px){
+    .pitabt-container{
+        max-width:100%;
+        padding:0 30px;
+    }
+}
+
+/* =====================================
+Tablet
+===================================== */
+
+@media (max-width:991px){
+    .pitabt-hero-section{
+        min-height:55vh;
+        padding:110px 0 70px;
+    }
+
+    .pitabt-description{
+        max-width:100%;
+    }
+}
+
+/* =====================================
+Mobile
+===================================== */
+
+@media (max-width:767px){
+    .pitabt-container{
+        padding:0 20px;
+    }
+
+    .pitabt-hero-section{
+        min-height:500px;
+        text-align:center;
+        justify-content:center;
+        padding:120px 0 70px;
+    }
+
+    .pitabt-breadcrumb{
+        justify-content:center;
+        flex-wrap:wrap;
+        font-size:14px;
+    }
+
+    .pitabt-title{
+        font-size:42px;
+    }
+
+    .pitabt-description{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+}
+
+/* =====================================
+Small Mobile
+===================================== */
+
+@media (max-width:480px){
+    .pitabt-container{
+        padding:0 16px;
+    }
+
+    .pitabt-title{
+        font-size:36px;
+    }
+
+    .pitabt-description{
+        font-size:15px;
+    }
 }
 
   /* ==========================================================================
@@ -469,8 +574,7 @@
   /* Laptop: 992px - 1399px (4 Columns) */
   @media (max-width: 1399px) {
       .awards-grid {
-          grid-template-columns: repeat(3
-          , 1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: 24px;
       }
 

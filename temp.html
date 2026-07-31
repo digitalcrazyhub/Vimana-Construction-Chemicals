@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us — Vimana Construction Chemicals | The Waterproofing Experts</title>
+    <link rel="icon" href="/assets/vimana-logo.png" />
+
+    <!-- Preconnect & Fonts -->
+   
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Open Graph Metadata -->
+    
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* =========================================================
+1. HERO SECTION
+========================================================= */
+.vmn-container {
+    font-family: "Plus Jakarta Sans", "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    width: 1200px;
+    margin-inline: auto;
+}
+
+.vmn-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    overflow: hidden;
+    padding-top: 76px;
+}
+
+.vmn-hero__background {
+    position: absolute;
+    inset: 0;
+    background: url("/assets/hero-1.jpg") center/cover no-repeat;
+    transform: scale(1.05);
+    animation: vmnHeroZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes vmnHeroZoom {
+    from {
+        transform: scale(1.05);
+    }
+
+    to {
+        transform: scale(1.15);
+    }
+}
+
+.vmn-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(1200px 500px at 20% 30%, rgba(37, 90, 168, 0.55), transparent 60%),
+        radial-gradient(1000px 500px at 80% 70%, rgba(24, 167, 90, 0.45), transparent 60%),
+        linear-gradient(180deg, rgba(6, 15, 32, 0.6) 0%, rgba(6, 15, 32, 0.78) 100%);
+}
+
+.vmn-hero__content {
+    position: relative;
+    padding: 60px 0 80px;
+}
+
+.vmn-breadcrumbs {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(10px);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+}
+
+.vmn-breadcrumbs a {
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.vmn-breadcrumbs a:hover {
+    opacity: 1;
+}
+
+.vmn-breadcrumbs__separator {
+    opacity: 0.5;
+}
+
+.vmn-hero__heading {
+    font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+    margin: 0 0 16px;
+}
+
+.vmn-hero__subheading {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    opacity: 0.9;
+    max-width: 58ch;
+    margin: 0;
+}
+
+/* =========================================================
+   REVEAL ANIMATIONS
+   ========================================================= */
+.vmn-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vmn-reveal.vmn-is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.pitabt-container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+    font-family:"Plus Jakarta Sans","Manrope",sans-serif;
+    box-sizing:border-box;
+}
+
+.pitabt-hero-section{
+    position:relative;
+    display:flex;
+    align-items:center;
+    min-height:60vh;
+    padding:120px 0 90px;
+    overflow:hidden;
+    color:#fff;
+}
+
+.pitabt-hero-bg{
+    position:absolute;
+    inset:0;
+    background:url("/assets/hero-1.jpg") center center/cover no-repeat;
+    animation:pitabtZoom 20s ease-in-out infinite alternate;
+    transform:scale(1.05);
+}
+
+@keyframes pitabtZoom{
+
+    from{
+        transform:scale(1.05);
+    }
+    to{
+        transform:scale(1.15);
+    }
+}
+
+.pitabt-hero-overlay{
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(37,90,168,.45),transparent 45%),
+    radial-gradient(circle at 80% 70%,rgba(17,148,83,.35),transparent 45%),
+    linear-gradient(180deg,
+    rgba(5,16,34,.58),
+    rgba(5,16,34,.82));
+}
+
+.pitabt-hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.pitabt-breadcrumb{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 18px;
+    border-radius:50px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);
+    backdrop-filter:blur(10px);
+    margin-bottom:25px;
+    font-size:15px;
+}
+
+.pitabt-breadcrumb a{
+    color:#fff;
+    text-decoration:none;
+    opacity:.85;
+    transition:.3s;
+}
+
+.pitabt-breadcrumb a:hover{
+    opacity:1;
+}
+
+.pitabt-divider{
+    opacity:.5;
+}
+
+.pitabt-title{
+    margin:0;
+    font-size:clamp(40px,6vw,72px);
+    font-weight:800;
+    line-height:1.05;
+    letter-spacing:-1px;
+}
+
+.pitabt-description{
+    margin-top:20px;
+    max-width:700px;
+    font-size:clamp(16px,2vw,22px);
+    line-height:1.7;
+    opacity:.92;
+}
+
+/* =====================================
+Reveal Animation
+===================================== */
+
+.pitabt-reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.22,1,.36,1);
+}
+.pitabt-reveal.pitabt-visible{
+    opacity:1;
+    transform:none;
+}
+
+/* =====================================
+Large Desktop
+===================================== */
+
+@media (min-width:1400px){
+    .pitabt-container{
+        max-width:1320px;
+    }
+}
+
+/* =====================================
+Laptop
+===================================== */
+
+@media (max-width:1199px){
+    .pitabt-container{
+        max-width:100%;
+        padding:0 30px;
+    }
+}
+
+/* =====================================
+Tablet
+===================================== */
+
+@media (max-width:991px){
+    .pitabt-hero-section{
+        min-height:55vh;
+        padding:110px 0 70px;
+    }
+
+    .pitabt-description{
+        max-width:100%;
+    }
+}
+
+/* =====================================
+Mobile
+===================================== */
+
+@media (max-width:767px){
+    .pitabt-container{
+        padding:0 20px;
+    }
+
+    .pitabt-hero-section{
+        min-height:500px;
+        text-align:center;
+        justify-content:center;
+        padding:120px 0 70px;
+    }
+
+    .pitabt-breadcrumb{
+        justify-content:center;
+        flex-wrap:wrap;
+        font-size:14px;
+    }
+
+    .pitabt-title{
+        font-size:42px;
+    }
+
+    .pitabt-description{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+}
+
+/* =====================================
+Small Mobile
+===================================== */
+
+@media (max-width:480px){
+    .pitabt-container{
+        padding:0 16px;
+    }
+
+    .pitabt-title{
+        font-size:36px;
+    }
+
+    .pitabt-description{
+        font-size:15px;
+    }
+}
+    </style>
+</head>
+
+<body>
+   
+    <!-- 1. HERO SECTION -->
+    <section class="vmn-hero">
+        <div class="vmn-hero__background" aria-hidden="true"></div>
+        <div class="vmn-hero__overlay" aria-hidden="true"></div>
+        <div class="vmn-container vmn-hero__content">
+            <nav class="vmn-breadcrumbs" aria-label="Breadcrumb navigation">
+                <a href="/">Home</a>
+                <span class="vmn-breadcrumbs__separator">/</span>
+                <span aria-current="page">About Us</span>
+            </nav>
+            <h1 class="vmn-hero__heading vmn-reveal">
+                About Us
+            </h1>
+            <p class="vmn-hero__subheading vmn-reveal" data-delay="80">
+                Pioneering advanced chemical solutions and structural protection engineered for durability and lifelong
+                waterproofing performance.
+            </p>
+        </div>
+    </section>
+
+    <!-- HERO SECTION -->
+    <section class="pitabt-hero-section">
+        <div class="pitabt-hero-bg" aria-hidden="true"></div>
+        <div class="pitabt-hero-overlay" aria-hidden="true"></div>
+    
+        <div class="pitabt-container pitabt-hero-content">
+            <nav class="pitabt-breadcrumb" aria-label="Breadcrumb navigation">
+                <a href="/index.html">Home</a>
+                <span class="pitabt-divider">/</span>
+                <span aria-current="page">About Us</span>
+            </nav>
+    
+            <h1 class="pitabt-title vmn-reveal">
+                About Us
+            </h1>
+    
+            <p class="pitabt-description vmn-reveal" data-delay="80">
+                Pioneering advanced chemical solutions and structural protection engineered for durability and lifelong
+                waterproofing performance.
+            </p>
+        </div>
+    </section>
+
+   
+    <!--icon cnd link-->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <!-- External Scripts -->
+    <script src="../js/about.js" defer></script>
+    <script src="/js/nav-footer.js" defer></script>
+</body>
+
+</html>
