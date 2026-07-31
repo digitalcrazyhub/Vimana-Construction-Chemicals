@@ -237,27 +237,27 @@ Small Mobile
     }
 }
 /***  product section ****/
-.vmprd-section * {
+.pitvmx-section * {
     box-sizing: border-box;
 }
 
-.vmprd-section {
+.pitvmx-section {
     background: #fff;
     padding: 80px 20px;
     overflow: hidden;
 }
 
-.vmprd-container {
+.pitvmx-container {
     max-width: 1200px;
     margin: auto;
 }
 
-.vmprd-header {
+.pitvmx-header {
     text-align: center;
     margin-bottom: 60px;
 }
 
-.vmprd-subtitle {
+.pitvmx-subtitle {
     display: inline-block;
     color: var(--primary);
     font-size: 13px;
@@ -267,20 +267,20 @@ Small Mobile
     margin-bottom: 15px;
 }
 
-.vmprd-title {
+.pitvmx-title {
     margin: 0;
     font-size: clamp(32px, 5vw, 52px);
     font-weight: 800;
     line-height: 1.2;
 }
 
-.vmprd-gradient {
+.pitvmx-gradient {
     background: var(--gradient-brand);
     -webkit-background-clip: text;
     color: transparent;
 }
 
-.vmprd-description {
+.pitvmx-description {
     max-width: 700px;
     margin: 20px auto 0;
     color: var(--charcoal-soft);
@@ -288,13 +288,13 @@ Small Mobile
     font-size: 17px;
 }
 
-.vmprd-grid {
+.pitvmx-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
-.vmprd-card {
+.pitvmx-card {
     display: flex;
     flex-direction: column;
     background: #fff;
@@ -305,17 +305,17 @@ Small Mobile
     transition: .35s;
 }
 
-.vmprd-card:hover {
+.pitvmx-card:hover {
     box-shadow: var(--shadow-card-hover);
 }
 
-.vmprd-image-wrapper {
+.pitvmx-image-wrapper {
     position: relative;
     overflow: hidden;
     aspect-ratio: 1/1;
 }
 
-.vmprd-image {
+.pitvmx-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -323,11 +323,11 @@ Small Mobile
     transition: .6s;
 }
 
-.vmprd-card:hover .vmprd-image {
+.pitvmx-card:hover .pitvmx-image {
     transform: scale(1.08);
 }
 
-.vmprd-badge {
+.pitvmx-badge {
     position: absolute;
     top: 15px;
     left: 15px;
@@ -341,26 +341,26 @@ Small Mobile
     text-transform: uppercase;
 }
 
-.vmprd-content {
+.pitvmx-content {
     display: flex;
     flex-direction: column;
     flex: 1;
     padding: 24px;
 }
 
-.vmprd-card-title {
+.pitvmx-card-title {
     margin: 0;
     font-size: 22px;
     color: var(--charcoal);
 }
 
-.vmprd-card-text {
+.pitvmx-card-text {
     flex: 1;
     margin: 15px 0 25px;
     line-height: 1.7;
 }
 
-.vmprd-button {
+.pitvmx-button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -375,37 +375,37 @@ Small Mobile
     gap: 11px;
 }
 
-.vmprd-button:hover {
+.pitvmx-button:hover {
     background: var(--primary);
     color: #fff;
-    border-color: var(--vmprd-primary);
+    border-color: var(--pitvmx-primary);
 }
 
 @media (max-width:992px) {
-    .vmprd-grid {
+    .pitvmx-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width:576px) {
-    .vmprd-section {
+    .pitvmx-section {
         padding: 60px 15px;
     }
 
-    .vmprd-grid {
+    .pitvmx-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    .vmprd-content {
+    .pitvmx-content {
         padding: 20px;
     }
 
-    .vmprd-card-title {
+    .pitvmx-card-title {
         font-size: 20px;
     }
 
-    .vmprd-description {
+    .pitvmx-description {
         font-size: 16px;
     }
 }
@@ -413,11 +413,11 @@ Small Mobile
 LIGHTBOX
 ==============================*/
 
-.vmprd-gallery-image{
+.pitvmx-gallery-image{
     cursor:pointer;
 }
 
-.vmprd-lightbox{
+.pitvmx-lightbox{
     position:fixed;
     inset:0;
     display:flex;
@@ -431,20 +431,20 @@ LIGHTBOX
     padding:30px;
 }
 
-.vmprd-lightbox.vmprd-open{
+.pitvmx-lightbox.pitvmx-open{
     opacity:1;
     visibility:visible;
 }
 
-.vmprd-lightbox-image{
+.pitvmx-lightbox-image{
     max-width:90%;
     max-height:90vh;
     object-fit:contain;
     border-radius:12px;
-    animation:vmprdZoom .3s ease;
+    animation:pitvmxZoom .3s ease;
 }
 
-@keyframes vmprdZoom{
+@keyframes pitvmxZoom{
 
 from{
 transform:scale(.9);
@@ -458,7 +458,7 @@ opacity:1;
 
 }
 
-.vmprd-lightbox-close{
+.pitvmx-lightbox-close{
     position:absolute;
     top:25px;
     right:30px;
@@ -471,8 +471,8 @@ opacity:1;
     cursor:pointer;
 }
 
-.vmprd-lightbox-prev,
-.vmprd-lightbox-next{
+.pitvmx-lightbox-prev,
+.pitvmx-lightbox-next{
 
     position:absolute;
     top:50%;
@@ -489,37 +489,37 @@ opacity:1;
 
 }
 
-.vmprd-lightbox-prev:hover,
-.vmprd-lightbox-next:hover{
+.pitvmx-lightbox-prev:hover,
+.pitvmx-lightbox-next:hover{
 
 background:#fff;
 color:#000;
 
 }
 
-.vmprd-lightbox-prev{
+.pitvmx-lightbox-prev{
 left:25px;
 }
 
-.vmprd-lightbox-next{
+.pitvmx-lightbox-next{
 right:25px;
 }
 
 @media(max-width:768px){
 
-.vmprd-lightbox-image{
+.pitvmx-lightbox-image{
 max-width:96%;
 }
 
-.vmprd-lightbox-prev,
-.vmprd-lightbox-next{
+.pitvmx-lightbox-prev,
+.pitvmx-lightbox-next{
 width:45px;
 height:45px;
 font-size:22px;
 top: 70%;
 }
 
-.vmprd-lightbox-close{
+.pitvmx-lightbox-close{
 top:15px;
 right:15px;
 }
