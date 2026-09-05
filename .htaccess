@@ -1,0 +1,18 @@
+RewriteEngine On
+
+# Keep the clean URL canonical if an old /page/*.html URL is requested.
+RewriteCond %{THE_REQUEST} \s/+page/([^?\s]+\.html)(?:[?\s]) [NC]
+RewriteRule ^page/(.+\.html)$ /$1 [R=301,L,NE]
+
+# Serve existing files and directories normally, including assets.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# The public plural routes map to the existing singular filenames.
+RewriteRule ^services\.html$ page/service.html [END]
+RewriteRule ^products\.html$ page/product.html [END]
+
+# Internally map every existing root-level .html URL to page/*.html.
+RewriteCond %{DOCUMENT_ROOT}/page/$1 -f
+RewriteRule ^([^/]+\.html)$ page/$1 [END]
