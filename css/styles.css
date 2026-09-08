@@ -1297,20 +1297,13 @@ h3 {
 
 .vimana-review-card {
   flex: 0 0 calc((100% - 3rem) / 3);
-
   min-width: 0;
-
   background: #fff;
-
   border: 1px solid var(--border);
   border-radius: 1.25rem;
-
   padding: 1.5rem;
-
   box-shadow: var(--shadow-card);
-
   box-sizing: border-box;
-
   transition:
     transform .3s ease,
     box-shadow .3s ease;
@@ -1318,37 +1311,27 @@ h3 {
 
 .vimana-review-card:hover {
   transform: translateY(-5px);
-
   box-shadow: var(--shadow-card-hover);
 }
 
 
 /* HEADER */
-
 .vimana-review-header {
   display: flex;
   align-items: center;
-
   gap: .85rem;
-
   margin-bottom: 1rem;
 }
 
 .vimana-review-avatar {
   width: 46px;
   height: 46px;
-
   display: grid;
   place-items: center;
-
   flex-shrink: 0;
-
   border-radius: 50%;
-
   background: var(--gradient-brand);
-
   color: #fff;
-
   font-size: 1rem;
   font-weight: 700;
 }
@@ -1359,33 +1342,24 @@ h3 {
 
 .vimana-review-name {
   margin: 0;
-
   font-size: .95rem;
   font-weight: 700;
-
   color: var(--charcoal);
 }
 
 .vimana-review-source {
   display: block;
-
   margin-top: .2rem;
-
   font-size: .72rem;
-
   color: var(--muted);
 }
 
 
 /* STARS */
-
 .vimana-review-stars {
   margin-bottom: .85rem;
-
   color: #fbbc04;
-
   font-size: .95rem;
-
   letter-spacing: 2px;
 }
 
@@ -1394,17 +1368,12 @@ h3 {
 
 .vimana-review-text {
   margin: 0;
-
   color: var(--charcoal-soft);
-
   font-size: .9rem;
-
   line-height: 1.7;
-
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;
-
   overflow: hidden;
 }
 

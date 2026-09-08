@@ -585,6 +585,13 @@ a {
   color: #0E6937;
 }
 
+.contact-form__alert--error {
+  display: block;
+  background: rgba(229, 57, 53, 0.08);
+  border: 1px solid rgba(229, 57, 53, 0.3);
+  color: #A51D1D;
+}
+
 
 
 /* ==========================================================================

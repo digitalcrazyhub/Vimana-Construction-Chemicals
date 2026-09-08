@@ -59,26 +59,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = document.getElementById('submitBtn');
   const formAlert = document.getElementById('formAlert');
 
+  const apiEndpoint = '/api/contact.php';
+
   const fullNameInput = document.getElementById('fullName');
   const emailInput = document.getElementById('email');
   const phoneInput = document.getElementById('phone');
   const messageInput = document.getElementById('message');
 
+  const errorElements = {
+    fullName: document.getElementById('fullNameError'),
+    email: document.getElementById('emailError'),
+    phone: document.getElementById('phoneError'),
+    subject: document.getElementById('subjectError'),
+    message: document.getElementById('messageError')
+  };
+
   const fields = form && fullNameInput && emailInput && phoneInput && selectElement && messageInput ? {
     fullName: {
       input: fullNameInput,
       group: fullNameInput.closest('.contact-form__group'),
-      validate: (val) => val.trim().length >= 2
+      validate: (val) => /^[\p{L}\p{M}][\p{L}\p{M} .'-]*$/u.test(val.trim()) && val.trim().length >= 2 && val.trim().length <= 100
     },
     email: {
       input: emailInput,
       group: emailInput.closest('.contact-form__group'),
-      validate: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim())
+      validate: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim()) && val.trim().length <= 150
     },
     phone: {
       input: phoneInput,
       group: phoneInput.closest('.contact-form__group'),
-      validate: (val) => /^[\d\+\-\s\(\)]{7,20}$/.test(val.trim())
+      validate: (val) => /^[\d\+\-\s\(\)]{7,20}$/.test(val.trim()) && (val.match(/\d/g) || []).length >= 7 && (val.match(/\d/g) || []).length <= 15
     },
     subject: {
       input: selectElement,
@@ -88,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     message: {
       input: messageInput,
       group: messageInput.closest('.contact-form__group'),
-      validate: (val) => val.trim().length >= 10
+      validate: (val) => val.trim().length >= 10 && val.trim().length <= 2000
     }
   } : {};
 
@@ -118,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Handle Submit
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
       let isValid = true;
@@ -131,6 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
       Object.keys(fields).forEach(key => {
         const field = fields[key];
         const valid = field.validate(field.input.value);
+        if (errorElements[key]) {
+          errorElements[key].textContent = valid ? '' : getClientError(key);
+        }
         if (!valid) {
           field.group.classList.add('contact-form__group--error');
           isValid = false;
@@ -140,7 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (!isValid) {
-        showToast('Please correct the highlighted fields before submitting.', 'info');
+        showFormAlert('Please correct the highlighted fields.', false);
+        return;
+      }
+
+      if (typeof grecaptcha === 'undefined' || grecaptcha.getResponse() === '') {
+        showFormAlert('Please complete the security verification and try again.', false);
         return;
       }
 
@@ -150,27 +168,71 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = true;
       }
 
-      // Simulate API Submission
-      setTimeout(() => {
+      try {
+        const csrfResponse = await fetch(`${apiEndpoint}?action=csrf`, {
+          method: 'GET',
+          headers: { Accept: 'application/json' },
+          credentials: 'same-origin'
+        });
+        const csrfData = await csrfResponse.json();
+        if (!csrfResponse.ok || !csrfData.token) {
+          throw new Error('Unable to initialize secure form submission.');
+        }
+
+        const response = await fetch(apiEndpoint, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'X-CSRF-Token': csrfData.token
+          },
+          body: new FormData(form),
+          credentials: 'same-origin'
+        });
+        const data = await response.json();
+
+        Object.keys(fields).forEach(key => {
+          const error = data.errors && data.errors[key];
+          if (errorElements[key]) errorElements[key].textContent = error || '';
+          fields[key].group.classList.toggle('contact-form__group--error', Boolean(error));
+        });
+
+        if (!response.ok || !data.success) {
+          showFormAlert(data.message || 'We could not process your enquiry right now. Please try again later.', false);
+          return;
+        }
+
+        showFormAlert(data.message, true);
+        form.reset();
+        if (selectElement) selectElement.classList.remove('has-value');
+        if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+      } catch (error) {
+        showFormAlert('We could not process your enquiry right now. Please try again later.', false);
+      } finally {
         if (submitBtn) {
           submitBtn.classList.remove('contact-form__btn--loading');
           submitBtn.disabled = false;
         }
-
-        // Show Success Feedback
-        formAlert.className = 'contact-form__alert contact-form__alert--success';
-        formAlert.innerHTML = '✔ Thank you! Your message has been sent successfully. A technical engineer will contact you shortly.';
-        formAlert.style.display = 'block';
-
-        showToast('Message sent successfully!', 'success');
-
-        // Reset form
-        form.reset();
-        if (selectElement) {
-          selectElement.classList.remove('has-value');
-        }
-      }, 1500);
+      }
     });
+  }
+
+  function getClientError(key) {
+    const messages = {
+      fullName: 'Please enter your full name',
+      email: 'Please enter a valid email address',
+      phone: 'Please enter a valid phone number',
+      subject: 'Please select a subject area',
+      message: 'Please enter your message (at least 10 characters)'
+    };
+    return messages[key];
+  }
+
+  function showFormAlert(message, success) {
+    if (!formAlert) return;
+    formAlert.className = `contact-form__alert${success ? ' contact-form__alert--success' : ' contact-form__alert--error'}`;
+    formAlert.textContent = message || '';
+    formAlert.style.display = 'block';
+    formAlert.setAttribute('aria-hidden', message ? 'false' : 'true');
   }
 
 

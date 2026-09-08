@@ -297,8 +297,10 @@
 
         <!-- Right Side (55%): Floating Contact Form -->
         <div class="contact-form-wrapper js-scroll-fade-left">
-          <form id="contactForm" th:action="@{/contact}" th:object="${contactDto}" method="post" class="contact-form"
+          <form id="contactForm" method="post" class="contact-form"
             novalidate>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
+              style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;">
             <div class="contact-form__header">
               <span class="contact-form__badge">FAST RESPONSE</span>
               <h3 class="contact-form__title">Send Us a Message</h3>
@@ -310,7 +312,7 @@
 
               <!-- Full Name -->
               <div class="contact-form__group">
-                <input type="text" id="fullName" name="fullName" th:field="*{name}" class="contact-form__input"
+                <input type="text" id="fullName" name="fullName" class="contact-form__input"
                   placeholder=" " required autocomplete="name">
                 <label for="fullName" class="contact-form__label">Full Name *</label>
                 <span class="contact-form__focus-line"></span>
@@ -319,7 +321,7 @@
 
               <!-- Email -->
               <div class="contact-form__group">
-                <input type="email" id="email" th:field="*{email}" name="email" class="contact-form__input"
+                <input type="email" id="email" name="email" class="contact-form__input"
                   placeholder=" " required autocomplete="email">
                 <label for="email" class="contact-form__label">Email Address *</label>
                 <span class="contact-form__focus-line"></span>
@@ -328,7 +330,7 @@
 
               <!-- Phone Number -->
               <div class="contact-form__group">
-                <input type="tel" id="phone" th:field="*{phone}" name="phone" class="contact-form__input"
+                <input type="tel" id="phone" name="phone" class="contact-form__input"
                   placeholder=" " required autocomplete="tel">
                 <label for="phone" class="contact-form__label">Phone Number *</label>
                 <span class="contact-form__focus-line"></span>
@@ -359,7 +361,7 @@
 
               <!-- Message -->
               <div class="contact-form__group contact-form__group--full">
-                <textarea id="message" th:field="*{message}" name="message" class="contact-form__textarea"
+                <textarea id="message" name="message" class="contact-form__textarea"
                   placeholder=" " rows="4" required></textarea>
                 <label for="message" class="contact-form__label">Your Message *</label>
                 <span class="contact-form__focus-line"></span>
@@ -369,6 +371,7 @@
             </div>
 
             <div class="contact-form__footer">
+              <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
               <button type="submit" id="submitBtn" class="contact-form__btn">
                 <span class="contact-form__btn-text">Submit Request</span>
                 <span class="contact-form__btn-icon-box">
@@ -571,6 +574,7 @@
   </script>
   <!--icon cnd link-->
   <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script>
     lucide.createIcons();
   </script>
