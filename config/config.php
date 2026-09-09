@@ -29,15 +29,15 @@ define('MAIL_NO_REPLY', env_value('MAIL_NO_REPLY', 'no-reply@yourdomain.com'));
 // equivalent secret store. They must never be sent to the browser.
 define('SMTP_HOST', env_value('SMTP_HOST', 'smtp.yourdomain.com'));
 define('SMTP_PORT', (int) env_value('SMTP_PORT', '587'));
-define('SMTP_USERNAME', env_value('SMTP_USERNAME', ''));
-define('SMTP_PASSWORD', env_value('SMTP_PASSWORD', ''));
+define('SMTP_USERNAME', env_value('SMTP_USERNAME', 'digitalcrazyhub2020@gmail.com'));
+define('SMTP_PASSWORD', env_value('SMTP_PASSWORD', 'nsyjrhjwepaourhs'));
 define('SMTP_ENCRYPTION', env_value('SMTP_ENCRYPTION', 'tls'));
 
 define('GOOGLE_SHEET_WEBHOOK', env_value('GOOGLE_SHEET_WEBHOOK', ''));
 
 // IMPORTANT: The site key may appear in HTML; the secret key must not.
-define('RECAPTCHA_SITE_KEY', env_value('RECAPTCHA_SITE_KEY', 'YOUR_RECAPTCHA_SITE_KEY'));
-define('RECAPTCHA_SECRET_KEY', env_value('RECAPTCHA_SECRET_KEY', ''));
+define('RECAPTCHA_SITE_KEY', env_value('RECAPTCHA_SITE_KEY', '6LccWkQtAAAAAO_ArOBK2vF8E5_kz0eDJFuUxgzq'));
+define('RECAPTCHA_SECRET_KEY', env_value('RECAPTCHA_SECRET_KEY', '6LccWkQtAAAAAMhMhjXzV55V8XG_Ms2wDzs2mLZO'));
 
 define('CONTACT_LOG_FILE', dirname(__DIR__) . '/logs/contact_errors.log');
 define('CONTACT_RATE_DIR', dirname(__DIR__) . '/logs/rate-limit');

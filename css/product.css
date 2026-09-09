@@ -60,7 +60,7 @@ body {
 .page-banner__background {
     position: absolute;
     inset: 0;
-    background: url("/assets/hero-1.jpg") center center / cover no-repeat;
+    background: url("../assets/hero-1.jpg") center center / cover no-repeat;
     animation: pageBannerZoom 20s ease-in-out infinite alternate;
     transform: scale(1.05);
 }
