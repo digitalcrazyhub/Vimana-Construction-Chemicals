@@ -372,7 +372,7 @@
             </div>
 
             <div class="contact-form__footer">
-              <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+              <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
               <button type="submit" id="submitBtn" class="contact-form__btn">
                 <span class="contact-form__btn-text">Submit Request</span>
                 <span class="contact-form__btn-icon-box">
@@ -575,7 +575,8 @@
   </script>
   <!--icon cnd link-->
   <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!-- Google reCAPTCHA v3 change site key -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfAybEtAAAAABBNhtv_ieCz_pFlRPv-pdWN8ayB" async defer data-sitekey="6LfAybEtAAAAABBNhtv_ieCz_pFlRPv-pdWN8ayB"></script>
   <script>
     lucide.createIcons();
   </script>

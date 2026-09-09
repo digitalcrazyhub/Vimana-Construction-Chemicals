@@ -1,0 +1,14 @@
+[2026-09-09T07:57:17+00:00] Google Sheets failure for lead 1 | Google Sheets webhook failed: HTTP 302 
+[2026-09-09T09:10:49+00:00] reCAPTCHA secret key is missing.
+[2026-09-09T09:13:01+00:00] Customer confirmation email failed for lead 2 | PHPMailer send failed: SMTP Error: Could not authenticate.
+[2026-09-09T09:13:04+00:00] Client lead email failed for lead 2 | PHPMailer send failed: SMTP Error: Could not authenticate.
+[2026-09-09T09:15:39+00:00] Customer confirmation email failed for lead 3 | PHPMailer send failed: SMTP Error: Could not authenticate.
+[2026-09-09T09:15:42+00:00] Client lead email failed for lead 3 | PHPMailer send failed: SMTP Error: Could not authenticate.
+[2026-09-09T09:19:41+00:00] Customer confirmation email failed for lead 4 | PHPMailer send failed: SMTP Error: Could not authenticate.
+[2026-09-09T09:19:43+00:00] Client lead email failed for lead 4 | PHPMailer send failed: SMTP Error: Could not authenticate.
+[2026-09-09T09:46:54+00:00] Customer confirmation email failed for lead 5 | PHPMailer customer confirmation send failed: SMTP Error: Could not authenticate.
+[2026-09-09T09:46:57+00:00] Client lead email failed for lead 5 | PHPMailer owner lead send failed: SMTP Error: Could not authenticate.
+[2026-09-09T11:10:22+00:00] Customer confirmation email failed for lead 6 | PHPMailer customer confirmation send failed: SMTP Error: Could not authenticate.
+[2026-09-09T11:10:24+00:00] Client lead email failed for lead 6 | PHPMailer owner lead send failed: SMTP Error: Could not authenticate.
+[2026-09-09T11:12:39+00:00] Customer confirmation email failed for lead 7 | PHPMailer customer confirmation send failed: SMTP Error: Could not authenticate.
+[2026-09-09T11:12:41+00:00] Client lead email failed for lead 7 | PHPMailer owner lead send failed: SMTP Error: Could not authenticate.

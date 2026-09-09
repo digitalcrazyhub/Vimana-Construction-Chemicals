@@ -59,7 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = document.getElementById('submitBtn');
   const formAlert = document.getElementById('formAlert');
 
-  const apiEndpoint = '/api/contact.php';
+  const contactScript = document.querySelector('script[src$="/contact.js"]');
+  const apiEndpoint = contactScript
+    ? new URL('../api/contact.php', contactScript.src).href
+    : '/api/contact.php';
 
   const fullNameInput = document.getElementById('fullName');
   const emailInput = document.getElementById('email');
@@ -126,6 +129,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const RECAPTCHA_SITE_KEY = document.querySelector('script[data-sitekey]')?.dataset.sitekey || '6LfAybEtAAAAABBNhtv_ieCz_pFlRPv-pdWN8ayB';
+
+  async function getRecaptchaToken() {
+    if (typeof grecaptcha === 'undefined') {
+      throw new Error('reCAPTCHA is not available.');
+    }
+
+    return new Promise((resolve, reject) => {
+      let settled = false;
+      const timeoutId = setTimeout(() => {
+        if (!settled) {
+          settled = true;
+          reject(new Error('reCAPTCHA verification timed out.'));
+        }
+      }, 10000);
+      const finish = (callback, value) => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timeoutId);
+        callback(value);
+      };
+
+      try {
+        grecaptcha.ready(() => {
+          try {
+            grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contact' })
+              .then((token) => {
+                if (!token) {
+                  finish(reject, new Error('Missing reCAPTCHA token.'));
+                  return;
+                }
+                finish(resolve, token);
+              })
+              .catch((error) => finish(reject, error));
+          } catch (error) {
+            finish(reject, error);
+          }
+        });
+      } catch (error) {
+        finish(reject, error);
+      }
+    });
+  }
+
   // Handle Submit
   if (form) {
     form.addEventListener('submit', async (e) => {
@@ -157,11 +204,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      if (typeof grecaptcha === 'undefined' || grecaptcha.getResponse() === '') {
-        showFormAlert('Please complete the security verification and try again.', false);
-        return;
-      }
-
       // Show Loading State
       if (submitBtn) {
         submitBtn.classList.add('contact-form__btn--loading');
@@ -169,21 +211,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       try {
-        const csrfResponse = await fetch(`${apiEndpoint}?action=csrf`, {
-          method: 'GET',
-          headers: { Accept: 'application/json' },
-          credentials: 'same-origin'
-        });
-        const csrfData = await csrfResponse.json();
-        if (!csrfResponse.ok || !csrfData.token) {
-          throw new Error('Unable to initialize secure form submission.');
-        }
+        const captchaToken = await getRecaptchaToken();
+        const hiddenRecaptcha = document.getElementById('g-recaptcha-response');
+        if (hiddenRecaptcha) hiddenRecaptcha.value = captchaToken;
 
         const response = await fetch(apiEndpoint, {
           method: 'POST',
           headers: {
-            Accept: 'application/json',
-            'X-CSRF-Token': csrfData.token
+            Accept: 'application/json'
           },
           body: new FormData(form),
           credentials: 'same-origin'
@@ -204,7 +239,8 @@ document.addEventListener('DOMContentLoaded', () => {
         showFormAlert(data.message, true);
         form.reset();
         if (selectElement) selectElement.classList.remove('has-value');
-        if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
+        const hiddenRecaptchaReset = document.getElementById('g-recaptcha-response');
+        if (hiddenRecaptchaReset) hiddenRecaptchaReset.value = '';
       } catch (error) {
         showFormAlert('We could not process your enquiry right now. Please try again later.', false);
       } finally {
