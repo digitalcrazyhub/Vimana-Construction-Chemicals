@@ -1,18 +1,32 @@
 RewriteEngine On
 
-# Keep the clean URL canonical if an old /page/*.html URL is requested.
-RewriteCond %{THE_REQUEST} \s/+page/([^?\s]+\.html)(?:[?\s]) [NC]
-RewriteRule ^page/(.+\.html)$ /$1 [R=301,L,NE]
+# The repository is deployed directly to Hostinger's public_html. Keep old
+# source-layout URLs redirecting cleanly without exposing /public/ as canonical.
+RewriteCond %{THE_REQUEST} \s/+Terrace_Cementitious\.html(?:[?\s]) [NC]
+RewriteRule ^Terrace_Cementitious\.html$ /terrace-cementitious.html [R=301,L,NE]
 
-# Serve existing files and directories normally, including assets.
+RewriteCond %{THE_REQUEST} \s/+index\.html(?:[?\s]) [NC]
+RewriteRule ^index\.html$ / [R=301,L,NE]
+
+RewriteCond %{THE_REQUEST} \s/+public/page/service\.html(?:[?\s]) [NC]
+RewriteRule ^public/page/service\.html$ /services.html [R=301,L,NE]
+
+RewriteCond %{THE_REQUEST} \s/+public/page/product\.html(?:[?\s]) [NC]
+RewriteRule ^public/page/product\.html$ /products.html [R=301,L,NE]
+
+RewriteCond %{THE_REQUEST} \s/+public/page/([^?\s]+\.html)(?:[?\s]) [NC]
+RewriteRule ^public/page/(.+\.html)$ /$1 [R=301,L,NE]
+
+RewriteCond %{THE_REQUEST} \s/+public/(.+?)(?:[?\s]) [NC]
+RewriteRule ^public/(.+)$ /$1 [R=301,L,NE]
+
+# Let real files and directories pass through unchanged.
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# The public plural routes map to the existing singular filenames.
-RewriteRule ^services\.html$ page/service.html [END]
-RewriteRule ^products\.html$ page/product.html [END]
+# Preserve the old singular page filenames as one-hop redirects.
+RewriteRule ^service\.html$ /services.html [R=301,L,NE,NC]
+RewriteRule ^product\.html$ /products.html [R=301,L,NE,NC]
 
-# Internally map every existing root-level .html URL to page/*.html.
-RewriteCond %{DOCUMENT_ROOT}/page/$1 -f
-RewriteRule ^([^/]+\.html)$ page/$1 [END]
+DirectoryIndex index.html
