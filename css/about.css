@@ -1115,6 +1115,11 @@ select {
 
 }
 
+.vmn-card-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 0.2fr 1fr;
+}
 
 .vmn-cert-card__icon {
 
