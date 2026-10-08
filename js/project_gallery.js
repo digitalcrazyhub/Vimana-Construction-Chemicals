@@ -1,6 +1,6 @@
 /* =========================================================
-   VIMANA — MASONRY GALLERY JAVASCRIPT
-   CSS owns masonry layout; this file owns lightbox behavior
+   VIMANA — PROJECT GALLERY JAVASCRIPT
+   CSS owns gallery layout; this file owns lightbox behavior
    Fully scoped / no global class conflicts
 ========================================================= */
 
@@ -575,3 +575,4 @@
 
 
 })();
+
