@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <script src="../js/path-fix.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Privacy Policy for Vimana Construction Chemicals." />
+  <meta name="robots" content="index,follow" />
+  <title>Privacy Policy | Vimana Construction Chemicals</title>
+  <link rel="icon" href="../assets/vimana-logo.png" />
+  <link rel="stylesheet" href="/css/float-btn.css">
+  <link rel="stylesheet" href="/css/nav-footer.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <style>
+    :root {
+      --primary: #2F5AA8;
+      --primary-glow: #4C7BD1;
+      --accent: #18A85B;
+      --accent-glow: #2CC873;
+      --charcoal: #1A2238;
+      --charcoal-soft: #3C4666;
+      --muted: #6B7391;
+      --border: #E5E9F2;
+      --bg: #ffffff;
+      --soft: #F4F7FB;
+      --radius: 1rem;
+      --gradient-brand: linear-gradient(135deg, #2F5AA8 0%, #3F6BC0 45%, #18A85B 100%);
+      --gradient-cta: linear-gradient(135deg, #1E3A78 0%, #2F5AA8 50%, #18A85B 100%);
+      --shadow-card: 0 8px 30px -12px rgba(26, 34, 56, .12);
+      --shadow-card-hover: 0 24px 60px -20px rgba(26, 34, 56, .22);
+      --shadow-elegant: 0 20px 60px -20px rgba(47, 90, 168, .35);
+      --shadow-glow: 0 0 60px rgba(76, 123, 209, .45);
+      --shadow-accent: 0 20px 50px -20px rgba(24, 168, 91, .45);
+      --font-family: "Plus Jakarta Sans", "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--charcoal);
+      font-family: var(--font-family);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--primary);
+    }
+
+    .vm-policy-page {
+      min-height: 100vh;
+      margin-top: 138px;
+    }
+
+    .vm-policy-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 64px 20px 72px;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(76, 123, 209, .22), transparent 35%),
+        radial-gradient(circle at 90% 80%, rgba(24, 168, 91, .16), transparent 32%),
+        var(--gradient-cta);
+      isolation: isolate;
+    }
+
+    .vm-policy-hero::before,
+    .vm-policy-hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .vm-policy-hero::before {
+      width: 340px;
+      height: 340px;
+      top: -170px;
+      right: -90px;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .vm-policy-hero::after {
+      width: 280px;
+      height: 280px;
+      bottom: -150px;
+      left: -90px;
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .vm-policy-hero-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .vm-policy-brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: var(--shadow-elegant);
+      backdrop-filter: blur(12px);
+    }
+
+    .vm-policy-brand img {
+      display: block;
+      width: auto;
+      height: 92px;
+      max-width: 220px;
+      object-fit: contain;
+    }
+
+    .vm-policy-kicker {
+      margin: 0 0 9px;
+      color: rgba(255, 255, 255, .78);
+      font-size: .78rem;
+      line-height: 1.4;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .vm-policy-title {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.05;
+      letter-spacing: -.035em;
+      font-weight: 800;
+    }
+
+    .vm-policy-title span {
+      color: #CDEBD9;
+    }
+
+    .vm-policy-hero-copy {
+      margin: 16px 0 0;
+      max-width: 760px;
+      color: rgba(255, 255, 255, .82);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .vm-policy-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 8px 13px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+      color: rgba(255, 255, 255, .88);
+      font-size: .78rem;
+      font-weight: 600;
+    }
+
+    .vm-policy-container {
+      width: min(980px, calc(100% - 40px));
+      margin: -30px auto 72px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .vm-policy-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-card-hover);
+      padding: clamp(26px, 4vw, 54px);
+    }
+
+    .vm-policy-intro {
+      margin: 0 0 30px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 .9rem .9rem 0;
+      background: var(--soft);
+      color: var(--charcoal-soft);
+      font-size: .96rem;
+      line-height: 1.8;
+    }
+
+    .vm-policy-section+.vm-policy-section {
+      margin-top: 34px;
+      padding-top: 34px;
+      border-top: 1px solid var(--border);
+    }
+
+    .vm-policy-section h2 {
+      margin: 0 0 12px;
+      color: var(--charcoal);
+      font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+      line-height: 1.3;
+      font-weight: 800;
+    }
+
+    .vm-policy-section p {
+      margin: 0 0 13px;
+      color: var(--charcoal-soft);
+      font-size: .94rem;
+      line-height: 1.85;
+    }
+
+    .vm-policy-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .vm-policy-section ul {
+      margin: 10px 0 0 1.2rem;
+      padding: 0;
+      color: var(--charcoal-soft);
+    }
+
+    .vm-policy-section li {
+      margin: 8px 0;
+      padding-left: 4px;
+      font-size: .93rem;
+      line-height: 1.7;
+    }
+
+    .vm-policy-contact {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .vm-policy-contact-item {
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      background: var(--soft);
+    }
+
+    .vm-policy-contact-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .vm-policy-contact-value {
+      color: var(--charcoal);
+      font-size: .9rem;
+      line-height: 1.65;
+      text-decoration: none;
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    .vm-policy-note {
+      margin-top: 34px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .8rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 720px) {
+      .vm-policy-hero {
+        padding: 42px 18px 60px;
+      }
+
+      .vm-policy-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .vm-policy-brand {
+        width: fit-content;
+      }
+
+      .vm-policy-brand img {
+        height: 72px;
+        max-width: 190px;
+      }
+
+      .vm-policy-container {
+        width: min(100% - 28px, 980px);
+        margin-top: -24px;
+        margin-bottom: 40px;
+      }
+
+      .vm-policy-card {
+        border-radius: 1.15rem;
+        padding: 24px 20px;
+      }
+
+      .vm-policy-contact {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .vm-policy-title {
+        font-size: 2rem;
+      }
+
+      .vm-policy-hero-copy {
+        font-size: .9rem;
+      }
+
+      .vm-policy-card {
+        padding: 22px 17px;
+      }
+
+      .vm-policy-section p,
+      .vm-policy-section li {
+        font-size: .88rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ============================================================
+     HEADER / NAVBAR
+  ============================================================= -->
+  <header id="vmHeader" class="vm-header">
+    <div class="vm-container vm-nav-wrapper">
+      <a href="index.html" class="vm-logo">
+        <img src="../assets/Vimana Logo.png" alt="Vimana" class="vm-logo-img">
+      </a>
+      <!-- DESKTOP NAV -->
+      <nav class="vm-nav-links" aria-label="Main Navigation">
+        <ul class="nav-item">
+          <li class="nav-links"><a href="/index.html" class="vm-nav-link">Home</a></li>
+          <!-- About Dropdown -->
+          <li class="nav-links vm-dropdown">
+            <a href="/about.html" class="vm-nav-link">About Us
+              <i data-lucide="chevron-down" class="vm-dropdown-caret"></i>
+            </a>
+            <ul class="vm-dropdown-menu">
+              <li><a href="/team.html">Our Team</a></li>
+              <li><a href="/awards.html">Our Awards</a></li>
+            </ul>
+          </li>
+          <li class="nav-links"><a href="./services.html" class="vm-nav-link">Services</a></li>
+          <li class="nav-links"><a href="/products.html" class="vm-nav-link">Product</a></li>
+          <!-- Project Dropdown -->
+          <li class="nav-links vm-dropdown">
+            <a href="#" class="vm-nav-link">Projects
+              <i data-lucide="chevron-down" class="vm-dropdown-caret"></i>
+            </a>
+            <ul class="vm-dropdown-menu vm-dropdown-menu--wide">
+              <li><a href="/Terrace_Cementitious.html">Terrace Cementitious / PU Waterproofing</a></li>
+              <li><a href="/terrace-elastomeric-coating.html">Terrace Elastomeric Coating</a></li>
+              <li><a href="/bathroom-wet-area-waterproofing.html">Bathroom / Wet Area Waterproofing</a>
+              </li>
+              <li><a href="/basement-bituminous-coating-waterproofing.html">Basement Bituminous Coating
+                  Waterproofing</a></li>
+              <li><a href="/internal-external-wall-waterproofing.html">Internal &amp; External Wall
+                  Waterproofing</a></li>
+              <li><a href="/bathroom-epoxy-grouting.html">Bathroom Epoxy Grouting</a></li>
+              <li><a href="/water-tank-underground-sump-waterproofing.html">Water Tank &amp; Underground
+                  Sump Waterproofing</a></li>
+              <li><a href="/tank-structure-epoxy-coating.html">Tank Structure Epoxy Coating</a></li>
+              <li><a href="/pu-injection-grouting.html">PU Injection Grouting</a></li>
+              <li><a href="/concrete-repair-rehabilitation.html">Concrete Repair &amp; Rehabilitation
+                  Services</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-links"><a href="/contact.html" class="vm-nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- RIGHT NAV -->
+      <div class="vm-nav-right">
+        <a href="tel:+917845401301" class="vm-btn-primary" aria-label="Call Vimana Construction Chemicals">
+          <i data-lucide="phone"></i>
+          <span>+91 78454 01301</span>
+        </a>
+      </div>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button type="button" class="vm-menu-btn" id="vmMenuBtn" aria-label="Toggle Navigation" aria-expanded="false"
+        aria-controls="vmMobileMenu">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+
+    <!-- ============================================================
+       MOBILE MENU
+  ============================================================ -->
+    <div class="vm-mobile-menu" id="vmMobileMenu" aria-hidden="true">
+      <ul class="nav-item">
+        <li class="nav-links"><a href="/index.html" class="vm-mobile-link">Home</a></li>
+        <!-- About -->
+        <li class="nav-links vm-mobile-dropdown">
+          <button type="button" class="vm-mobile-toggle" aria-expanded="false" aria-label="Toggle About Us submenu">
+            <span>About Us</span>
+            <i data-lucide="chevron-down" class="vm-mobile-caret"></i>
+          </button>
+          <ul class="vm-mobile-submenu">
+            <li><a href="/team.html">Our Team</a></li>
+            <li><a href="/awards.html">Our Awards</a></li>
+          </ul>
+        </li>
+        <li class="nav-links">
+          <a href="/services.html" class="vm-mobile-link">Services</a>
+        </li>
+        <li class="nav-links">
+          <a href="/products.html" class="vm-mobile-link">Product</a>
+        </li>
+
+        <!-- Projects -->
+        <li class="nav-links vm-mobile-dropdown">
+          <button type="button" class="vm-mobile-toggle" aria-expanded="false" aria-label="Toggle Projects submenu">
+            <span>Projects</span>
+            <i data-lucide="chevron-down" class="vm-mobile-caret"></i>
+          </button>
+
+          <ul class="vm-mobile-submenu">
+            <li><a href="/Terrace_Cementitious.html">Terrace Cementitious / PU Waterproofing</a></li>
+            <li><a href="/terrace-elastomeric-coating.html">Terrace Elastomeric Coating</a></li>
+            <li><a href="/bathroom-wet-area-waterproofing.html">Bathroom / Wet Area Waterproofing</a></li>
+            <li><a href="/basement-bituminous-coating-waterproofing.html">Basement Bituminous Coating
+                Waterproofing</a></li>
+            <li><a href="/internal-external-wall-waterproofing.html">Internal &amp; External Wall
+                Waterproofing</a></li>
+            <li><a href="/bathroom-epoxy-grouting.html">Bathroom Epoxy Grouting</a></li>
+            <li><a href="/water-tank-underground-sump-waterproofing.html">Water Tank &amp; Underground
+                Sump Waterproofing</a></li>
+            <li><a href="/tank-structure-epoxy-coating.html">Tank Structure Epoxy Coating</a></li>
+            <li><a href="/pu-injection-grouting.html">PU Injection Grouting</a></li>
+            <li><a href="/concrete-repair-rehabilitation.html">Concrete Repair &amp; Rehabilitation
+                Services</a></li>
+          </ul>
+        </li>
+        <li class="nav-links">
+          <a href="/contact.html" class="vm-mobile-link">Contact</a>
+        </li>
+      </ul>
+      <a href="/contact.html" class="vm-btn-primary vm-mobile-btn">Get Free Inspection</a>
+    </div>
+  </header>
+  <main class="vm-policy-page">
+    <section class="vm-policy-hero" aria-labelledby="privacy-policy-title">
+      <div class="vm-policy-hero-inner">
+        <div class="vm-policy-brand">
+          <img src="../assets/Vimana Logo.png" alt="Vimana Construction Chemicals logo" />
+        </div>
+
+        <div>
+          <p class="vm-policy-kicker">Vimana Construction Chemicals</p>
+          <h1 class="vm-policy-title" id="privacy-policy-title">Privacy <span>Policy</span></h1>
+          <p class="vm-policy-hero-copy">
+            We respect your privacy and are committed to handling the information you share with us responsibly,
+            transparently, and only for legitimate business purposes.
+          </p>
+          <div class="vm-policy-meta">Effective date: September 5, 2026</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vm-policy-container" aria-label="Privacy Policy content">
+      <article class="vm-policy-card">
+        <p class="vm-policy-intro">
+          This Privacy Policy explains how Vimana Construction Chemicals (“Vimana”, “we”, “us”, or “our”) may collect,
+          use, store, and protect information when you visit our website, contact us, request a quotation, or otherwise
+          interact with our services.
+        </p>
+
+        <section class="vm-policy-section">
+          <h2>1. Information We Collect</h2>
+          <p>Depending on how you interact with our website, we may receive information such as:</p>
+          <ul>
+            <li>Your name and contact details, including phone number and email address.</li>
+            <li>Company or project information that you voluntarily provide in an enquiry.</li>
+            <li>Details contained in messages, quotation requests, service enquiries, or other communications.</li>
+            <li>Basic technical information such as browser type, device information, IP address, and website usage data
+              where collected by standard web technologies or analytics tools.</li>
+          </ul>
+        </section>
+
+        <section class="vm-policy-section">
+          <h2>2. How We Use Your Information</h2>
+          <p>We may use the information you provide to:</p>
+          <ul>
+            <li>Respond to enquiries, quotation requests, and service requests.</li>
+            <li>Provide information about construction chemicals, waterproofing solutions, products, and related
+              services.</li>
+            <li>Coordinate sales, technical support, delivery, project discussions, and customer service.</li>
+            <li>Improve our website, products, services, and customer experience.</li>
+            <li>Maintain website security, prevent misuse, and troubleshoot technical issues.</li>
+            <li>Comply with applicable legal, regulatory, or contractual requirements.</li>
+          </ul>
+        </section>
+
+        <section class="vm-policy-section">
+          <h2>3. Contact Forms and Enquiries</h2>
+          <p>
+            When you submit a form or contact us through the website, the information you enter may be transmitted to
+            our business communication systems so that our team can respond to your request. Please provide only
+            information that is reasonably necessary for the enquiry.
+          </p>
+        </section>
+
+        <section class="vm-policy-section">
+          <h2>4. Cookies and Similar Technologies</h2>
+          <p>
+            Our website may use cookies or similar technologies for essential functionality, preferences, analytics,
+            security, or performance measurement. You can usually control cookies through your browser settings.
+            Disabling certain cookies may affect some website functionality.
+          </p>
+        </section>
+
+        <section class="vm-policy-section">
+          <h2>5. Third-Party Services</h2>
+          <p>
+            Our website may use third-party services such as hosting providers, analytics services, maps,
+            spam-prevention tools, social platforms, or communication providers. These services may process limited
+            information according to their own privacy policies and terms.
+          </p>
+        </section>
+
+        <section class="vm-policy-section">
+          <h2>6. Sharing and Disclosure</h2>
+          <p>
+            We do not sell your personal information. We may share information with trusted service providers,
+            professional advisers, delivery or project partners, or authorities where reasonably necessary to provide
+            requested services, operate our business, protect our systems, or meet legal obligations.
+          </p>
+        </section>
+
+        <section class="vm-policy-section">
+          <h2>7. Data Security</h2>
+          <p>
+            We take reasonable administrative, technical, and organisational measures to protect personal information
+            against unauthorised access, loss, misuse, alteration, or disclosure. However, no internet transmission or
+            storage system can be guaranteed to be completely secure.
+          </p>
+        </section>
+
+        <section class="vm-policy-section">
+          <h2>8. Data Retention</h2>
+          <p>
+            We retain information only for as long as reasonably necessary for the purposes described in this policy,
+            including responding to enquiries, maintaining business records, resolving disputes, meeting legal
+            requirements, and protecting our legitimate business interests.
+          </p>
+        </section>
+
+        <section class="vm-policy-section">
+          <h2>9. Your Choices and Requests</h2>
+          <p>
+            You may contact us to ask about the personal information we hold about you, request correction of inaccurate
+            information, or request deletion where applicable. We may need to verify your identity before acting on a
+            request and may retain information where required by law or for legitimate business purposes.
+          </p>
+        </section>
+
+        <section class="vm-policy-section">
+          <h2>10. Children’s Privacy</h2>
+          <p>
+            Our website and services are intended for business and general consumer use and are not directed
+            specifically to children. We do not knowingly request personal information from children for marketing or
+            commercial purposes.
+          </p>
+        </section>
+
+        <section class="vm-policy-section">
+          <h2>11. Changes to This Privacy Policy</h2>
+          <p>
+            We may update this Privacy Policy when our website, services, technology, or legal obligations change. The
+            updated version will be published on this page with a revised effective date.
+          </p>
+        </section>
+
+        <section class="vm-policy-section">
+          <h2>12. Contact Us</h2>
+          <p>For privacy-related questions or requests, please contact Vimana Construction Chemicals:</p>
+
+          <div class="vm-policy-contact">
+            <div class="vm-policy-contact-item">
+              <span class="vm-policy-contact-label">Website</span>
+              <a class="vm-policy-contact-value"
+                href="https://vimana-construction-chemicals.vercel.app/">vimana-construction-chemicals.vercel.app</a>
+            </div>
+            <div class="vm-policy-contact-item">
+              <span class="vm-policy-contact-label">Email</span>
+              <a class="vm-policy-contact-value" href="mailto:hello@vimana.co">hello@vimana.co</a>
+            </div>
+          </div>
+        </section>
+
+        <p class="vm-policy-note">
+          This page is provided as general website privacy information and should be reviewed against your actual
+          data-processing practices, vendors, forms, analytics, marketing tools, and applicable legal requirements
+          before publication.
+        </p>
+      </article>
+    </section>
+  </main>
+  <!-- ============================================================
+     FOOTER
+============================================================ -->
+  <footer class="vm-footer">
+    <div class="vm-container vm-footer-grid">
+      <!-- COMPANY -->
+      <div class="vm-footer-col">
+        <div class="vm-footer-logo"><img src="../assets/Vimana Logo.png" alt="Vimana Construction Chemicals"
+            class="vm-footer-logo-img"></div>
+        <p class="vm-footer-desc">
+          Vimana Construction Chemicals — the waterproofing experts.
+          Premium chemicals and expert application, backed by warranty.
+        </p>
+
+        <div class="vm-socials">
+          <a href="https://www.facebook.com/profile.php?id=61574911589478" class="vm-social-link" aria-label="Facebook"
+            target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"
+              aria-hidden="true">
+              <path
+                d="M22.675 0h-21.35C.595 0 0 .595 0 1.326v21.348C0 23.405.595 24 1.326 24H12.82v-9.294H9.692V11.08h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.505 0-1.796.716-1.796 1.765v2.307h3.587l-.467 3.626H16.56V24h6.115C23.405 24 24 23.405 24 22.674V1.326C24 .595 23.405 0 22.675 0z" />
+            </svg>
+          </a>
+
+          <a href="https://www.instagram.com/vimana_construction_chemicals/" class="vm-social-link"
+            aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"
+              aria-hidden="true">
+              <path
+                d="M7.8 2h8.4C19.418 2 22 4.582 22 7.8v8.4c0 3.218-2.582 5.8-5.8 5.8H7.8C4.582 22 2 19.418 2 16.2V7.8C2 4.582 4.582 2 7.8 2zm0 2A3.8 3.8 0 004 7.8v8.4A3.8 3.8 0 007.8 20h8.4a3.8 3.8 0 003.8-3.8V7.8A3.8 3.8 0 0016.2 4H7.8zm8.95 1.5a.95.95 0 110 1.9.95.95 0 010-1.9zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <!-- QUICK LINKS -->
+      <div class="vm-footer-col">
+        <h4 class="vm-footer-heading">Quick Links</h4>
+        <ul class="vm-footer-nav-list">
+          <li class="vm-footer-nav-item"><a href="/index.html" class="vm-footer-nav-link">Home</a></li>
+          <li class="vm-footer-nav-item"><a href="/about.html" class="vm-footer-nav-link">About Us</a></li>
+          <li class="vm-footer-nav-item"><a href="/services.html" class="vm-footer-nav-link">Services</a></li>
+          <li class="vm-footer-nav-item"><a href="/products.html" class="vm-footer-nav-link">Product</a></li>
+          <li class="vm-footer-nav-item"><a href="/contact.html" class="vm-footer-nav-link">Contact</a></li>
+        </ul>
+      </div>
+      <!-- QUICK SERVICES -->
+      <div class="vm-footer-col">
+        <h4 class="vm-footer-heading">Quick Services</h4>
+        <ul class="vm-footer-nav-list">
+          <li class="vm-footer-nav-item">
+            <a href="/Terrace_Cementitious.html" class="vm-footer-nav-link">Terrace Cementitious / PU
+              Waterproofing</a>
+          </li>
+          <li class="vm-footer-nav-item">
+            <a href="/terrace-elastomeric-coating.html" class="vm-footer-nav-link">Terrace Elastomeric
+              Coating</a>
+          </li>
+          <li class="vm-footer-nav-item">
+            <a href="/bathroom-wet-area-waterproofing.html" class="vm-footer-nav-link">Bathroom / Wet Area
+              Waterproofing</a>
+          </li>
+          <li class="vm-footer-nav-item">
+            <a href="/basement-bituminous-coating-waterproofing.html" class="vm-footer-nav-link">Basement
+              Bituminous Coating Waterproofing</a>
+          </li>
+          <li class="vm-footer-nav-item">
+            <a href="/internal-external-wall-waterproofing.html" class="vm-footer-nav-link">Internal &amp;
+              External Wall Waterproofing</a>
+          </li>
+          <li class="vm-footer-nav-item">
+            <a href="/bathroom-epoxy-grouting.html" class="vm-footer-nav-link">Bathroom Epoxy Grouting</a>
+          </li>
+          <li class="vm-footer-nav-item">
+            <a href="/water-tank-underground-sump-waterproofing.html" class="vm-footer-nav-link">Water
+              Tank &amp; Underground Sump Waterproofing</a>
+          </li>
+          <li class="vm-footer-nav-item">
+            <a href="/tank-structure-epoxy-coating.html" class="vm-footer-nav-link">Tank Structure Epoxy
+              Coating</a>
+          </li>
+          <li class="vm-footer-nav-item">
+            <a href="/pu-injection-grouting.html" class="vm-footer-nav-link">PU Injection Grouting</a>
+          </li>
+          <li class="vm-footer-nav-item">
+            <a href="/concrete-repair-rehabilitation.html" class="vm-footer-nav-link">Concrete Repair
+              &amp; Rehabilitation Services</a>
+          </li>
+        </ul>
+      </div>
+      <!-- CONTACT -->
+      <div class="vm-footer-col">
+        <h4 class="vm-footer-heading">Contact</h4>
+        <ul class="vm-contact-list">
+          <li class="vm-contact-item">
+            <i data-lucide="map-pin" class="vm-contact-icon" aria-hidden="true"></i>
+            <span class="vm-contact-text">
+              49, Mudichur Rd, Shanmuga Nagar, Mannivakkam, Tamil Nadu 600048.
+            </span>
+          </li>
+          <li class="vm-contact-item">
+            <i data-lucide="phone" class="vm-contact-icon" aria-hidden="true"></i>
+            <a href="tel:+917845401301" class="vm-contact-link">+91 78454 01301</a>
+          </li>
+          <li class="vm-contact-item">
+            <i data-lucide="mail" class="vm-contact-icon" aria-hidden="true"></i>
+            <a href="mailto:hello@vimana.co" class="vm-contact-link">hello@vimana.co</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="vm-container vm-footer-bottom">
+      <p class="vm-footer-copyright">
+        © <span id="year"></span>
+        Vimana Construction Chemicals. All rights reserved.
+      </p>
+      <div class="vm-footer-bottom-links">
+        <a href="/privacy-policy.html" class="vm-footer-bottom-link">Privacy</a>
+        <a href="https://maps.app.goo.gl/scFB6zdpSY94AwmBA  " class="vm-footer-bottom-link">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating actions -->
+  <div class="fab-stack">
+    <button id="toTop" class="fab light" aria-label="Top"><i data-lucide="arrow-up"></i></button>
+    <a href="tel:+91917845401301" class="fab primary pulse" aria-label="Call"><i data-lucide="phone"></i></a>
+    <a href="https://wa.me/917845401301?text=Hi%2C%20I%20saw%20your%20website.%20I%20need%20more%20details%20about%20your%20waterproofing%20services."
+      target="_blank" rel="noopener" class="fab accent" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg"
+        width="26" height="26" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+        <path
+          d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+      </svg></a>
+  </div>
+  <!-- ==========================
+      Back To Top
+  ========================== -->
+  <script>
+    const toTop = document.getElementById("toTop");
+    if (toTop) {
+      toTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    }
+  </script>
+  <script src="/js/nav-footer.js"></script>
+
+</body>
+
+</html>
