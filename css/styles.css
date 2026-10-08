@@ -1465,8 +1465,8 @@ h3 {
 }
 
 .vimana-review-dot {
-  width: 7px;
-  height: 7px;
+  width: 20px;
+  height: 20px;
 
   padding: 0;
 
@@ -1851,8 +1851,8 @@ h3 {
   }
 
   .ind-card .icon {
-    width: 52px;
-    height: 52px;
+    width: 100%;
+    height: 92%;
     margin-bottom: 0.85rem;
   }
 
@@ -1951,7 +1951,7 @@ a {
 
 .hero-copy h1 {
   min-height: 0;
-  max-width: 14ch;
+  max-width: 18ch;
   font-size: clamp(2.1rem, 8vw, 4.5rem);
 }
 

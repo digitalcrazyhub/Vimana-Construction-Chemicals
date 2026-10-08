@@ -1,5 +1,6 @@
 /* =========================================================
    VIMANA — MASONRY GALLERY JAVASCRIPT
+   CSS owns masonry layout; this file owns lightbox behavior
    Fully scoped / no global class conflicts
 ========================================================= */
 
@@ -19,6 +20,18 @@
     const items = Array.from(
         gallery.querySelectorAll(".vpg-item")
     );
+
+    /* Keep a missing asset from leaving an empty or broken card. */
+    items.forEach(function (item) {
+        const thumbnail = item.querySelector("img");
+
+        if (!thumbnail) return;
+
+        thumbnail.addEventListener("error", function () {
+            item.classList.add("is-image-error");
+            thumbnail.setAttribute("aria-hidden", "true");
+        });
+    });
 
     const lightbox = gallery.querySelector("#vpgLightbox");
 

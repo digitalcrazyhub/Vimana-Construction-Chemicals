@@ -62,16 +62,16 @@ body {
    Everything is scoped to .vimana-project-gallery
 ========================================================= */
 
+.vpg-section,
 .vimana-project-gallery {
     --vpg-gap: 18px;
     --vpg-max-width: 1440px;
 
     position: relative;
     width: 100%;
-    padding: 110px 24px 120px;
+    padding: clamp(72px, 8vw, 112px) 32px clamp(80px, 9vw, 128px);
     background: var(--bg);
     color: var(--charcoal);
-    overflow: hidden;
 }
 
 
@@ -189,13 +189,15 @@ body {
 ========================================================= */
 
 .vpg-masonry {
-    column-count: 3;
+    display: block;
+
+    column-count: 1;
     column-gap: var(--vpg-gap);
 
     width: 100%;
 }
 
-.vpg-item {
+.vpg-masonry > .vpg-masonry__item {
     display: block;
 
     width: 100%;
@@ -203,53 +205,11 @@ body {
     margin: 0 0 var(--vpg-gap);
 
     break-inside: avoid;
+    page-break-inside: avoid;
     -webkit-column-break-inside: avoid;
 
     cursor: pointer;
 
-    opacity: 0;
-    transform: translateY(30px);
-
-    animation: vpgReveal .8s cubic-bezier(.2,.75,.25,1) forwards;
-}
-
-.vpg-item:nth-child(1) {
-    animation-delay: .04s;
-}
-
-.vpg-item:nth-child(2) {
-    animation-delay: .10s;
-}
-
-.vpg-item:nth-child(3) {
-    animation-delay: .16s;
-}
-
-.vpg-item:nth-child(4) {
-    animation-delay: .22s;
-}
-
-.vpg-item:nth-child(5) {
-    animation-delay: .28s;
-}
-
-.vpg-item:nth-child(6) {
-    animation-delay: .34s;
-}
-
-.vpg-item:nth-child(7) {
-    animation-delay: .40s;
-}
-
-.vpg-item:nth-child(8) {
-    animation-delay: .46s;
-}
-
-@keyframes vpgReveal {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 
@@ -261,8 +221,6 @@ body {
     position: relative;
 
     width: 100%;
-
-    overflow: hidden;
 
     border-radius: var(--radius);
 
@@ -285,13 +243,30 @@ body {
     width: 100%;
     height: auto;
 
-    object-fit: cover;
-
-    transform: scale(1.001);
+    border-radius: inherit;
 
     transition:
-        transform .9s cubic-bezier(.2,.75,.25,1),
         filter .7s ease;
+}
+
+.vpg-item.is-image-error .vpg-card {
+    min-height: 180px;
+    display: grid;
+    place-items: center;
+    border: 1px dashed var(--border);
+    box-shadow: none;
+}
+
+.vpg-item.is-image-error .vpg-card::after {
+    content: "Project image unavailable";
+    padding: 24px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+}
+
+.vpg-item.is-image-error .vpg-card img {
+    display: none;
 }
 
 
@@ -304,6 +279,8 @@ body {
     z-index: 1;
 
     pointer-events: none;
+
+    border-radius: inherit;
 
     background:
         linear-gradient(
@@ -442,7 +419,6 @@ body {
 }
 
 .vpg-item:hover .vpg-card img {
-    transform: scale(1.055);
     filter: saturate(1.04);
 }
 
@@ -815,10 +791,10 @@ body {
    RESPONSIVE — TABLET
 ========================================================= */
 
-@media (max-width: 1100px) {
+@media (min-width: 768px) and (max-width: 1199px) {
 
     .vimana-project-gallery {
-        padding: 90px 22px 100px;
+        padding-inline: 24px;
     }
 
     .vpg-masonry {
@@ -843,17 +819,23 @@ body {
 
 }
 
+@media (min-width: 1200px) {
+    .vpg-masonry {
+        column-count: 3;
+    }
+}
+
 
 /* =========================================================
    RESPONSIVE — MOBILE
 ========================================================= */
 
-@media (max-width: 680px) {
+@media (max-width: 767px) {
 
     .vimana-project-gallery {
         --vpg-gap: 12px;
 
-        padding: 72px 15px 80px;
+        padding-inline: 16px;
     }
 
     .vpg-heading-wrap {
@@ -897,7 +879,7 @@ body {
     }
 
     .vpg-masonry {
-        column-count: 2;
+        column-count: 1;
     }
 
     /*
@@ -1006,11 +988,6 @@ body {
 ========================================================= */
 
 @media (max-width: 430px) {
-
-    .vpg-masonry {
-        column-count: 1;
-    }
-
     .vpg-title {
         font-size: 37px;
     }

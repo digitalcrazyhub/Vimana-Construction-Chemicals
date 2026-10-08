@@ -25,8 +25,6 @@
   --shadow-accent: 0 20px 50px -20px rgba(24, 168, 91, .45);
 }
 
-:root
-
 /* 2. Global Resets & Base Typography */
 *,
 *::before,
@@ -75,8 +73,10 @@ a {
 
 /* Main Container Limit */
 .main {
+  width: min(100%, 1360px);
   max-width: 1360px;
   margin: 0 auto 50px;
+  padding-inline: clamp(1rem, 3vw, 2rem);
   display: flex;
   flex-direction: column;
   gap: 3.5rem;
@@ -705,10 +705,6 @@ a {
 
 /* Laptop (1024px) */
 @media (max-width: 1024px) {
-  body {
-    padding: 1rem 0.8rem 2.5rem 0.8rem;
-  }
-
   .contact__container {
     grid-template-columns: minmax(0, 48fr) minmax(0, 52fr);
     gap: 1.8rem;
@@ -756,10 +752,6 @@ a {
 
 /* Mobile (576px & below) */
 @media (max-width: 576px) {
-  body {
-    padding: 0.8rem 0.5rem 2rem 0.5rem;
-  }
-
   .contact-form {
     padding: 1.5rem 1.1rem;
     border-radius: 18px;
